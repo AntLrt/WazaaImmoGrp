@@ -1,0 +1,6 @@
+CREATE TABLE waz_an_opt(
+id_opt INT NOT NULL,
+id_an INT NOT NULL,
+FOREIGN KEY (id_opt) REFERENCES options (id_opt),
+FOREIGN KEY (id_an) REFERENCES annonces (id_an),
+PRIMARY KEY (id_opt,id_an));
