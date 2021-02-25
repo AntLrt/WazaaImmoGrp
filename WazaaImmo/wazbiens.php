@@ -2,7 +2,6 @@
 <?php
 
 include("wazheader.php");
-include("connexion.php");
 
 ?>
 
@@ -10,7 +9,6 @@ include("connexion.php");
 
 <?php
 
-include("connexion.php");
 
 include("wazannonces.php");
 

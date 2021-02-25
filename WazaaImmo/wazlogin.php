@@ -1,7 +1,6 @@
 <?php
 
 include("wazheader.php");
-include("connexion.php");
 
 ?>
 <br>
