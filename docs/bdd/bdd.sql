@@ -9,7 +9,7 @@ USE wazaaImmoGroup;
 CREATE TABLE waz_biens
 (
    bi_id INT(10) NOT NULL AUTO_INCREMENT COMMENT 'Identifiant / Clé primaire',
-   bi_type SMALLINT(6) NOT NULL COMMENT 'Type de bien',
+   bi_type VARCHAR(11) NOT NULL COMMENT 'Type de bien',
    bi_pieces TINYINT (3) NOT NULL  COMMENT 'Nombre de pièces' ,
    bi_ref CHAR(11) NOT NULL COMMENT 'Référence de l''annonce',
    bi_description TEXT NOT NULL,
@@ -96,7 +96,7 @@ CREATE TABLE waz_annonces
    an_id INT(10) NOT NULL AUTO_INCREMENT,
    an_prix DECIMAL(8,2) NOT NULL COMMENT 'Prix en euros',
    est_active BOOLEAN NOT NULL COMMENT '1=active 0=non active',
-   an_ref CHAR(7) NOT NULL COMMENT 'Référence de l''annonce',
+   an_ref CHAR(20) NOT NULL COMMENT 'Référence de l''annonce',
    an_date_disponibilite DATE NOT NULL,
    an_offre CHAR(1) NOT NULL COMMENT 'Type d''offre. Lettres A, L ou V.',
    an_nbre_vues SMALLINT(6) NOT NULL,
