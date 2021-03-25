@@ -1,23 +1,14 @@
--- creation de la vue V_nbre_vue_annonce
+-- creation de la vue V_nbre_vue_annonce .
+-- les 5 annonces les plus vues toute catégorie . 
 
-CREATE VIEW V_nbre_vue_annonce
+DROP VIEW IF EXISTS v_nbre_vue_annonce;
+CREATE VIEW v_nbre_vue_annonce
 AS
-SELECT an_id,an_prix,est_active,an_ref,an_date_disponibilite,an_offre,max(an_nbre_vues),an_date_ajout,
-an_date_modif,an_titre,bi_id
-FROM waz_annonces
-SELECT an_id,an_prix,est_active,an_ref,an_date_disponibilite,an_offre,max(an_nbre_vues),an_date_ajout,
-an_date_modif,an_titre,bi_id
-FROM waz_annonce
-LIMIT 5 
-
-
--- autre version
-
-SELECT an_id,an_prix,est_active,an_ref,an_date_disponibilite,an_offre,an_nbre_vues,an_date_ajout,
-an_date_modif,bi_type,bi_pieces,bi_description,bi_local,bi_id,bi_surf_habitable,bi_surf_totale,bi_estimations_vente,
-bi_estimation_location,bi_diagnostic
-FROM waz_annonces
+SELECT a.an_id,a.an_prix,a.est_active,a.an_ref,a.an_date_disponibilite,a.an_offre,a.an_nbre_vues,a.an_date_ajout,
+a.an_date_modif,b.bi_id,b.bi_type,b.bi_pieces,b.bi_description,b.bi_local,b.bi_surf_habitable,b.bi_surf_totale,
+b.bi_estimations_vente,b.bi_estimation_location,b.bi_diagnostic
+FROM waz_annonces as a
+INNER JOIN waz_biens as b
+ON a.an_id = b.bi_id
 ORDER BY an_nbre_vues DESC
 LIMIT 5
-
-
