@@ -86,11 +86,13 @@ CREATE TABLE waz_internautes
    in_telephone VARCHAR(50),
    in_email VARCHAR(50),
    in_pays VARCHAR(50),
+   est_contacter BOOLEAN NOT NULL COMMENT '1=contacter 0=non contacter' 
    PRIMARY KEY(in_id)
 );
 
 -- Structure de la table waz_annonces
 
+DROP TABLE IF EXISTS waz_annonces;
 CREATE TABLE waz_annonces
 (
    an_id INT(10) NOT NULL AUTO_INCREMENT,
@@ -98,14 +100,15 @@ CREATE TABLE waz_annonces
    est_active BOOLEAN NOT NULL COMMENT '1=active 0=non active',
    an_ref CHAR(20) NOT NULL COMMENT 'Référence de l''annonce',
    an_date_disponibilite DATE NOT NULL,
-   an_offre CHAR(1) NOT NULL COMMENT 'Type d''offre. Lettres A, L ou V.',
+   an_offre CHAR(1) NOT NULL CHECK (an_offre IN ('A','L','V')) COMMENT 'Type d''offre. Lettres A, L ou V.',
    an_nbre_vues SMALLINT(6) NOT NULL,
    an_date_ajout DATE NOT NULL,
    an_date_modif DATETIME DEFAULT NULL,
    an_titre VARCHAR(255) NOT NULL,
    bi_id INT(10) NOT NULL,
    PRIMARY KEY(an_id),
-   FOREIGN KEY(bi_id) REFERENCES waz_biens(bi_id)
+   FOREIGN KEY(bi_id) REFERENCES waz_biens(bi_id),
+   CONSTRAINT `chk_dateModif` CHECK (an_date_modif >= an_date_ajout or an_date_modif is NULL) 
 );
 
 -- Structure de la table waz_commentaire
