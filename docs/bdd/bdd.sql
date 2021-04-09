@@ -9,16 +9,18 @@ USE wazaaImmoGroup;
 CREATE TABLE waz_biens
 (
    bi_id INT(10) NOT NULL AUTO_INCREMENT COMMENT 'Identifiant / Clé primaire',
-   bi_type VARCHAR(11) NOT NULL COMMENT 'Type de bien',
-   bi_pieces TINYINT (3) NOT NULL  COMMENT 'Nombre de pièces' ,
-   bi_ref CHAR(11) NOT NULL COMMENT 'Référence de l''annonce',
+   bi_type VARCHAR(25) NOT NULL COMMENT 'Type de bien',
+   bi_pieces TINYINT (3) NOT NULL CHECK (bi_pieces IN ('1','2','3','4','5','6','+6','NULL'))COMMENT 'Nombre de pièces' ,
+   -- substring = extraict une partie de la chaine
+   bi_ref CHAR(11) NOT NULL  CHECK (SUBSTRING(bi_ref, 1, 1) <> ' ')   COMMENT 'Référence de l''annonce',
    bi_description TEXT NOT NULL,
    bi_local VARCHAR(100) NOT NULL,
-   bi_surf_habitable INT (11) NOT NULL COMMENT 'Surface habitable (mètres carrés)',
-   bi_surf_totale INT (11) NOT NULL COMMENT 'Surface totale/terrain (mètres carrés)',
-   bi_estimations_vente DECIMAL(8,2) NOT NULL ,
-   bi_estimation_location DECIMAL(8,2) NOT NULL ,
-   bi_diagnostic CHAR(1) NOT NULL COMMENT 'Lettre du diagnostic : A à G + V pour vierge ',
+   bi_surf_habitable INT (11) NOT NULL CHECK (bi_surf_habitable > 0) COMMENT 'Surface habitable (mètres carrés)',
+   bi_surf_totale INT (11) NOT NULL CHECK (bi_surf_totale > 0) COMMENT 'Surface totale/terrain (mètres carrés)',
+   bi_estimations_vente DECIMAL(8,2) NOT NULL CHECK (bi_estimations_vente > 0) ,
+   bi_estimation_location DECIMAL(8,2) NOT NULL CHECK (bi_estimation_location > 0) ,
+   bi_diagnostic CHAR(1) NOT NULL CHECK (bi_diagnostic IN ('A','B','C','D','E','F','G','V')) 
+   COMMENT 'Lettre du diagnostic : A à G + V pour vierge ',
    PRIMARY KEY(bi_id)
 );
 
