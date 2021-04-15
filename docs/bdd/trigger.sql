@@ -83,7 +83,81 @@ DELIMITER ;
 -- (8, 4, 1, 0, '120.00', '2021-01-27', '2021-03-17', '2021-04-17');
 
 
--- Insertion de l'erreur qui nous intéresse pour la table annonce
+-- trigger pour la table hist_negocier 
+DELIMITER |
+CREATE TRIGGER after_update_negocier 
+AFTER UPDATE 
+ON waz_negocier
+FOR EACH ROW 
+BEGIN
+   INSERT INTO histo_negocier
+   (
+      emp_id,
+      in_id,
+      an_id,
+      hist_neg_est_conclu,
+      hist_neg_montant_transaction,
+      hist_neg_date_debut_transaction,
+      hist_neg_date_transaction_fin,
+      hist_neg_date_dernier_contact,
+
+      hist_date,
+      hist_utilisateur,
+      hist_evenement
+   )
+   VALUES
+   (
+      old.emp_id,
+      old.in_id,
+      old.an_id,
+      old.neg_est_conclu,
+      old.neg_montant_transaction,
+      old.neg_date_debut_transaction,
+      old.neg_date_transaction_fin,
+      old.neg_date_dernier_contact,
+
+      now(),
+      CURRENT_USER(),
+      'update'
+   )
+END|
+
+CREATE TRIGGER after_delete_negocier 
+AFTER DELETE
+ON waz_negocier
+BEGIN
+    INSERT INTO histo_negocier
+    (
+      emp_id,
+      in_id,
+      an_id,
+      hist_neg_est_conclu,
+      hist_neg_montant_transaction,
+      hist_neg_date_debut_transaction,
+      hist_neg_date_transaction_fin,
+      hist_neg_date_dernier_contact,
+
+      hist_date,
+      hist_utilisateur,
+      hist_evenement
+   )
+   VALUES
+   (
+      old.emp_id,
+      old.in_id,
+      old.an_id,
+      old.neg_est_conclu,
+      old.neg_montant_transaction,
+      old.neg_date_debut_transaction,
+      old.neg_date_transaction_fin,
+      old.neg_date_dernier_contact,
+
+      now(),
+      CURRENT_USER(),
+      'DELETE'
+   )
+END|
+DELIMITER ;
 
 
 
