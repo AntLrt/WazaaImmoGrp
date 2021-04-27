@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8">
-    <title>Liste des produits</title>
+<meta charset="utf-8">
+<title>Liste des produits</title>
 </head>
 <body>
+
+<a href="http://localhost/ci/index.php/RechercheController/BarreRecherche">Accueil</a><br>
+<a href="http://localhost/ci/index.php/AnnoncesController/Loca">Locations</a><br>
+<a href="http://localhost/ci/index.php/AnnoncesController/Ventes">Ventes</a><br>
+<a href="http://localhost/ci/index.php/EmployesController/PageNous">Nous</a><br>
+<a href="http://localhost/ci/index.php/MembresController/DetailsCompte">Votre compte</a><br>
+<a href="http://localhost/ci/index.php/ContactController/Formulaire">Contact</a><br>
+<a href="http://localhost/ci/index.php/BiensController/ListeBiens">ListeBiens(admin)</a><br>
+<a href="http://localhost/ci/index.php/MembresController/ListeMembres">ListeMembres(admin)</a><br>
+<a href="http://localhost/ci/index.php/ContactController/ListeContact">ListeContact(admin)</a><br>
+<a href="http://localhost/ci/index.php/EmployesController/ListeEmployes">ListeEmployes(admin)</a><br><br>
 
 <form action="http://localhost/ci/index.php/RechercheController/BarreRecherche" method="post"> 
 
@@ -17,11 +28,11 @@
 <label for="Type">Type</label>
 
 <select name="Type" id="Type">
-    <option value="">Type de bien</option>
-    <option value="appartement">appartement</option>
-    <option value="terrain">terrain</option>
-    <option value="bureaux">bureaux</option>
-    <option value="maison">maison</option>
+<option value="">Type de bien</option>
+<option value="appartement">appartement</option>
+<option value="terrain">terrain</option>
+<option value="bureaux">bureaux</option>
+<option value="maison">maison</option>
 </select>
 </div> 
 
