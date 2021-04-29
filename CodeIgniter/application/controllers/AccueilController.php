@@ -103,6 +103,18 @@ class AccueilController extends CI_Controller
     $aView["photo2"] = $photo2;
     $aView["photo3"] = $photo3;
 
+      ////Moyenne note des clients
+
+      $MoyenneNotes = $this->db->query("SELECT AVG(co_notes) AS 'Moyenne'
+      FROM waz_commentaire
+      ;"); 
+  
+      // Récupération des résultats    
+      $MoyenneNotes = $MoyenneNotes->result(); 
+  
+      // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue   
+      $aView["MoyenneNotes"] = $MoyenneNotes;
+
 $this->load->view('PageAccueilView',$aView);
             }
     
@@ -254,8 +266,18 @@ $this->load->view('PageAccueilView',$aView);
     $aView["photo2"] = $photo2;
     $aView["photo3"] = $photo3;
 
+    ////Moyenne note des clients
 
-    ////Ajout commentaire
+    $MoyenneNotes = $this->db->query("SELECT AVG(co_notes) AS 'Moyenne'
+    FROM waz_commentaire
+    ;"); 
+
+    // Récupération des résultats    
+    $MoyenneNotes = $MoyenneNotes->result(); 
+
+    // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue   
+    $aView["MoyenneNotes"] = $MoyenneNotes;
+    
 
 $this->load->view('PageAccueilView',$aView);
 }

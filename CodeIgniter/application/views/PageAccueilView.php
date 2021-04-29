@@ -55,6 +55,7 @@
 <button type="submit" class="btn btn-dark">Rechercher</button>    
 </form>
 
+<br>
 
 <?php foreach ($photo1 as $row) {$anid1 = $row->an_id;}?>
 <a href="<?php echo base_url();?>index.php/AnnoncesController/Details/<?php echo $anid1?>">
@@ -74,7 +75,44 @@
 <img src="<?php echo base_url();?>/assets/images/<?php echo $PhotoTrois;?>.jpg" width="200" height="100" title="Cliquez pour voir cette annonce !">
 </a>
 
-<?php //foreach ($anid as $row) {echo "<p>".$row->an_id." </p>";}?>
+<form action="http://localhost/ci/index.php/MembresController/Commentaire" method="post"> 
+
+<br>
+
+<a>La note moyenne laissé par nos clients : <a><?php foreach ($MoyenneNotes as $row) {echo $row->Moyenne;}?><a>/10</a>
+
+
+<div class="form-group">
+<br>
+<label for="Demande">Laissez un commentaire sur notre entreprise !</label>
+<br>
+<textarea rows="3" class="form-control" placeholder="Entrez votre commentaire ici" 
+name="Commentaire" id="Commentaire"></textarea> 
+</div>
+
+<div class="form-group">
+<label for="Note">Notez la qualité de nos services sur 10 !</label>
+
+<br>
+
+<select name="Note" id="Note">
+<option value="10">10</option>
+<option value="9">9</option>
+<option value="8">8</option>
+<option value="7">7</option>
+<option value="6">6</option>
+<option value="5">5</option>
+<option value="4">4</option>
+<option value="3">3</option>
+<option value="2">2</option>
+<option value="1">1</option>
+
+</select>
+</div> 
+<br>
+
+<button type="submit" class="btn btn-dark">Envoyer</button>    
+</form>
 
 <div class="row">
 <div class="col-12">    
@@ -99,36 +137,10 @@ echo $row->co_date_ajout." </p>";
 </div>
 </div>
 
-<form action="http://localhost/ci/index.php/MembresController/Commentaire" method="post"> 
 
-<div class="form-group">
-<label for="Demande">Laissez un commentaire sur notre entreprise !</label>
-<br>
-<textarea rows="3" class="form-control" placeholder="Entrez votre commentaire ici" 
-name="Commentaire" id="Commentaire"></textarea> 
-</div>
 
-<div class="form-group">
-<label for="Note">Notez la qualité de nos services sur 10 !</label>
 
-<select name="Note" id="Note">
-<option value="10">10</option>
-<option value="9">9</option>
-<option value="8">8</option>
-<option value="7">7</option>
-<option value="6">6</option>
-<option value="5">5</option>
-<option value="4">4</option>
-<option value="3">3</option>
-<option value="2">2</option>
-<option value="1">1</option>
 
-</select>
-</div> 
-<br>
-
-<button type="submit" class="btn btn-dark">Envoyer</button>    
-</form>
 
 </body>
 </html>
