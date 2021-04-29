@@ -9,14 +9,14 @@ USE wazaaImmoGroup;
 CREATE TABLE waz_biens
 (
    bi_id INT(10) NOT NULL AUTO_INCREMENT COMMENT 'Identifiant / Clé primaire',
-   bi_type VARCHAR(25) NOT NULL CHECK (bi_type IN('maison','garage','terrain','locaux_professionnels','immeuble','bureaux','appartement')) COMMENT 'Type de bien',
+   bi_type VARCHAR(25) NOT NULL CHECK (bi_type IN('maison','garage','terrain','locaux professionnels','immeuble','bureaux','appartement')) COMMENT 'Type de bien',
    bi_pieces char(4) NOT NULL CHECK (bi_pieces IN ('1','2','3','4','5','6','+6','NULL'))COMMENT 'Nombre de pièces' ,
    bi_ref CHAR(11) NOT NULL  CHECK (REGEXP_LIKE(bi_ref,'^(A{1}P{1}|M{1}A{1}|T{1}E{1}|G{1}A{1}|I{1}M{1}|L{1}P{1}|B{1}U{1})[-]([0-9]{4})[-]([0-9]{2})$')=1)  COMMENT 'Référence du bien',
    bi_description TEXT NOT NULL CHECK (REGEXP_LIKE(bi_description,'^[^ ]')),
    bi_local VARCHAR(100) NOT NULL CHECK (REGEXP_LIKE(bi_local,'^[^ ]')),
    bi_surf_habitable INT (11) NOT NULL CHECK (bi_surf_habitable > 0) COMMENT 'Surface habitable (mètres carrés)',
    bi_surf_totale INT (11) NOT NULL CHECK (bi_surf_totale > 0) COMMENT 'Surface totale/terrain (mètres carrés)',
-   bi_estimations_vente DECIMAL(8,2) NOT NULL CHECK (bi_estimations_vente > 0) ,
+   bi_estimation_vente DECIMAL(8,2) NOT NULL CHECK (bi_estimation_vente > 0) ,
    bi_estimation_location DECIMAL(8,2) NOT NULL CHECK (bi_estimation_location > 0) ,
    bi_diagnostic CHAR(1) NOT NULL CHECK (bi_diagnostic IN ('A','B','C','D','E','F','G','V')) COMMENT 'Lettre du diagnostic : A à G + V pour vierge ',
    PRIMARY KEY(bi_id),
