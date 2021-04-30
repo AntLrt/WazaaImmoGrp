@@ -142,7 +142,7 @@ if ($this->input->post())
 
        // Exécute la requête 
        $results = $this->db->query("SELECT * FROM waz_commentaire, waz_internautes 
-       WHERE  waz_internautes.in_id=waz_commentaire.in_id ORDER BY co_date_ajout DESC");  
+       WHERE  waz_internautes.in_id=waz_commentaire.in_id ORDER BY com_date_ajout DESC");  
 
        // Récupération des résultats    
        $Comms = $results->result();   
@@ -202,6 +202,18 @@ $aView["photo1"] = $photo1;
 $aView["photo2"] = $photo2;
 $aView["photo3"] = $photo3;
 
+////Moyenne note des clients
+
+$MoyenneNotes = $this->db->query("SELECT AVG(com_notes) AS 'Moyenne'
+FROM waz_commentaire
+;"); 
+
+// Récupération des résultats    
+$MoyenneNotes = $MoyenneNotes->result(); 
+
+// Ajoute des résultats de la requête au tableau des variables à transmettre à la vue   
+$aView["MoyenneNotes"] = $MoyenneNotes;
+
 $this->load->view('PageAccueilView',$aView);
     }
 
@@ -214,8 +226,8 @@ $this->load->view('PageAccueilView',$aView);
 
         $this->load->database();
         //A changer selon id connexion
-        $data["co_avis"] = $Commentaire;
-        $data["co_notes"] = $Note;
+        $data["com_avis"] = $Commentaire;
+        $data["com_notes"] = $Note;
 
         //////Date avec bon fuseau horaire
         // first line of PHP
@@ -233,7 +245,7 @@ $this->load->view('PageAccueilView',$aView);
     }
     /* Example */
     $Date=_date("Y-m-d H:i:s", false, 'Europe/Belgrade');
-        $data["co_date_ajout"] = $Date;
+        $data["com_date_ajout"] = $Date;
 
         $data["in_id"] = $IDinternaute;
 
@@ -253,7 +265,7 @@ else{//afficher aide au debug
 
     // Exécute la requête 
     $results = $this->db->query("SELECT * FROM waz_commentaire, waz_internautes 
-    WHERE  waz_internautes.in_id=waz_commentaire.in_id ORDER BY co_date_ajout DESC");  
+    WHERE  waz_internautes.in_id=waz_commentaire.in_id ORDER BY com_date_ajout DESC");  
 
     // Récupération des résultats    
     $Comms = $results->result();   
@@ -312,6 +324,18 @@ $photo3 = $photo3->result();
 $aView["photo1"] = $photo1;
 $aView["photo2"] = $photo2;
 $aView["photo3"] = $photo3;
+
+////Moyenne note des clients
+
+$MoyenneNotes = $this->db->query("SELECT AVG(com_notes) AS 'Moyenne'
+FROM waz_commentaire
+;"); 
+
+// Récupération des résultats    
+$MoyenneNotes = $MoyenneNotes->result(); 
+
+// Ajoute des résultats de la requête au tableau des variables à transmettre à la vue   
+$aView["MoyenneNotes"] = $MoyenneNotes;
 
 $this->load->view('PageAccueilView',$aView);}
 }

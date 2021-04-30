@@ -22,7 +22,7 @@ $this->load->library('table');
 $this->load->database();
 
 // Exécute la requête 
-$results = $this->db->query("SELECT in_id AS 'ID internaute', sujet AS 'Sujet', question AS 'Question'
+$results = $this->db->query("SELECT in_id AS 'ID internaute', co_sujet AS 'Sujet', co_question AS 'Question'
 FROM waz_contacter
 ORDER BY in_id");  
 
@@ -80,8 +80,8 @@ if ($this->input->post())
         $data["emp_id"] = 10;
         //A changer selon id connexion
         $data["in_id"] = rand(12, 27450);;
-        $data["sujet"] = $Sujet;
-        $data["question"] = $Demande;
+        $data["co_sujet"] = $Sujet;
+        $data["co_question"] = $Demande;
         $this->db->insert('waz_contacter', $data);
 
         $this->load->view('FormulaireContactEnvoyeView');

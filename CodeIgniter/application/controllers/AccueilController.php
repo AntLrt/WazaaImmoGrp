@@ -43,7 +43,7 @@ class AccueilController extends CI_Controller
 
             // Exécute la requête 
             $results = $this->db->query("SELECT * FROM waz_commentaire, waz_internautes 
-            WHERE  waz_internautes.in_id=waz_commentaire.in_id ORDER BY co_date_ajout DESC");  
+            WHERE  waz_internautes.in_id=waz_commentaire.in_id ORDER BY com_date_ajout DESC");  
 
             // Récupération des résultats    
             $Comms = $results->result();   
@@ -105,7 +105,7 @@ class AccueilController extends CI_Controller
 
       ////Moyenne note des clients
 
-      $MoyenneNotes = $this->db->query("SELECT AVG(co_notes) AS 'Moyenne'
+      $MoyenneNotes = $this->db->query("SELECT AVG(com_notes) AS 'Moyenne'
       FROM waz_commentaire
       ;"); 
   
@@ -206,7 +206,7 @@ $this->load->view('PageAccueilView',$aView);
 
         // Exécute la requête 
         $results = $this->db->query("SELECT * FROM waz_commentaire, waz_internautes 
-        WHERE  waz_internautes.in_id=waz_commentaire.in_id ORDER BY co_date_ajout DESC");  
+        WHERE  waz_internautes.in_id=waz_commentaire.in_id ORDER BY com_date_ajout DESC");  
 
         // Récupération des résultats    
         $Comms = $results->result();   
@@ -268,7 +268,7 @@ $this->load->view('PageAccueilView',$aView);
 
     ////Moyenne note des clients
 
-    $MoyenneNotes = $this->db->query("SELECT AVG(co_notes) AS 'Moyenne'
+    $MoyenneNotes = $this->db->query("SELECT AVG(com_notes) AS 'Moyenne'
     FROM waz_commentaire
     ;"); 
 
