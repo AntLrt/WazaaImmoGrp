@@ -25,6 +25,7 @@ CREATE TABLE waz_biens
    INDEX ind_biens_2(bi_ref,bi_local)
 );
 
+
 -- Structure de la table waz_options
 
 CREATE TABLE waz_options
