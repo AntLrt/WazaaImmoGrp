@@ -71,7 +71,7 @@ $aListe = $results->result();
 $aView["details"] = $aListe;
 
 // Exécute la requête 
-$results = $this->db->query("SELECT * FROM waz_commentaire, waz_internautes WHERE  waz_internautes.in_id=waz_commentaire.in_id ORDER BY co_date_ajout DESC");  
+$results = $this->db->query("SELECT * FROM waz_commentaire, waz_internautes WHERE  waz_internautes.in_id=waz_commentaire.in_id ORDER BY com_date_ajout DESC");  
 
 // Récupération des résultats    
 $Comms = $results->result();   
