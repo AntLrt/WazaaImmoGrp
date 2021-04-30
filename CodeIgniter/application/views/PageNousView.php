@@ -53,7 +53,7 @@ De nos jours, Wazaa Immo est une grande agence immobilière possédant des biens
 
 <div class="row">
 <div class="col-12"> 
-<h4>Nos négociateurs</h4>   
+<h4>Nos agents immobilier</h4>   
 <?php echo $Negociateur;?>
 </div>
 </div>

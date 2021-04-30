@@ -124,13 +124,13 @@ foreach ($commentaires as $row)
 echo "<p>".$row->in_prenom;
 
 //Commentaire de la personne
-echo $row->co_avis;
+echo $row->com_avis;
 
 //Note de la personne
-echo $row->co_notes;
+echo $row->com_notes;
 
 //Date et heure du commentaire
-echo $row->co_date_ajout." </p>";    
+echo $row->com_date_ajout." </p>";    
 
 }
 ?>

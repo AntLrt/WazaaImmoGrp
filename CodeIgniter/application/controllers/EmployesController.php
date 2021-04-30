@@ -49,7 +49,7 @@ $aView["Secretaire"] = $sec;
 //////
 // Exécute la requête 
 $results = $this->db->query("SELECT emp_nom AS 'Nom', emp_prenom AS 'Prénom', emp_mail AS 'Email'
-FROM waz_employes WHERE emp_poste = 'negociateur_immobilier'");  
+FROM waz_employes WHERE emp_poste = 'negociateur immobilier'");  
 
 
 $neg = $this->table->generate($results);
