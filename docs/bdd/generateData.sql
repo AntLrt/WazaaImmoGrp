@@ -1,52 +1,77 @@
 -- données pour waz_biens 
 DELETE FROM waz_biens;
 
-INSERT INTO `waz_biens` (`bi_id`,`bi_type`,`bi_pieces`,`bi_ref`,`bi_description`,`bi_local`,`bi_surf_habitable`,`bi_surf_totale`,`bi_estimation_vente`,`bi_estimation_location`,`bi_diagnostic`) 
-VALUES (1,"locaux professionnels","5","MA-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus.","Nacimiento","85","110","71782.20€","346.78€","E"),
-(2,"terrain","5","TE-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing","Flint","90","120","183589.22€","654.11€","E"),
-(3,"maison","5","MA-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor.","Frederick","95","140","169817.55€","643.77€","D"),
-(4,"immeuble","4","IM-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor.","San Isidro","100","150","113380.06€","517.27€","A"),
-(5,"appartement","5","AP-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor.","Billings","115","155","13861.32€","629.32€","D"),
-(6,"immeuble","1","IM-0221-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus.","Eernegem","85","110","51560.82€","594.22€","C"),
-(7,"garage","2","GA-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","Roosdaal","90","120","96672.63€","285.91€","E"),
-(8,"terrain","+6","TE-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam","Maasmechelen","95","140","164509.40€","281.61€","V"),
-(9,"garage","2","GA-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer","Stuttgart","100","150","37395.64€","475.83€","V"),
-(10,"immeuble","4","IM-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","Puerto Nariño","115","155","173742.45€","472.41€","V"),
-(11,"bureaux","4","BU-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus.","Monte San Giovanni in Sabina","85","110","162682.28€","444.64€","C"),
-(12,"garage","5","GA-0221-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing","Bazel","90","120","188048.17€","631.94€","V"),
-(13,"bureaux","4","BU-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","Cawdor","95","140","154719.55€","660.65€","F"),
-(14,"terrain","1","TE-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer","Huacho","100","150","137485.65€","756.22€","B"),
-(15,"terrain","5","TE-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam","Godhra","115","155","187947.44€","614.18€","V"),
-(16,"maison","3","MA-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing","San Pedro de la Paz","85","110","13167.19€","281.19€","E"),
-(17,"terrain","5","TE-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam","Nothomb","90","120","169693.54€","455.76€","D"),
-(18,"locaux professionnels","2","LP-0221-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer","Fusagasugá","95","140","114387.19€","573.77€","A"),
-(19,"locaux professionnels","5","LP-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam","Sindelfingen","100","150","12921.13€","584.99€","B"),
-(20,"appartement","2","AP-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing","Desamparados","115","155","88230.98€","705.46€","A"),
-(21,"locaux professionnels","3","LP-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","HomprŽ","85","110","102548.74€","743.58€","F"),
-(22,"locaux professionnels","4","LP-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus.","Chancay","90","120","30150.38€","756.66€","C"),
-(23,"locaux professionnels","2","LP-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","Wagga Wagga","95","140","108083.98€","345.71€","V"),
-(24,"bureaux","+6","BU-0221-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","Mianwali","100","150","103208.66€","417.73€","G"),
-(25,"appartement","3","AP-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing","Ararat","115","155","105998.77€","685.84€","A"),
-(26,"appartement","3","AP-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor.","Arkhangelsk","85","110","49028.21€","257.21€","B"),
-(27,"locaux professionnels","2","LP-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor.","Bonavista","90","120","51301.24€","740.22€","A"),
-(28,"bureaux","2","BU-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus.","Dubbo","95","140","114589.12€","396.83€","B"),
-(29,"maison","+6","MA-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","Ammanford","100","150","181080.02€","515.10€","A"),
-(30,"bureaux","4","BU-0221-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor.","Chiusanico","115","155","18727.25€","305.82€","C");
-
+INSERT INTO `waz_biens` (`bi_id`,`bi_type`,`bi_pieces`,`bi_ref`,`bi_description`,`bi_local`,`bi_surf_habitable`,`bi_surf_totale`,`bi_estimations_vente`,`bi_estimation_location`,`bi_diagnostic`) 
+VALUES (1,"maison","3","MA-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing","Whakatane","85","110","82227.22€","661.40€","B"),
+(2,"appartement","null","AP-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus.","Istres","90","120","163613.56€","721.82€","V"),
+(3,"immeuble","null","IM-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam","Loksbergen","95","140","133263.52€","559.63€","D"),
+(4,"garage","null","GA-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing","Thionville","100","150","45307.32€","502.64€","F"),
+(5,"terrain","null","TE-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer","Santarém","115","155","127846.94€","400.27€","B"),
+(6,"locaux professionnels","null","LP-0429-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor.","Ficulle","85","110","183942.61€","761.72€","B"),
+(7,"bureaux","null","BU-0429-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor.","Friedrichshafen","90","120","30196.36€","508.25€","D"),
+(8,"maison","3","MA-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing","Heidenheim","95","140","154765.16€","487.76€","C"),
+(9,"appartement","null","AP-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing","Chakwal","100","150","178030.87€","249.51€","C"),
+(10,"immeuble","null","IM-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","Castelluccio Superiore","115","155","84967.74€","596.23€","C"),
+(11,"garage","null","GA-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus.","Sibi","85","110","37315.68€","684.09€","G"),
+(12,"terrain","null","TE-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","Belmonte del Sannio","90","120","35737.74€","747.22€","E"),
+(13,"locaux professionnels","null","LP-0429-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing","Imperatriz","95","140","91008.06€","581.96€","D"),
+(14,"bureaux","null","BU-0429-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","Traiguén","100","150","67362.19€","444.21€","G"),
+(15,"maison","3","MA-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor.","Parbhani","115","155","127425.96€","280.20€","G"),
+(16,"appartement","null","AP-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus.","Geleen","85","110","187947.32€","531.88€","G"),
+(17,"immeuble","null","IM-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer","Lincoln","90","120","22877.70€","674.50€","A"),
+(18,"garage","null","GA-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus.","Nagaon","95","140","104222.54€","619.76€","B"),
+(19,"terrain","null","TE-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor.","Stevoort","100","150","179426.71€","275.68€","G"),
+(20,"locaux professionnels","null","LP-0429-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam","Santipur","115","155","53998.36€","504.53€","F"),
+(21,"bureaux","null","BU-0429-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","Mottola","85","110","103500.75€","788.37€","E"),
+(22,"maison","3","MA-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus.","North Shore","90","120","195820.32€","345.53€","E"),
+(23,"appartement","null","AP-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","Galbiate","95","140","18377.72€","290.42€","V"),
+(24,"immeuble","null","IM-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing","Vijayawada","100","150","83764.81€","246.47€","B"),
+(25,"garage","null","GA-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus.","Golitsyno","115","155","50138.26€","485.48€","B"),
+(26,"terrain","null","TE-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing","Valparaíso de Goiás","85","110","192035.18€","246.69€","B"),
+(27,"locaux professionnels","null","LP-0429-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor.","Greenwich","90","120","57778.10€","401.49€","D"),
+(28,"bureaux","null","BU-0429-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor.","Fauvillers","95","140","113677.37€","799.83€","E"),
+(29,"maison","3","MA-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer","Beaconsfield","100","150","180184.69€","631.36€","D"),
+(30,"appartement","null","AP-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer","Etterbeek","115","155","98112.69€","774.80€","E");
+INSERT INTO `waz_biens` (`bi_id`,`bi_type`,`bi_pieces`,`bi_ref`,`bi_description`,`bi_local`,`bi_surf_habitable`,`bi_surf_totale`,`bi_estimations_vente`,`bi_estimation_location`,`bi_diagnostic`) 
+VALUES (31,"immeuble","null","IM-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing","Reynosa","85","110","130595.80€","778.27€","D"),
+(32,"garage","null","GA-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","Soacha","90","120","52847.44€","319.26€","F"),
+(33,"terrain","null","TE-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","Dipignano","95","140","72735.84€","376.34€","B"),
+(34,"locaux professionnels","null","LP-0429-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus.","Green Bay","100","150","63264.68€","286.01€","V"),
+(35,"bureaux","null","BU-0429-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor.","Yakhroma","115","155","142339.38€","297.77€","F"),
+(36,"maison","3","MA-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer","Sala Baganza","85","110","157061.12€","361.45€","F"),
+(37,"appartement","null","AP-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam","Monterrey","90","120","189484.32€","374.54€","D"),
+(38,"immeuble","null","IM-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus.","HŽron","95","140","15782.55€","299.05€","G"),
+(39,"garage","null","GA-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor.","Primavera","100","150","16337.94€","547.86€","G"),
+(40,"terrain","null","TE-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam","Alkmaar","115","155","141640.17€","598.61€","B"),
+(41,"locaux professionnels","null","LP-0429-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing","Eisleben","85","110","130119.37€","201.35€","F"),
+(42,"bureaux","null","BU-0429-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor.","Etterbeek","90","120","151303.31€","581.61€","A"),
+(43,"maison","3","MA-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","Carunchio","95","140","188552.43€","246.94€","C"),
+(44,"appartement","null","AP-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","Hannche","100","150","47546.32€","700.75€","C"),
+(45,"immeuble","null","IM-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer","Buckingham","115","155","193338.20€","797.03€","A"),
+(46,"garage","null","GA-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor.","Sant'Urbano","85","110","127335.29€","689.40€","F"),
+(47,"terrain","null","TE-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing","Gruitrode","90","120","119567.25€","669.10€","F"),
+(48,"locaux professionnels","null","LP-0429-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer","Siverek","95","140","145501.62€","281.07€","G"),
+(49,"bureaux","null","BU-0429-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","Cittanova","100","150","143892.34€","355.32€","G"),
+(50,"maison","3","MA-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor.","İslahiye","115","155","49749.87€","754.32€","F"),
+(51,"appartement","null","AP-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor.","Muzaffargarh","85","110","66333.83€","611.85€","A"),
+(52,"immeuble","null","IM-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer","San Felipe","90","120","118726.09€","727.36€","V"),
+(53,"garage","null","GA-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor.","Merchtem","95","140","33509.71€","290.83€","C"),
+(54,"terrain","null","TE-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus.","Manisa","100","150","8938.70€","632.67€","F"),
+(55,"locaux professionnels","null","LP-0429-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam","Los Mochis","115","155","11589.73€","589.09€","F"),
+(56,"bureaux","null","BU-0429-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor.","Reana del Rojale","85","110","83843.85€","311.44€","D"),
+(57,"maison","3","MA-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor.","Pozo Almonte","90","120","133679.01€","576.66€","A"),
+(58,"appartement","null","AP-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","Bad Hersfeld","95","140","166634.14€","413.37€","E"),
+(59,"immeuble","null","IM-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam","Tumaco","100","150","162147.77€","653.32€","E"),
+(60,"garage","null","GA-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","Didim","115","155","143705.43€","776.79€","E");
 -- données pour waz_photos
 DELETE FROM waz_photos;
 
-INSERT INTO `waz_photos` (`pho_id`, `pho_nom`, `bi_id`) VALUES
-(1, 'nom1', 0),
-(2, 'nom2', 1),
-(3, 'nom3', 2),
-(4, 'nom4', 1),
-(5, 'nom5', 3),
-(6, 'nom6', 2),
-(7, 'nom7', 2),
-(8, 'nom8', 6),
-(9, 'nom9', 8),
-(10, 'nom10', 9);
+INSERT INTO waz_photos  (`pho_id`,`pho_nom`,`bi_id`) VALUES (1,"nom1",1),(2,"nom2",2),(3,"nom3",3),(4,"nom4",4),(5,"nom5",5),(6,"nom6",6),(7,"nom7",7),(8,"nom8",8),(9,"nom9",9),(10,"nom10",10);
+INSERT INTO waz_photos (`pho_id`,`pho_nom`,`bi_id`) VALUES (11,"nom11",11),(12,"nom12",12),(13,"nom13",13),(14,"nom14",14),(15,"nom15",15),(16,"nom16",16),(17,"nom17",17),(18,"nom18",18),(19,"nom19",19),(20,"nom20",20);
+INSERT INTO waz_photos (`pho_id`,`pho_nom`,`bi_id`) VALUES (21,"nom21",21),(22,"nom22",22),(23,"nom23",23),(24,"nom24",24),(25,"nom25",25),(26,"nom26",26),(27,"nom27",27),(28,"nom28",28),(29,"nom29",29),(30,"nom30",30);
+INSERT INTO waz_photos (`pho_id`,`pho_nom`,`bi_id`) VALUES (31,"nom31",31),(32,"nom32",32),(33,"nom33",33),(34,"nom34",34),(35,"nom35",35),(36,"nom36",36),(37,"nom37",37),(38,"nom38",38),(39,"nom39",39),(40,"nom40",40);
+INSERT INTO waz_photos (`pho_id`,`pho_nom`,`bi_id`) VALUES (41,"nom41",41),(42,"nom42",42),(43,"nom43",43),(44,"nom44",44),(45,"nom45",45),(46,"nom46",46),(47,"nom47",47),(48,"nom48",48),(49,"nom49",49),(50,"nom50",50);
+INSERT INTO waz_photos (`pho_id`,`pho_nom`,`bi_id`) VALUES (51,"nom51",51),(52,"nom52",52),(53,"nom53",53),(54,"nom54",54),(55,"nom55",55),(56,"nom56",56),(57,"nom57",57),(58,"nom58",58),(59,"nom59",59),(60,"nom60",60);
 
 -- données pour waz_employes
 DELETE FROM waz_employes;
@@ -81,42 +106,66 @@ VALUES (1,"Martinez","Madison","1415 Sem Chemin","09 64 46 79 86","eget.nisi@mon
 --données waz_annonces
 DELETE FROM waz_annonces;
 
+-- *******
+INSERT INTO `waz_annonces` (`an_id`,`an_prix`,`an_ref`,`an_date_disponibilite`,`an_offre`,`an_nbre_vues`,`an_date_ajout`,`an_date_modif`,`an_titre`,`bi_id`,`an_est_active`)
+ VALUES (1,"28,342€","AC-MA-0121-01","2021-03-21","A",60,"2021-03-21","2021-03-26 16:25:06","senectus et netus et malesuada fames ac turpis egestas. Aliquam",1,"1"),
+ (2,"99,361€","LO-AP-0121-01","2021-04-29","L",279,"2021-03-21","2021-03-26 16:25:06","cursus, diam at pretium aliquet, metus urna convallis erat, eget",2,"1"),
+ (3,"175,021€","VE-IM-0421-01","2021-03-21","V",138,"2021-03-21","2021-03-26 16:25:06","sapien. Cras dolor dolor, tempus non, lacinia at, iaculis quis,",3,"1"),
+ (4,"128,827€","AC-GA-0121-01","2021-04-29","A",416,"2021-03-21","2021-03-26 16:25:06","metus vitae velit egestas lacinia. Sed congue, elit sed consequat",4,"1"),
+ (5,"151,322€","LO-TE-0419-01","2021-03-21","L",348,"2021-03-21",null,"sed consequat auctor, nunc nulla vulputate dui, nec tempus mauris",5,"1"),
+ (6,"125,368€","VE-LP-0421-01","2021-04-29","V",270,"2021-03-21","2021-03-26 16:25:06","sapien molestie orci tincidunt adipiscing. Mauris molestie pharetra nibh. Aliquam",6,"1"),
+ (7,"12,004€","AC-BU-0421-01","2021-03-21","A",310,"2021-03-21",null,"malesuada vel, venenatis vel, faucibus id, libero. Donec consectetuer mauris",7,"1"),
+ (8,"78,629€","AC-MA-0121-01","2021-04-29","A",349,"2021-03-21","2021-03-26 16:25:06","id nunc interdum feugiat. Sed nec metus facilisis lorem tristique",8,"0"),
+ (9,"65,236€","LO-AP-0121-01","2021-03-21","L",385,"2021-03-21","2021-03-26 16:25:06","nascetur ridiculus mus. Aenean eget magna. Suspendisse tristique neque venenatis",9,"0"),
+(10,"173,404€","VE-IM-0421-01","2021-04-29","V",437,"2021-03-21","2021-03-26 16:25:06","magna nec quam. Curabitur vel lectus. Cum sociis natoque penatibus",10,"1");
+
+INSERT INTO `waz_annonces` (`an_id`,`an_prix`,`an_ref`,`an_date_disponibilite`,`an_offre`,`an_nbre_vues`,`an_date_ajout`,`an_date_modif`,`an_titre`,`bi_id`,`an_est_active`)
+VALUES (11,"155,792€","AC-GA-0121-01","2021-03-21","A",487,"2021-03-21","2021-03-26 16:25:06","sit amet ante. Vivamus non lorem vitae odio sagittis semper.",11,"0"),
+(12,"93,031€","LO-TE-0419-01","2021-04-29","L",226,"2021-03-21",null,"nisi. Mauris nulla. Integer urna. Vivamus molestie dapibus ligula. Aliquam",12,"0"),
+(13,"91,642€","VE-LP-0421-01","2021-03-21","V",126,"2021-03-21","2021-03-26 16:25:06","Nunc sollicitudin commodo ipsum. Suspendisse non leo. Vivamus nibh dolor,",13,"1"),
+(14,"36,690€","AC-BU-0421-01","2021-04-29","A",21,"2021-03-21",null,"cubilia Curae Donec tincidunt. Donec vitae erat vel pede blandit",14,"0"),
+(15,"156,060€","AC-MA-0121-01","2021-03-21","A",261,"2021-03-21","2021-03-26 16:25:06","Nunc sed orci lobortis augue scelerisque mollis. Phasellus libero mauris,",15,"1"),
+(16,"129,000€","LO-AP-0121-01","2021-04-29","L",258,"2021-03-21","2021-03-26 16:25:06","cursus non, egestas a, dui. Cras pellentesque. Sed dictum. Proin",16,"1"),
+(17,"35,520€","VE-IM-0421-01","2021-03-21","V",234,"2021-03-21","2021-03-26 16:25:06","Quisque ornare tortor at risus. Nunc ac sem ut dolor",17,"1"),
+(18,"146,390€","AC-GA-0121-01","2021-04-29","A",347,"2021-03-21","2021-03-26 16:25:06","mus. Proin vel nisl. Quisque fringilla euismod enim. Etiam gravida",18,"1"),
+(19,"87,120€","LO-TE-0419-01","2021-03-21","L",26,"2021-03-21",null,"Sed pharetra, felis eget varius ultrices, mauris ipsum porta elit,",19,"1"),
+(20,"97,461€","VE-LP-0421-01","2021-04-29","V",249,"2021-03-21","2021-03-26 16:25:06","sed dui. Fusce aliquam, enim nec tempus scelerisque, lorem ipsum",20,"1");
+
+INSERT INTO `waz_annonces` (`an_id`,`an_prix`,`an_ref`,`an_date_disponibilite`,`an_offre`,`an_nbre_vues`,`an_date_ajout`,`an_date_modif`,`an_titre`,`bi_id`,`an_est_active`)
+VALUES (21,"89,151€","AC-BU-0421-01","2021-03-21","A",413,"2021-03-21",null,"Duis sit amet diam eu dolor egestas rhoncus. Proin nisl",21,"1"),
+(22,"103,611€","AC-MA-0121-01","2021-04-29","A",22,"2021-03-21","2021-03-26 16:25:06","cubilia Curae Donec tincidunt. Donec vitae erat vel pede blandit",22,"0"),
+(23,"48,844€","LO-AP-0121-01","2021-03-21","L",293,"2021-03-21","2021-03-26 16:25:06","cursus. Nunc mauris elit, dictum eu, eleifend nec, malesuada ut,",23,"0"),
+(24,"154,044€","VE-IM-0421-01","2021-04-29","V",393,"2021-03-21","2021-03-26 16:25:06","posuere cubilia Curae Phasellus ornare. Fusce mollis. Duis sit amet",24,"1"),
+(25,"88,909€","AC-GA-0121-01","2021-03-21","A",215,"2021-03-21","2021-03-26 16:25:06","ligula. Nullam feugiat placerat velit. Quisque varius. Nam porttitor scelerisque",25,"0"),
+(26,"116,326€","LO-TE-0419-01","2021-04-29","L",70,"2021-03-21",null,"sed libero. Proin sed turpis nec mauris blandit mattis. Cras",26,"0"),
+(27,"89,233€","VE-LP-0421-01","2021-03-21","V",199,"2021-03-21","2021-03-26 16:25:06","nunc, ullamcorper eu, euismod ac, fermentum vel, mauris. Integer sem",27,"1"),
+(28,"180,270€","AC-BU-0421-01","2021-04-29","A",291,"2021-03-21",null,"Vivamus molestie dapibus ligula. Aliquam erat volutpat. Nulla dignissim. Maecenas",28,"0"),
+(29,"196,368€","AC-MA-0121-01","2021-03-21","A",415,"2021-03-21","2021-03-26 16:25:06","nisi sem semper erat, in consectetuer ipsum nunc id enim.",29,"1"),
+(30,"6,138€","LO-AP-0121-01","2021-04-29","L",117,"2021-03-21","2021-03-26 16:25:06","porta elit, a feugiat tellus lorem eu metus. In lorem.",30,"1");
+
 INSERT INTO `waz_annonces` (`an_id`,`an_prix`,`an_ref`,`an_date_disponibilite`,`an_offre`,`an_nbre_vues`,`an_date_ajout`,`an_date_modif`,`an_titre`,`bi_id`,`an_est_active`) 
-VALUES (1,"27,912€","AC-MA-0121-01","2021-11-13 08:09:50","A",379,"2021-02-18 18:10:10","2021-05-14 16:25:06","leo, in lobortis tellus justo sit amet nulla. Donec non",1,"1"),
-(2,"147,643€","LO-TE-0121-01","2021-12-24 07:45:29","L",175,"2021-03-21 16:47:51","2021-11-25 11:57:23","elit. Etiam laoreet, libero et tristique pellentesque, tellus sem mollis",2,"0"),
-(3,"95,022€","VE-MA-0121-01","2021-03-01 14:48:07","V",12,"2021-07-06 15:44:42","2021-11-08 20:09:09","placerat eget,venenatis a, magna. Lorem ipsum dolor sit amet,",3,"1"),
-(4,"131,113€","AC-IM-0121-01","2021-12-07 18:01:08","A",290,"2021-10-30 18:59:45",NULL,"ac turpis egestas. Aliquam fringilla cursus purus. Nullam scelerisque neque",4,"0"),
-(5,"102,581€","LO-AP-0121-01","2021-05-05 09:26:13","L",217,"2021-11-07 17:34:13",NULL,"ante. Vivamus non lorem vitae odio sagittis semper. Nam tempor",5,"1"),
-(6,"79,883€","VE-IM-0121-01","2021-03-31 15:00:48","V",264,"2022-02-06 13:59:37",NULL,"mauris erat eget ipsum. Suspendisse sagittis. Nullam vitae diam. Proin",6,"0"),
-(7,"84,645€","AC-GA-0121-01","2021-08-23 08:01:20","A",496,"2022-01-02 03:55:34",NULL,"porta elit, a feugiat tellus lorem eu metus. In lorem.",7,"1"),
-(8,"112,444€","LO-TE-0121-01","2021-07-28 06:05:07","L",4,"2021-09-24 20:52:07",NULL,"dolor sit amet, consectetuer adipiscing elit. Etiam laoreet, libero et",8,"0"),
-(9,"159,977€","VE-GA-0121-01","2021-07-22 16:45:18","V",197,"2021-09-17 09:43:27","2022-02-08 04:52:19","tincidunt orci quis lectus. Nullam suscipit, est ac facilisis facilisis,",9,"1"),
-(10,"175,331€","VE-IM-0121-01","2022-01-29 08:39:07","A",428,"2021-06-09 12:19:24","2021-12-15 17:48:27","mauris erat eget ipsum. Suspendisse sagittis. Nullam vitae diam. Proin",10,"0"),
-(11,"121,630€","LO-BU-0121-01","2021-11-26 20:26:17","L",301,"2021-10-29 13:52:15",NULL,"lorem tristique aliquet. Phasellus fermentum convallis ligula. Donec luctus aliquet",11,"1"),
-(12,"85,195€","VE-GA-0121-01","2021-04-14 22:03:52","V",152,"2021-06-22 12:25:56","2021-11-01 08:40:46","vitae, posuere at, velit. Cras lorem lorem, luctus ut, pellentesque",12,"0"),
-(13,"182,682€","AC-BU-0121-01","2021-08-13 16:06:22","A",33,"2021-06-13 11:07:10","2021-06-30 21:40:58","dui. Cras pellentesque. Sed dictum. Proin eget odio. Aliquam vulputate",13,"1"),
-(14,"40,826€","LO-TE-0121-01","2021-09-23 02:30:50","L",175,"2021-05-09 23:02:13","2021-10-31 01:22:05","auctor odio a purus. Duis elementum, dui quis accumsan convallis,",14,"0"),
-(15,"80,375€","VE-TE-0121-01","2021-12-15 01:46:05","V",307,"2021-02-22 07:20:46","2021-07-21 02:36:45","Praesent luctus. Curabitur egestas nunc sed libero. Proin sed turpis",15,"1"),
-(16,"177,034€","AC-MA-0121-01","2022-01-16 02:03:56","A",372,"2021-05-14 21:10:51","2021-07-04 17:41:45","ornare egestas ligula. Nullam feugiat placerat velit. Quisque varius. Nam",16,"0"),
-(17,"35,675€","LO-TE-0121-01","2022-02-08 19:03:16","L",378,"2021-08-11 07:41:52",NULL,"dolor dolor, tempus non, lacinia at, iaculis quis, pede. Praesent",17,"1"),
-(18,"124,956€","VE-LP-0121-01","2021-03-30 06:48:31","V",126,"2021-04-04 15:46:50","2021-09-18 10:18:40","sed orci lobortis augue scelerisque mollis. Phasellus libero mauris, aliquam",18,"0"),
-(19,"69,090€","AC-LP-0121-01","2022-02-09 00:46:26","A",63,"2021-08-15 06:39:40","2022-02-18 21:46:28","ante. Nunc mauris sapien, cursus in, hendrerit consectetuer, cursus et,",19,"1"),
-(20,"39,922€","LO-AP-0121-01","2021-05-09 22:34:42","L",158,"2021-04-13 08:56:44","2021-05-12 14:17:01","euismod urna. Nullam lobortis quam a felis ullamcorper viverra. Maecenas",20,"0"),
-(21,"36,348€","VE-LP-0121-01","2022-02-14 04:43:38","V",118,"2021-05-23 20:17:26","2021-07-25 02:07:53","ac mattis ornare, lectus ante dictum mi, ac mattis velit",21,"1"),
-(22,"106,270€","AC-LP-0121-01","2022-03-01 02:17:54","A",445,"2021-02-15 18:29:13","2021-04-08 14:03:44","adipiscing. Mauris molestie pharetra nibh. Aliquam ornare, libero at auctor",22,"0"),
-(23,"158,910€","LO-LP-0121-01","2021-06-27 14:37:22","L",73,"2021-06-12 03:42:02","2021-12-07 09:39:09","pellentesque a, facilisis non, bibendum sed, est. Nunc laoreet lectus",23,"1"),
-(24,"175,288€","VE-BU-0121-01","2021-07-21 07:16:57","V",67,"2021-08-19 23:57:20","2021-09-21 12:03:32","neque. In ornare sagittis felis. Donec tempor, est ac mattis",24,"0"),
-(25,"25,863€","AC-AP-0121-01","2021-05-03 12:11:42","A",305,"2021-08-19 11:45:28",NULL,"eu dui. Cum sociis natoque penatibus et magnis dis parturient",25,"1"),
-(26,"172,017€","LO-AP-0121-01","2021-11-13 03:47:10","L",204,"2021-12-07 18:23:51","2022-02-15 05:25:45","ultrices posuere cubilia Curae Phasellus ornare. Fusce mollis. Duis sit",26,"0"),
-(27,"61,953€","VE-LP-0121-01","2022-01-19 00:01:52","V",49,"2021-07-28 02:22:15","2021-12-10 06:01:43","odio vel est tempor bibendum. Donec felis orci, adipiscing non,",27,"1"),
-(28,"193,132€","AC-BU-0121-01","2021-08-03 19:55:33","A",481,"2021-10-07 19:05:43",NULL,"mattis. Cras eget nisi dictum augue malesuada malesuada. Integer id",28,"0"),
-(29,"24,588€","LO-MA-0121-01","2022-01-06 10:48:56","L",308,"2021-12-26 10:38:57",NULL,"eu, odio. Phasellus at augue id ante dictum cursus. Nunc",29,"1"),
-(30,"186,187€","VE-BU-0121-01","2021-03-31 05:28:39","V",41,"2021-12-13 03:14:34",NULL,"tempor, est ac mattis semper, dui lectus rutrum urna, nec",30,"0");
+VALUES (31,"24,310€","VE-IM-0421-01","2021-03-21","V",274,"2021-03-21","2021-03-26 16:25:06","pellentesque a, facilisis non, bibendum sed, est. Nunc laoreet lectus",31,"1"),
+(32,"12,945€","AC-GA-0121-01","2021-04-29","A",474,"2021-03-21","2021-03-26 16:25:06","luctus, ipsum leo elementum sem, vitae aliquam eros turpis non",32,"1"),
+(33,"82,233€","LO-TE-0419-01","2021-03-21","L",249,"2021-03-21",null,"Quisque porttitor eros nec tellus. Nunc lectus pede, ultrices a,",33,"1"),
+(34,"80,511€","VE-LP-0421-01","2021-04-29","V",252,"2021-03-21","2021-03-26 16:25:06","purus. Nullam scelerisque neque sed sem egestas blandit. Nam nulla",34,"1"),
+(35,"106,532€","AC-BU-0421-01","2021-03-21","A",406,"2021-03-21",null,"Nam consequat dolor vitae dolor. Donec fringilla. Donec feugiat metus",35,"1"),
+(36,"173,235€","AC-MA-0121-01","2021-04-29","A",279,"2021-03-21","2021-03-26 16:25:06","velit. Cras lorem lorem, luctus ut, pellentesque eget, dictum placerat,",36,"0"),
+(37,"113,917€","LO-AP-0121-01","2021-03-21","L",122,"2021-03-21","2021-03-26 16:25:06","scelerisque sed, sapien. Nunc pulvinar arcu et pede. Nunc sed",37,"0"),
+(38,"162,147€","VE-IM-0421-01","2021-04-29","V",346,"2021-03-21","2021-03-26 16:25:06","Curabitur dictum. Phasellus in felis. Nulla tempor augue ac ipsum.",38,"1"),
+(39,"173,313€","AC-GA-0121-01","2021-03-21","A",34,"2021-03-21","2021-03-26 16:25:06","rutrum urna, nec luctus felis purus ac tellus. Suspendisse sed",39,"0"),
+(40,"183,066€","LO-TE-0419-01","2021-04-29","L",254,"2021-03-21",null,"enim. Suspendisse aliquet, sem ut cursus luctus, ipsum leo elementum",40,"0");
 
-
-
-
-
+INSERT INTO `waz_annonces` (`an_id`,`an_prix`,`an_ref`,`an_date_disponibilite`,`an_offre`,`an_nbre_vues`,`an_date_ajout`,`an_date_modif`,`an_titre`,`bi_id`,`an_est_active`)
+VALUES (41,"162,036€","VE-LP-0421-01","2021-03-21","V",333,"2021-03-21","2021-03-26 16:25:06","et magnis dis parturient montes, nascetur ridiculus mus. Donec dignissim",41,"1"),
+(42,"92,014€","AC-BU-0421-01","2021-04-29","A",189,"2021-03-21",null,"metus. Aenean sed pede nec ante blandit viverra. Donec tempus,",42,"0"),
+(43,"140,991€","AC-MA-0121-01","2021-03-21","A",350,"2021-03-21","2021-03-26 16:25:06","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam auctor,",43,"1"),
+(44,"97,427€","LO-AP-0121-01","2021-04-29","L",4,"2021-03-21","2021-03-26 16:25:06","sagittis placerat. Cras dictum ultricies ligula. Nullam enim. Sed nulla",44,"1"),
+(45,"14,996€","VE-IM-0421-01","2021-03-21","V",125,"2021-03-21","2021-03-26 16:25:06","consequat nec, mollis vitae, posuere at, velit. Cras lorem lorem,",45,"1"),
+(46,"67,839€","AC-GA-0121-01","2021-04-29","A",343,"2021-03-21","2021-03-26 16:25:06","amet nulla. Donec non justo. Proin non massa non ante",46,"1"),
+(47,"85,003€","LO-TE-0419-01","2021-03-21","L",61,"2021-03-21",null,"enim diam vel arcu. Curabitur ut odio vel est tempor",47,"1"),
+(48,"104,274€","VE-LP-0421-01","2021-04-29","V",401,"2021-03-21","2021-03-26 16:25:06","tempus non, lacinia at, iaculis quis, pede. Praesent eu dui.",48,"1"),
+(49,"38,597€","AC-BU-0421-01","2021-03-21","A",371,"2021-03-21",null,"semper pretium neque. Morbi quis urna. Nunc quis arcu vel",49,"1"),
+(50,"173,424€","AC-MA-0121-01","2021-04-29","A",103,"2021-03-21","2021-03-26 16:25:06","leo. Cras vehicula aliquet libero. Integer in magna. Phasellus dolor",50,"0");
 -- donnée pour waz_commentaire
 
 DELETE FROM waz_commentaire;
