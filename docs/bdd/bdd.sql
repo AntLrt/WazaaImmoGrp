@@ -124,7 +124,7 @@ CREATE TABLE waz_commentaire
 (
    com_id  INT(10) NOT NULL AUTO_INCREMENT,
    com_avis TEXT DEFAULT NULL,
-   com_notes CHAR(1) DEFAULT NULL,
+   com_notes CHAR(2) DEFAULT NULL,
    com_date_ajout DATETIME NOT NULL DEFAULT (CURRENT_DATE),
    in_id INT(10) ,
    PRIMARY KEY(com_id),
