@@ -18,7 +18,11 @@ $this->output->enable_profiler(TRUE);
 $this->load->database(); 
 
 // Exécute la requête 
-$results = $this->db->query("SELECT * FROM waz_annonces,waz_biens WHERE an_offre = 'L' AND waz_annonces.an_id=waz_biens.bi_id");  
+$results = $this->db->query("SELECT * 
+FROM waz_annonces,waz_biens,waz_photos 
+WHERE an_offre = 'L' 
+AND waz_annonces.an_id=waz_biens.bi_id 
+AND waz_photos.bi_id=waz_biens.bi_id");  
 
 // Récupération des résultats    
 $aListe = $results->result();   
@@ -40,7 +44,11 @@ $this->output->enable_profiler(TRUE);
 $this->load->database(); 
 
 // Exécute la requête 
-$results = $this->db->query("SELECT * FROM waz_annonces,waz_biens WHERE an_offre = 'V' AND waz_annonces.an_id=waz_biens.bi_id");  
+$results = $this->db->query("SELECT * 
+FROM waz_annonces,waz_biens,waz_photos 
+WHERE an_offre = 'V' 
+AND waz_annonces.an_id=waz_biens.bi_id 
+AND waz_photos.bi_id=waz_biens.bi_id");  
 
 // Récupération des résultats    
 $aListe = $results->result();   
@@ -62,7 +70,9 @@ $this->output->enable_profiler(TRUE);
 $this->load->database(); 
 
 // Exécute la requête 
-$results = $this->db->query("SELECT * FROM waz_annonces,waz_biens WHERE an_id = '$an_id' AND waz_annonces.an_id=waz_biens.bi_id");  
+$results = $this->db->query("SELECT * 
+FROM waz_annonces,waz_biens,waz_photos
+WHERE an_id = '$an_id' AND waz_annonces.an_id=waz_biens.bi_id AND waz_photos.bi_id=waz_biens.bi_id");  
 
 // Récupération des résultats    
 $aListe = $results->result();   
@@ -70,14 +80,6 @@ $aListe = $results->result();
 // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue   
 $aView["details"] = $aListe;
 
-// Exécute la requête 
-$results = $this->db->query("SELECT * FROM waz_commentaire, waz_internautes WHERE  waz_internautes.in_id=waz_commentaire.in_id ORDER BY com_date_ajout DESC");  
-
-// Récupération des résultats    
-$Comms = $results->result();   
-
-// Ajoute des résultats de la requête au tableau des variables à transmettre à la vue   
-$aView["commentaires"] = $Comms;
 
 $this->load->view('DetailsView', $aView);
 
