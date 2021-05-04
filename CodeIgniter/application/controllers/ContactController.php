@@ -22,9 +22,11 @@ $this->load->library('table');
 $this->load->database();
 
 // Exécute la requête 
-$results = $this->db->query("SELECT in_id AS 'ID internaute', co_sujet AS 'Sujet', co_question AS 'Question'
-FROM waz_contacter
-ORDER BY in_id");  
+$results = $this->db->query("SELECT waz_contacter.in_id AS 'ID internaute', in_email AS 'Email internaute', co_sujet AS 'Sujet', co_question AS 'Question'
+FROM waz_contacter,waz_internautes
+WHERE waz_contacter.in_id=waz_internautes.in_id
+ORDER BY waz_contacter.in_id
+");  
 
 // Forme du tableau
 $template = array(
