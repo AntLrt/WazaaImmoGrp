@@ -75,11 +75,11 @@
 <img src="<?php echo base_url();?>/assets/images/<?php echo $PhotoTrois;?>.jpg" width="200" height="100" title="Cliquez pour voir cette annonce !">
 </a>
 
-<form action="http://localhost/ci/index.php/MembresController/Commentaire" method="post"> 
+<form action="http://localhost/ci/index.php/MembresController/CommentairePubli" method="post"> 
 
 <br>
 
-<a>La note moyenne laissé par nos clients : <a><?php foreach ($MoyenneNotes as $row) {echo $row->Moyenne;}?><a>/10</a>
+<a>La note moyenne laissé par nos clients : <a><?php foreach ($MoyenneNotes as $row) {echo $row->Moyenne;}?><a>/5</a>
 
 
 <div class="form-group">
@@ -91,21 +91,17 @@ name="Commentaire" id="Commentaire"></textarea>
 </div>
 
 <div class="form-group">
-<label for="Note">Notez la qualité de nos services sur 10 !</label>
+<label for="Note">Notez la qualité de nos services sur 5 !</label>
 
 <br>
 
 <select name="Note" id="Note">
-<option value="10">10</option>
-<option value="9">9</option>
-<option value="8">8</option>
-<option value="7">7</option>
-<option value="6">6</option>
 <option value="5">5</option>
 <option value="4">4</option>
 <option value="3">3</option>
 <option value="2">2</option>
 <option value="1">1</option>
+<option value="0">0</option>
 
 </select>
 </div> 
@@ -116,9 +112,11 @@ name="Commentaire" id="Commentaire"></textarea>
 
 <div class="row">
 <div class="col-12">    
+<h1>Top commentaire</h1> 
+
 <?php 
 //Affichage de tous les commentaires de l'annonce
-foreach ($commentaires as $row) 
+foreach ($TopCom as $row) 
 {
 //Prenom de la personne mettant le commentaire
 echo "<p>".$row->in_prenom;
@@ -136,6 +134,33 @@ echo $row->com_date_ajout." </p>";
 ?>
 </div>
 </div>
+<div class="row">
+<div class="col-12">
+<h1>Pire commentaire</h1> 
+<?php 
+//Affichage de tous les commentaires de l'annonce
+foreach ($PirCom as $row) 
+{
+//Prenom de la personne mettant le commentaire
+echo "<p>".$row->in_prenom;
+
+//Commentaire de la personne
+echo $row->com_avis;
+
+//Note de la personne
+echo $row->com_notes;
+
+//Date et heure du commentaire
+echo $row->com_date_ajout." </p>";    
+
+}
+?>
+</div>
+</div>
+
+<a href="http://localhost/ci/index.php/MembresController/Commentaires">Voir tout les commentaires</a><br><br>
+
+
 
 
 

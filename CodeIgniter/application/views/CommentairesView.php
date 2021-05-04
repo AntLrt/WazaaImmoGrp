@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<title>Liste des produits</title>
+<title>Wazaa Immo - Accueil</title>
 </head>
 <body>
 
@@ -17,32 +17,37 @@
 <a href="http://localhost/ci/index.php/ContactController/ListeContact">ListeContact(admin)</a><br>
 <a href="http://localhost/ci/index.php/EmployesController/ListeEmployes">ListeEmployes(admin)</a><br><br>
 
-<h1>Liste des produits</h1>
 
 <div class="row">
-<div class="col-12">    
+<div class="col-12">
+<h1>Tout les commentaires</h1> 
 <?php 
-if(empty($liste_produits))
+//Affichage de tous les commentaires de l'annonce
+foreach ($ToutCom as $row) 
 {
-echo "Aucune annonce correspondant à vos critères trouvé.";
-}
+//Prenom de la personne mettant le commentaire
+echo "<p>".$row->in_prenom;
 
-else{
-foreach ($liste_produits as $row) 
-{
-$NomPhoto = $row->pho_nom;
-echo "<img src=http://localhost/ci//assets/images/".$NomPhoto.".jpg width='150' height='100'>";
-echo "<p>".$row->an_id; 
-echo $row->an_prix;
-echo $row->an_ref;
-echo $row->an_offre;
-echo $row->an_titre." </p>"; 
-echo "<a href=http://localhost/ci/index.php/AnnoncesController/Details/$row->an_id>Détails</a><br>";    
-}
+//Commentaire de la personne
+echo $row->com_avis;
+
+//Note de la personne
+echo $row->com_notes;
+
+//Date et heure du commentaire
+echo $row->com_date_ajout." </p>";    
+
 }
 ?>
 </div>
 </div>
+
+
+
+
+
+
+
 
 
 </body>
