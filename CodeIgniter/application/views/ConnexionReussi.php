@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8">
-    <title>Liste employes</title>
+<meta charset="utf-8">
+<title>Wazaa Immo - Accueil</title>
 </head>
 <body>
 
@@ -32,10 +32,8 @@ else{
 echo "<a href='http://localhost/ci/index.php/AuthentificationController/login'>Connexion</a><br>";
 }?>
 
-<h1>Liste des employes</h1>
-
-
-<?php echo $liste_employes;?>
+<a>Connexion réussi</a>
+<?php echo $this->session->login;?>
 
 
 
