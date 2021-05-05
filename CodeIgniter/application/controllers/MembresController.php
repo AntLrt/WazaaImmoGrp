@@ -45,36 +45,7 @@ $this->load->view('ListeMembresView', $aView);
 
 
 
-public function DetailsCompte()
-{
-// $IDcompte = L'itrnasmis par la connexion
 
-
-
-//afficher aide au debug
-$this->output->enable_profiler(TRUE);
-
-// Charge la librairie 'database'
-$this->load->database();
-
-if(isset($IDcompte)){
-    // Exécute la requête 
-    $results = $this->db->query("SELECT in_id , in_nom, in_prenom , in_adresse , in_telephone , in_email , in_pays 
-    FROM waz_internautes
-    WHERE in_id='$IDcompte'");  
-
-    $aListe = $results->result();   
-
-    // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue   
-    $aView["detailscompte"] = $aListe;
-
-    // Appel de la vue avec transmission du tableau  
-    $this->load->view('DetailsCompteView', $aView);
-    }
-else{
-$this->load->view('ConnexionView');
-}
-}
 
 public function ListeContact()
 {
@@ -250,8 +221,6 @@ $this->load->view('PageAccueilView',$aView);
     { 
         $Commentaire = $_POST['Commentaire'];
         $Note = $_POST['Note'];
-        ////////////////////////A changer selon id connexion//////////
-        $IDinternaute = rand(1, 10);
 
         $this->load->database();
         //A changer selon id connexion
@@ -276,7 +245,7 @@ $this->load->view('PageAccueilView',$aView);
     $Date=_date("Y-m-d H:i:s", false, 'Europe/Belgrade');
         $data["com_date_ajout"] = $Date;
 
-        $data["in_id"] = $IDinternaute;
+        $data["in_id"] = $this->session->ID;
 
 
         $this->db->insert('waz_commentaire', $data);        

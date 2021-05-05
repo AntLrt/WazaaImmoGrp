@@ -45,7 +45,7 @@ $this->load->view('ListeContactView', $aView);
 }
 
 public function Formulaire()
-{
+{if($this->session->role == "Internaute"){
 //afficher aide au debug
 $this->output->enable_profiler(TRUE);
 
@@ -81,7 +81,7 @@ if ($this->input->post())
         $this->load->database();
         $data["emp_id"] = 10;
         //A changer selon id connexion
-        $data["in_id"] = rand(12, 27450);;
+        $data["in_id"] = $this->session->ID;;
         $data["co_sujet"] = $Sujet;
         $data["co_question"] = $Demande;
         $this->db->insert('waz_contacter', $data);
@@ -93,6 +93,10 @@ if ($this->input->post())
 }
 else{$this->load->view('FormulaireContactView');}
 }
+else {header('Location: http://localhost/ci/index.php/AuthentificationController/login');
+    exit();}
+}
+
 }
 
 ?>

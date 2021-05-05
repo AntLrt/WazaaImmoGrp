@@ -90,6 +90,38 @@ $aView["liste_employes"] = $tab;
 
 // Appel de la vue avec transmission du tableau  
 $this->load->view('ListeEmployesView', $aView);
+}
+
+
+public function DetailsCompte()
+{
+// $IDcompte = L'id trnasmis par la connexion
+
+//afficher aide au debug
+$this->output->enable_profiler(TRUE);
+
+// Charge la librairie 'database'
+$this->load->database();
+
+if($this->session->role == "Employe"){
+    $Login = $this->session->login;
+    // Exécute la requête 
+    $DetailsEmploye = $this->db->query("SELECT * 
+    FROM waz_employes
+    WHERE emp_mail='$Login'");  
+
+    $Details = $DetailsEmploye->result();   
+
+    // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue   
+    $aView["Details"] = $Details;
+
+    // Appel de la vue avec transmission du tableau  
+    $this->load->view('DetailsCompteView', $aView);
+    }
+else{
+    header('Location: http://localhost/ci/index.php/AuthentificationController/login');
+    exit(); }
+}
 
 }
 
@@ -102,7 +134,7 @@ $this->load->view('ListeEmployesView', $aView);
 
 
 
-}
+
 
 
 ?>
