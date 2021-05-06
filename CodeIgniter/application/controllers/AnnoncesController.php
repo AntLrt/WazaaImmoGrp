@@ -30,6 +30,7 @@ $aListe = $results->result();
 // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue   
 $aView["locations"] = $aListe;
 
+$this->load->view('Headerview');
 $this->load->view('LocaView', $aView);
 
 }
@@ -46,7 +47,7 @@ $this->load->database();
 // Exécute la requête 
 $results = $this->db->query("SELECT * 
 FROM waz_annonces,waz_biens,waz_photos 
-WHERE an_offre = 'V' 
+WHERE an_offre = 'A' 
 AND waz_annonces.an_id=waz_biens.bi_id 
 AND waz_photos.bi_id=waz_biens.bi_id");  
 
@@ -56,6 +57,7 @@ $aListe = $results->result();
 // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue   
 $aView["ventes"] = $aListe;
 
+$this->load->view('Headerview');
 $this->load->view('VentesView', $aView);
 
 }
@@ -80,7 +82,7 @@ $aListe = $results->result();
 // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue   
 $aView["details"] = $aListe;
 
-
+$this->load->view('Headerview');
 $this->load->view('DetailsView', $aView);
 
 }

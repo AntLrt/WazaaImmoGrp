@@ -1,4 +1,3 @@
-
 <?php echo form_open(); ?>
 
 <div class="form-group">
@@ -33,13 +32,12 @@
 </div> 
 
 <div class="form-group">
-        <label for="pro_ref">Pays :</label>
-        <input type="text" id="country_id" name="in_pays"class="form-control" value="<?php echo set_value('in_pays'); ?>">
-        <?php echo form_error('in_pays'); ?>
-    </div>
+   <label for="pro_ref">Pays :</label>
+   <input type="text" id="country_id" name="in_pays"class="form-control" value="<?php echo set_value('in_pays'); ?>">
+   <?php echo form_error('in_pays'); ?>
+</div>
 
 
-    <button type="submit" class="btn btn-dark" value="Submit">Créer un compte !</button> 
-    <button type="submit" onclick="<?php $this->session->sess_destroy();?>" class="btn btn-dark">disconnect </button>   
+<button type="submit" class="btn btn-dark" value="Submit">Créer un compte !</button> 
 </form>
 
