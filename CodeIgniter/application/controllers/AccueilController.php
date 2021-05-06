@@ -143,7 +143,7 @@ class AccueilController extends CI_Controller
     // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue   
     $aView["MoyenneNotes"] = $MoyenneNotes;
     
-
+$this->load->view('HeaderView');
 $this->load->view('PageAccueilView',$aView);
 
             }
@@ -171,7 +171,8 @@ $this->load->view('PageAccueilView',$aView);
                     
                     //var_dump($aView);
                     echo "1er cas : type renseigné, type operation et ville vide";
-                    
+
+                    $this->load->view('HeaderView');
                     $this->load->view('PageResultatRechercheView', $aView);
                     
                     
@@ -194,6 +195,7 @@ $this->load->view('PageAccueilView',$aView);
                 //var_dump($aView);
                 echo "2eme cas : type et ville renseigné, type operation vide";
                 
+                $this->load->view('HeaderView');
                 $this->load->view('PageResultatRechercheView', $aView);
                 
                 }
@@ -214,7 +216,8 @@ $this->load->view('PageAccueilView',$aView);
                     //var_dump($aView);
     
                     echo "3eme cas : Operation et type renseigné, ville vide";
-                
+
+                    $this->load->view('HeaderView');
                     $this->load->view('PageResultatRechercheView', $aView);
                 
                 }
@@ -235,7 +238,8 @@ $this->load->view('PageAccueilView',$aView);
                     
                     //var_dump($aView);
                     echo "4eme cas : tout est renseigné";
-                
+
+                    $this->load->view('HeaderView');
                     $this->load->view('PageResultatRechercheView', $aView);
                 
                 
@@ -354,7 +358,7 @@ $this->load->view('PageAccueilView',$aView);
     // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue   
     $aView["MoyenneNotes"] = $MoyenneNotes;
     
-
+$this->load->view('HeaderView');
 $this->load->view('PageAccueilView',$aView);
 }
 } 

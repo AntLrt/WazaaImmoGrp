@@ -57,40 +57,55 @@ $neg = $this->table->generate($results);
 // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue   
 $aView["Negociateur"] = $neg;
 
-// Appel de la vue avec transmission du tableau  
+// Appel de la vue avec transmission du tableau
+$this->load->view('Headerview');  
 $this->load->view('PageNousView', $aView);
 
 }
 
+
+
 public function ListeEmployes()
 {
-//afficher aide au debug
-$this->output->enable_profiler(TRUE);
+if($this->session->role == "Employe"){
+    //afficher aide au debug
+    $this->output->enable_profiler(TRUE);
 
-// Prépare le tableau
-$this->load->library('table');
+    // Prépare le tableau
+    $this->load->library('table');
 
-// Charge la librairie 'database'
-$this->load->database();
+    // Charge la librairie 'database'
+    $this->load->database();
 
-// Exécute la requête 
-$results = $this->db->query("SELECT emp_id AS 'ID', emp_poste AS 'Poste', emp_nom AS 'Nom', emp_prenom AS 'Prénom', emp_adresse AS 'Adresse', emp_tel AS 'Téléphone', emp_mail AS 'Email', emp_mdp AS 'Mot de passe'
-FROM waz_employes");  
+    // Exécute la requête 
+    $results = $this->db->query("SELECT emp_id AS 'ID', emp_poste AS 'Poste', emp_nom AS 'Nom', emp_prenom AS 'Prénom', emp_adresse AS 'Adresse', emp_tel AS 'Téléphone', emp_mail AS 'Email', emp_mdp AS 'Mot de passe'
+    FROM waz_employes");  
 
-// Forme du tableau
-$template = array(
-'table_open' => '<table border="2" cellpadding="5" cellspacing="2" class="mytable">'
-);
+    // Forme du tableau
+    $template = array(
+    'table_open' => '<table border="2" cellpadding="5" cellspacing="2" class="mytable">'
+    );
 
-$this->table->set_template($template);
-$tab = $this->table->generate($results);
+    $this->table->set_template($template);
+    $tab = $this->table->generate($results);
 
-// Ajoute des résultats de la requête au tableau des variables à transmettre à la vue   
-$aView["liste_employes"] = $tab;
+    // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue   
+    $aView["liste_employes"] = $tab;
 
-// Appel de la vue avec transmission du tableau  
-$this->load->view('ListeEmployesView', $aView);
+    // Appel de la vue avec transmission du tableau 
+    $this->load->view('Headerview'); 
+    $this->load->view('ListeEmployesView', $aView);
 }
+else {
+    $Erreur = "Vous n'avez pas accés à cette page !";
+    // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue   
+    $aView["RefusAcces"] = $Erreur;
+
+    $this->load->view('Headerview',$aView);
+}
+}
+
+
 
 
 public function DetailsCompte()
@@ -100,10 +115,12 @@ public function DetailsCompte()
 //afficher aide au debug
 $this->output->enable_profiler(TRUE);
 
-// Charge la librairie 'database'
-$this->load->database();
+
 
 if($this->session->role == "Employe"){
+    // Charge la librairie 'database'
+    $this->load->database();
+
     $Login = $this->session->login;
     // Exécute la requête 
     $DetailsEmploye = $this->db->query("SELECT * 
@@ -115,12 +132,18 @@ if($this->session->role == "Employe"){
     // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue   
     $aView["Details"] = $Details;
 
-    // Appel de la vue avec transmission du tableau  
+    // Appel de la vue avec transmission du tableau
+    $this->load->view('Headerview');  
     $this->load->view('DetailsCompteView', $aView);
     }
-else{
-    header('Location: http://localhost/ci/index.php/AuthentificationController/login');
-    exit(); }
+
+    else {
+        $Erreur = "Vous n'avez pas accés à cette page !";
+        // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue   
+        $aView["RefusAcces"] = $Erreur;
+    
+        $this->load->view('Headerview',$aView);
+    }
 }
 
 }
