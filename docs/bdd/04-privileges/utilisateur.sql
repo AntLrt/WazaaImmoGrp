@@ -80,9 +80,6 @@ GRANT SELECT
     ON wazaaimmogroup.waz_photos
     TO 'r_wazaaimmogroup_internautes'@'localhost';
 
--- GRANT SELECT
-    -- ON wazaaimmogroup.v_annonces
-    -- TO 'r_wazaaimmogroup_internautes'@'localhost';
 
 -- Création de utilisateurs pour la bdd  wazaaimmogroup
 -- Developpeur1 utilisateur
@@ -101,9 +98,137 @@ GRANT 'r_wazaaimmogroup_employes'@'localhost' TO 'wazaaimmogroup_employes1'@'loc
 GRANT 'r_wazaaimmogroup_internautes'@'localhost' TO 'wazaaimmogroup_internaute1'@'localhost';
 
 -- attributions des rôles par défaut
-SET DEFAULT ROLE ALL TO 'wazaaimmogroup_dev1'@'localhost';
+SET DEFAULT ROLE ALL TO 'wazaaimmogroup_dev1'@'localhost' ;
 SET DEFAULT ROLE 'r_wazaaimmogroup_employes'@'localhost' TO 'wazaaimmogroup_employes1'@'localhost';
 SET DEFAULT ROLE 'r_wazaaimmogroup_internautes'@'localhost' TO 'wazaaimmogroup_internaute1'@'localhost';
 
+-- autorisations pour les vues pour les utilisateurs internautes
 
+GRANT SELECT
+    ON wazaaimmogroup.v_annonces
+    TO 'r_wazaaimmogroup_internautes'@'localhost';
 
+GRANT SELECT
+    ON wazaaimmogroup.v_annonces_ancienne
+    TO 'r_wazaaimmogroup_internautes'@'localhost';
+
+GRANT SELECT
+    ON wazaaimmogroup.v_an_act
+    TO 'r_wazaaimmogroup_internautes'@'localhost';
+
+GRANT SELECT
+    ON wazaaimmogroup.v_an_nonact
+    TO 'r_wazaaimmogroup_internautes'@'localhost';
+
+GRANT SELECT
+    ON wazaaimmogroup.v_bien_appart
+    TO 'r_wazaaimmogroup_internautes'@'localhost';
+
+GRANT SELECT
+    ON wazaaimmogroup.v_bien_bureaux
+    TO 'r_wazaaimmogroup_internautes'@'localhost';
+
+GRANT SELECT
+    ON wazaaimmogroup.v_bien_garage
+    TO 'r_wazaaimmogroup_internautes'@'localhost';
+
+GRANT SELECT
+    ON wazaaimmogroup.v_bien_immeuble
+    TO 'r_wazaaimmogroup_internautes'@'localhost';
+
+GRANT SELECT
+    ON wazaaimmogroup.v_bien_locauxpro
+    TO 'r_wazaaimmogroup_internautes'@'localhost';
+
+GRANT SELECT
+    ON wazaaimmogroup.v_bien_maison
+    TO 'r_wazaaimmogroup_internautes'@'localhost';
+
+GRANT SELECT
+    ON wazaaimmogroup.v_bien_terrain
+    TO 'r_wazaaimmogroup_internautes'@'localhost';
+
+GRANT SELECT
+    ON wazaaimmogroup.v_nbre_vue_annonce
+    TO 'r_wazaaimmogroup_internautes'@'localhost';
+
+GRANT SELECT
+    ON wazaaimmogroup.v_nbre_vue_an_achat
+    TO 'r_wazaaimmogroup_internautes'@'localhost';
+
+GRANT SELECT
+    ON wazaaimmogroup.v_nbre_vue_an_louer
+    TO 'r_wazaaimmogroup_internautes'@'localhost';
+
+GRANT SELECT
+    ON wazaaimmogroup.v_nbre_vue_an_lou_act
+    TO 'r_wazaaimmogroup_internautes'@'localhost';
+
+-- autorisations pour les vues pour les utilisateurs internautes
+
+GRANT SELECT
+    ON wazaaimmogroup.v_annonces
+    TO 'r_wazaaimmogroup_employes'@'localhost';
+
+GRANT SELECT
+    ON wazaaimmogroup.v_annonces_ancienne
+    TO 'r_wazaaimmogroup_employes'@'localhost';
+
+GRANT SELECT
+    ON wazaaimmogroup.v_an_act
+    TO 'r_wazaaimmogroup_employes'@'localhost';
+
+GRANT SELECT
+    ON wazaaimmogroup.v_an_nonact
+    TO 'r_wazaaimmogroup_employes'@'localhost';
+
+GRANT SELECT
+    ON wazaaimmogroup.v_bien_appart
+    TO 'r_wazaaimmogroup_employes'@'localhost';
+
+GRANT SELECT
+    ON wazaaimmogroup.v_bien_bureaux
+    TO 'r_wazaaimmogroup_employes'@'localhost';
+
+GRANT SELECT
+    ON wazaaimmogroup.v_bien_immeuble
+    TO 'r_wazaaimmogroup_employes'@'localhost';
+
+GRANT SELECT
+    ON wazaaimmogroup.v_bien_locauxpro
+    TO 'r_wazaaimmogroup_employes'@'localhost';
+
+GRANT SELECT
+    ON wazaaimmogroup.v_bien_maison
+    TO 'r_wazaaimmogroup_employes'@'localhost';
+
+GRANT SELECT
+    ON wazaaimmogroup.v_bien_terrain
+    TO 'r_wazaaimmogroup_employes'@'localhost';
+
+GRANT SELECT
+    ON wazaaimmogroup.v_nbre_vue_annonce
+    TO 'r_wazaaimmogroup_employes'@'localhost';
+
+GRANT SELECT
+    ON wazaaimmogroup.v_nbre_vue_an_achat
+    TO 'r_wazaaimmogroup_employes'@'localhost';
+
+GRANT SELECT
+    ON wazaaimmogroup.v_nbre_vue_an_ach_act
+    TO 'r_wazaaimmogroup_employes'@'localhost';
+
+GRANT SELECT
+    ON wazaaimmogroup.v_nbre_vue_an_louer
+    TO 'r_wazaaimmogroup_employes'@'localhost';
+
+GRANT SELECT
+    ON wazaaimmogroup.v_nbre_vue_an_lou_act
+    TO 'r_wazaaimmogroup_employes'@'localhost';
+
+-- accorde les privilèges que ces utilisateurs possedent eux-même
+-- GRANT grant option on wazaimmogroup.* to 'wazaaimmogroup_dev1'@'localhost';
+-- GRANT grant option on wazaimmogroup.* to 'wazaaimmogroup_employes1'@'localhost';
+
+-- enleve les privilèges à l'utilisateur
+-- REVOKE ALL PRIVILEGES , grant option from 'wazaaimmogroup_internaute1'@'localhost';
