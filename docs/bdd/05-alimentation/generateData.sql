@@ -91,6 +91,7 @@ VALUES (1,"Roberson","Tiger","CP 129, 2067 Vestibulum Chemin","05 92 16 16 15","
 --données waz_internautes
 DELETE FROM waz_internautes;
 
+<<<<<<< Updated upstream
 INSERT INTO  `waz_internautes` (`in_id`,`in_nom`,`in_prenom`,`in_adresse`,`in_telephone`,`in_email`,`in_pays`) 
 VALUES (1,"Martinez","Madison","1415 Sem Chemin","09 64 46 79 86","eget.nisi@montesnasceturridiculus.co.uk","Malta"),
 (2,"Burch","Orla","Appartement 292-7086 Leo Impasse","04 23 21 74 20","est@eusem.org","Svalbard and Jan Mayen Islands"),
@@ -103,6 +104,8 @@ VALUES (1,"Martinez","Madison","1415 Sem Chemin","09 64 46 79 86","eget.nisi@mon
 (9,"Payne","Simon","899-1417 Arcu. Rue","05 84 93 77 26","in.dolor@mauris.ca","Åland Islands"),
 (10,"Clarke","Nathan","CP 419, 4952 Lacus. Chemin","07 42 71 90 76","pede.nonummy.ut@penatibus.co.uk","Syria");
 
+=======
+>>>>>>> Stashed changes
 INSERT INTO `waz_internautes` (`in_id`,`in_nom`,`in_prenom`,`in_adresse`,`in_telephone`,`in_email`,`in_pays`,`in_mdp`,`in_est_contacter`)
 VALUES (1,"Justice","Irma","Appartement 352-1046 Consequat Rue","09 44 71 81 37","eget.varius.ultrices@velitCraslorem.com","Botswana","lOX10GOZ0BW$","1"),
        (2,"Franco","Nasim","6893 Pharetra. Rue","01 22 09 49 08","Proin.dolor.Nulla@Etiam.com","Micronesia","rHN84ALB5BH$","1"),
