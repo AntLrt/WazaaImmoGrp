@@ -116,6 +116,19 @@ VALUES (1,"Justice","Irma","Appartement 352-1046 Consequat Rue","09 44 71 81 37"
        (10,"Ramirez","Logan","CP 509, 4062 Sed Av.","01 81 81 85 94","Donec@Aliquameratvolutpat.org","Bangladesh","rXX55KHT7XM$","0");
 
 
+INSERT INTO `waz_internautes` (`in_id`,`in_nom`,`in_prenom`,`in_adresse`,`in_telephone`,`in_email`,`in_pays`,`in_mdp`,`in_est_contacter`)
+VALUES (1,"Justice","Irma","Appartement 352-1046 Consequat Rue","09 44 71 81 37","eget.varius.ultrices@velitCraslorem.com","Botswana","lOX10GOZ0BW$","1"),
+       (2,"Franco","Nasim","6893 Pharetra. Rue","01 22 09 49 08","Proin.dolor.Nulla@Etiam.com","Micronesia","rHN84ALB5BH$","1"),
+       (3,"Black","Hayes","6397 Magna. Av.","06 11 12 94 14","malesuada@eleifendegestasSed.com","Montenegro","oSJ87JKC0QX$","0"),
+       (4,"Padilla","Chava","Appartement 277-9389 Praesent Chemin","09 59 26 22 98","libero.at.auctor@nonummyultriciesornare.co.uk","Guernsey","gBJ90NBN0MY$","1"),
+       (5,"Britt","Kato","1220 Tempor, Rue","04 20 24 07 17","tellus.sem@eratsemperrutrum.org","Mexico","dPS71OFA0RH$","0"),
+       (6,"Johnson","Azalia","Appartement 542-6687 Nibh Avenue","08 18 96 74 94","aliquet@ultricessit.com","Ethiopia","lQI53QBE8RF$","0"),
+       (7,"Weiss","Dillon","6579 Erat Impasse","02 06 46 43 71","Duis.elementum@nequeNullamnisl.co.uk","Bhutan","cXN62ABQ6NN$","1"),
+       (8,"Cunningham","Dalton","332 Cras Rue","03 17 06 51 58","consectetuer.mauris.id@a.net","Niue","tDT08JMH9VQ$","0"),
+       (9,"Cunningham","Kibo","CP 381, 8081 Aliquet Route","07 25 95 49 16","consectetuer.rhoncus.Nullam@dolorelit.edu","Malawi","uQK39RCA8YV$","0"),
+       (10,"Ramirez","Logan","CP 509, 4062 Sed Av.","01 81 81 85 94","Donec@Aliquameratvolutpat.org","Bangladesh","rXX55KHT7XM$","0");
+
+
 --données waz_annonces
 DELETE FROM waz_annonces;
 
