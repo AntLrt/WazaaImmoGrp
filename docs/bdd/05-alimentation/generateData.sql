@@ -1,4 +1,4 @@
--- données pour waz_biens
+--  données pour waz_biens
 DELETE FROM waz_biens;
 
 INSERT INTO `waz_biens` (`bi_id`,`bi_type`,`bi_pieces`,`bi_ref`,`bi_description`,`bi_local`,`bi_surf_habitable`,`bi_surf_totale`,`bi_estimation_vente`,`bi_estimation_location`,`bi_diagnostic`)
@@ -63,7 +63,7 @@ VALUES (31,"immeuble","null","IM-0121-01","Lorem ipsum dolor sit amet, consectet
        (58,"appartement","null","AP-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","Bad Hersfeld","95","140","166634.14€","413.37€","E"),
        (59,"immeuble","null","IM-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam","Tumaco","100","150","162147.77€","653.32€","E"),
        (60,"garage","null","GA-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","Didim","115","155","143705.43€","776.79€","E");
--- données pour waz_photos
+--  données pour waz_photos
 DELETE FROM waz_photos;
 
 INSERT INTO waz_photos  (`pho_id`,`pho_nom`,`bi_id`) VALUES (1,"nom1",1),(2,"nom2",2),(3,"nom3",3),(4,"nom4",4),(5,"nom5",5),(6,"nom6",6),(7,"nom7",7),(8,"nom8",8),(9,"nom9",9),(10,"nom10",10);
@@ -73,7 +73,7 @@ INSERT INTO waz_photos (`pho_id`,`pho_nom`,`bi_id`) VALUES (31,"nom31",31),(32,"
 INSERT INTO waz_photos (`pho_id`,`pho_nom`,`bi_id`) VALUES (41,"nom41",41),(42,"nom42",42),(43,"nom43",43),(44,"nom44",44),(45,"nom45",45),(46,"nom46",46),(47,"nom47",47),(48,"nom48",48),(49,"nom49",49),(50,"nom50",50);
 INSERT INTO waz_photos (`pho_id`,`pho_nom`,`bi_id`) VALUES (51,"nom51",51),(52,"nom52",52),(53,"nom53",53),(54,"nom54",54),(55,"nom55",55),(56,"nom56",56),(57,"nom57",57),(58,"nom58",58),(59,"nom59",59),(60,"nom60",60);
 
--- données pour waz_employes
+--  données pour waz_employes
 DELETE FROM waz_employes;
 
 INSERT INTO `waz_employes` (`emp_id`,`emp_nom`,`emp_prenom`,`emp_adresse`,`emp_tel`,`emp_mail`,`emp_poste`,`emp_mdp`)
@@ -88,7 +88,7 @@ VALUES (1,"Roberson","Tiger","CP 129, 2067 Vestibulum Chemin","05 92 16 16 15","
        (9,"Sweeney","Iola","626-7591 Pellentesque Rue","07 19 66 11 30","sem.magna@amet.org","negociateur immobilier","NAB63YZU9b$B"),
        (10,"Kirkland","Dakota","697-7911 Turpis Rd.","03 73 70 55 27","vel.nisl@sitamet.ca","negociateur immobilier","WHA89Im++T7EC");
 
---données waz_internautes
+-- données waz_internautes
 DELETE FROM waz_internautes;
 
 INSERT INTO `waz_internautes` (`in_id`,`in_nom`,`in_prenom`,`in_adresse`,`in_telephone`,`in_email`,`in_pays`,`in_mdp`,`in_est_contacter`)
@@ -104,7 +104,7 @@ VALUES (1,"Justice","Irma","Appartement 352-1046 Consequat Rue","09 44 71 81 37"
        (10,"Ramirez","Logan","CP 509, 4062 Sed Av.","01 81 81 85 94","Donec@Aliquameratvolutpat.org","Bangladesh","rXX55KHT7XM$","0");
 
 
---données waz_annonces
+-- données waz_annonces
 DELETE FROM waz_annonces;
 
 INSERT INTO `waz_annonces` (`an_id`,`an_prix`,`an_ref`,`an_date_disponibilite`,`an_offre`,`an_nbre_vues`,`an_date_ajout`,`an_date_modif`,`an_titre`,`bi_id`,`an_est_active`)
@@ -166,7 +166,7 @@ VALUES (41,"162,036€","VE-LP-0421-01","2021-03-21","V",333,"2021-03-21","2021-
        (48,"104,274€","VE-LP-0421-01","2021-04-29","V",401,"2021-03-21","2021-03-26 16:25:06","tempus non, lacinia at, iaculis quis, pede. Praesent eu dui.",48,"1"),
        (49,"38,597€","AC-BU-0421-01","2021-03-21","A",371,"2021-03-21",null,"semper pretium neque. Morbi quis urna. Nunc quis arcu vel",49,"1"),
        (50,"173,424€","AC-MA-0121-01","2021-04-29","A",103,"2021-03-21","2021-03-26 16:25:06","leo. Cras vehicula aliquet libero. Integer in magna. Phasellus dolor",50,"0");
--- donnée pour waz_commentaire
+--  donnée pour waz_commentaire
 
 DELETE FROM waz_commentaire;
 INSERT INTO `waz_commentaire` (`com_id`,`com_avis`,`com_notes`,`com_date_ajout`,`in_id`)
@@ -181,13 +181,13 @@ VALUES (1,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur s
        (9,"Lorem ipsum dolor sit amet, consectetuer",3,"2021-03-20 17:09:05","7"),
        (10,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus.Ut nec",1,"2021-03-15 07:12:48","1");
 
--- donnée pour waz_composer
+--  donnée pour waz_composer
 
 DELETE FROM waz_composer;
 INSERT INTO `waz_composer` (`bi_id`,`opt_id`)
 VALUES ("10","4"),("2","3"),("2","6"),("5","2"),("10","6"),("7","7"),("6","6"),("4","4"),("10","12"),("8","3");
 
--- donnée pour waz_negocier
+--  donnée pour waz_negocier
 DELETE FROM waz_negocier;
 
 INSERT INTO `waz_negocier` (`emp_id`, `in_id`, `an_id`, `neg_est_conclu`, `neg_montant_transaction`,
@@ -204,7 +204,7 @@ VALUES
 (10, 4, 4, 0, '122.00', '2021-01-05', NULL, '2021-02-17'),
 (10, 8, 8, 0, '120.00', '2021-01-15', NULL, '2021-01-29');
 
--- donnée pour waz_contacter
+--  donnée pour waz_contacter
 DELETE FROM waz_contacter;
 
 INSERT INTO `waz_contacter` (`emp_id`,`in_id`,`co_sujet`,`co_question`,`co_date_ajout`)

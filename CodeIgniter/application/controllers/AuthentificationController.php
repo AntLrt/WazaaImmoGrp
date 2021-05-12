@@ -87,8 +87,6 @@ $this->session->set_userdata('prenom', "$IntNom");
 $this->session->set_userdata('ID', "$IntID");
 }
 
-echo $this->session->login;
-echo $this->session->role;
 
 $this->load->view('Headerview');
 $this->load->view('ConnexionReussiView');
@@ -120,8 +118,8 @@ public function Deconnexion()
 {
 if(isset($this->session->login)){
 session_destroy();
-header('Location: http://localhost/ci/index.php/AccueilController/Accueil');      
-exit();}
+$this->load->helper('url');
+redirect(site_url("AccueilController/Accueil"));}
 else {
 $Erreur = "Vous n'êtes pas connecté !";
 // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue   
@@ -179,8 +177,8 @@ $this->load->view('Headerview');
 $this->load->view('DetailsCompteView', $aView);
 }
 else{
-header('Location: http://localhost/ci/index.php/AuthentificationController/login');
-exit(); 
+        $this->load->helper('url');
+        redirect(site_url("AccueilController/Accueil")); 
 }
 }
 else {
@@ -281,7 +279,8 @@ if ($this->input->post())
                 echo"<script type='text/javascript'>
                 window.alert('Votre compte a été crée !')
                 </script>";  
-                header("location: http://localhost/ci/index.php/Accueilcontroller/accueil");   
+                $this->load->helper('url');
+                redirect(site_url("AccueilController/Accueil"));   
 
         } 
         }
