@@ -1,4 +1,4 @@
-<form action="http://localhost/ci/index.php/AuthentificationController/login" method="post"> 
+<form action="<?=site_url("AuthentificationController/Login")?>" method="post"> 
 
 
 
