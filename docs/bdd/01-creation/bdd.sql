@@ -86,10 +86,10 @@ CREATE TABLE waz_internautes
    in_prenom VARCHAR(30) NOT NULL CHECK(REGEXP_LIKE(in_prenom,'(^[^ \\W\\d_-])([A-Za-zàáâäçèéêëìíîïñòóôöùúûü ]+)([ -]?)[A-Za-zàáâäçèéêëìíîïñòóôöùúûü]+$')),
    in_adresse VARCHAR(50) NOT NULL,
    in_telephone VARCHAR(50) NOT NULL CHECK (REGEXP_LIKE (in_telephone,'^[^ \W]([0-9 \/\-])*$')),
-   in_email VARCHAR(50) NOT NULL  CHECK (REGEXP_LIKE(in_email,'([a-z0-9.-])+@([a-z0-9.-]{2,})([.]{1})[a-z]{2,4}$')),
+   in_email VARCHAR(50) NOT NULL  CHECK (REGEXP_LIKE(in_email,'([a-z0-9.-])+@([a-z0-9.-]{1,})([.]{1})[a-z]{2,4}$')),
    in_pays VARCHAR(50) NOT NULL,
-   in_est_contacter BOOLEAN NOT NULL DEFAULT 0 CHECK (in_est_contacter IN ('0', '1') ) 
-   COMMENT '1=contacter 0=non contacter', 
+   in_est_contacter BOOLEAN NOT NULL DEFAULT 0 CHECK (in_est_contacter IN ('0', '1') ) COMMENT '1=contacter 0=non contacter',
+   in_mdp VARCHAR(50) NOT NULL CHECK(REGEXP_LIKE(in_mdp,'^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[+!*$@%_-])([+!*$@%_\\w -]{8,15})$')),
    PRIMARY KEY(in_id),
    UNIQUE(in_email)
 );
@@ -169,6 +169,7 @@ CREATE TABLE waz_contacter
    in_id INT(10),
    co_sujet VARCHAR(50) NOT NULL CHECK(co_sujet IN ('acheter','vendre','louer','autres')),
    co_question TEXT NOT NULL,
+   co_date_ajout DATETIME NOT NULL DEFAULT (CURRENT_DATE),
    PRIMARY KEY(emp_id, in_id),
    FOREIGN KEY(emp_id) REFERENCES waz_employes(emp_id),
    FOREIGN KEY(in_id) REFERENCES waz_internautes(in_id)
