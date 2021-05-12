@@ -23,7 +23,7 @@ echo "<a href='$url'>Contact</a><br>";}?>
 
 <?php if($this->session->role != "Employe" && $this->session->role != "Internaute"){
 $url=site_url("AuthentificationController/Inscription");
-echo "<a href='$url'>Inscription</a><br>";}?>
+echo "<br><a href='$url'>Inscription</a><br>";}?>
 
 <?php if($this->session->role == "Employe"){
 $url1=site_url("BiensController/ListeBiens");
@@ -37,7 +37,7 @@ echo "<a href='$url1'>ListeBiens(admin)</a><br>
 <a href='$url4'>ListeEmployes(admin)</a><br><br>";}?>
 
 <?php if(isset($this->session->login)){
-echo "Bonjour, ".$this->session->role.", ".$this->session->nom.", ".$this->session->prenom;
+echo "<br>Bonjour, ".$this->session->role.", ".$this->session->nom.", ".$this->session->prenom;
 
 $url=site_url("AuthentificationController/Deconnexion");
 echo "<form action='$url' method='post'>";

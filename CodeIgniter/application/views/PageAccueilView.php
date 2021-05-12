@@ -1,4 +1,4 @@
-<form action="http://localhost/ci/index.php/AccueilController/Accueil" method="post"> 
+<form action="<?= site_url("AccueilController/Accueil")?>" method="post"> 
 
 <div class="form-group">
 <label for="Operation">Type d'opération </label>
@@ -31,35 +31,29 @@
 <input type="text" name="Ville" id="Ville" class="form-control">
 </div>
 
-<!-- <div class="form-group">
-<label for="pro_ref">Référence</label>
-<input type="text" name="pro_ref" id="pro_ref" class="form-control">
-</div>  -->
-
 <button type="submit" class="btn btn-dark">Rechercher</button>    
 </form>
 
 <br>
 
 <?php foreach ($photo1 as $row) {$anid1 = $row->an_id;}?>
-<a href="<?php echo base_url();?>index.php/AnnoncesController/Details/<?php echo $anid1?>">
+<a href="<?=site_url("AnnoncesController/Details")?>/<?php echo $anid1?>">
 <?php foreach ($photo1 as $row) {$PhotoUne = $row->pho_nom;}?>
 <img src="<?php echo base_url();?>/assets/images/<?php echo $PhotoUne;?>.jpg" width="200" height="100" title="Cliquez pour voir cette annonce !">
 </a>
 
 <?php foreach ($photo2 as $row) {$anid2 = $row->an_id;}?>
-<a href="<?php echo base_url();?>index.php/AnnoncesController/Details/<?php echo $anid2?>">
+<a href="<?=site_url("AnnoncesController/Details")?>/<?php echo $anid2?>">
 <?php foreach ($photo2 as $row) {$PhotoDeux = $row->pho_nom;}?>
 <img src="<?php echo base_url();?>/assets/images/<?php echo $PhotoDeux;?>.jpg" width="200" height="100" title="Cliquez pour voir cette annonce !">
 </a>
 
 <?php foreach ($photo3 as $row) {$anid3 = $row->an_id;}?>
-<a href="<?php echo base_url();?>index.php/AnnoncesController/Details/<?php echo $anid3?>">
+<a href="<?=site_url("AnnoncesController/Details")?>/<?php echo $anid3?>">
 <?php foreach ($photo3 as $row) {$PhotoTrois = $row->pho_nom;}?>
 <img src="<?php echo base_url();?>/assets/images/<?php echo $PhotoTrois;?>.jpg" width="200" height="100" title="Cliquez pour voir cette annonce !">
 </a>
 
-<form action="http://localhost/ci/index.php/MembresController/CommentairePubli" method="post"> 
 
 <br>
 
@@ -70,9 +64,11 @@
 
 <?php //On donne la possibilité de laisser un commentaire si la personne est connecté sinon on dit qu'il faut être connecté pour laisser un commentaire
 if($this->session->role == "Internaute"){
-echo "<div class='form-group'>
+$url = site_url("MembresController/CommentairePubli");
+echo "<form action='$url' method='post'> 
+<div class='form-group'>
 <br>
-<label for='Demande'>Laissez un commentaire sur notre entreprise !</label>
+<label for='Commentaire'>Laissez un commentaire sur notre entreprise !</label>
 <br>
 <textarea rows='3' class='form-control' placeholder='Entrez votre commentaire ici'
 name='Commentaire' id='Commentaire'></textarea>
@@ -150,7 +146,7 @@ echo $row->com_date_ajout." </p>";
 </div>
 </div>
 
-<a href="http://localhost/ci/index.php/MembresController/Commentaires">Voir tout les commentaires</a><br><br>
+<a href="<?= site_url("MembresController/Commentaires")?>">Voir tout les commentaires</a><br><br>
 
 
 

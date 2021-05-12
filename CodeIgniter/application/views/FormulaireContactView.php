@@ -1,5 +1,4 @@
-<form action="http://localhost/ci/index.php/ContactController/Formulaire" method="post"> 
-
+<?php echo form_open(); ?>
 
 
 <div class="form-group">

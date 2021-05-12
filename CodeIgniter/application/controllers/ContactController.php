@@ -23,10 +23,10 @@ $this->load->library('table');
 $this->load->database();
 
 // Exécute la requête 
-$results = $this->db->query("SELECT waz_contacter.in_id AS 'ID internaute', in_email AS 'Email internaute', co_sujet AS 'Sujet', co_question AS 'Question'
+$results = $this->db->query("SELECT waz_contacter.in_id AS 'ID internaute',co_date_ajout AS 'Date envoi du formulaire contact', in_email AS 'Email internaute', co_sujet AS 'Sujet', co_question AS 'Question'
 FROM waz_contacter,waz_internautes
 WHERE waz_contacter.in_id=waz_internautes.in_id
-ORDER BY waz_contacter.in_id
+ORDER BY co_date_ajout
 ");  
 
 // Forme du tableau
@@ -55,6 +55,9 @@ else {
     $this->load->view('Headerview',$aView);
 }
 }
+
+
+
 
 
 public function Formulaire()
@@ -94,10 +97,26 @@ public function Formulaire()
 
                 $this->load->database();
                 $data["emp_id"] = 10;
-                //A changer selon id connexion
                 $data["in_id"] = $this->session->ID;;
                 $data["co_sujet"] = $Sujet;
                 $data["co_question"] = $Demande;
+                //////Date avec bon fuseau horaire
+                    // first line of PHP
+                    $defaultTimeZone='UTC';
+                    if(date_default_timezone_get()!=$defaultTimeZone) date_default_timezone_set($defaultTimeZone);
+
+                    // somewhere in the code
+                    function _date($format="r", $timestamp=false, $timezone=false)
+                    {
+                    $userTimezone = new DateTimeZone(!empty($timezone) ? $timezone : 'GMT');
+                    $gmtTimezone = new DateTimeZone('GMT');
+                    $myDateTime = new DateTime(($timestamp!=false?date("r",(int)$timestamp):date("r")), $gmtTimezone);
+                    $offset = $userTimezone->getOffset($myDateTime);
+                    return date($format, ($timestamp!=false?(int)$timestamp:$myDateTime->format('U')) + $offset);
+                    }
+                    /* Example */
+                    $Date=_date("Y-m-d H:i:s", false, 'Europe/Belgrade');
+                $data["co_date_ajout"] = $Date;
                 $this->db->insert('waz_contacter', $data);
                 $this->load->view('HeaderView');
                 $this->load->view('FormulaireContactEnvoyeView');
