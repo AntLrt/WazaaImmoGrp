@@ -1,10 +1,16 @@
-<form action="<?= site_url("AccueilController/Accueil")?>" method="post"> 
+<?php if($this->session->role != 'Internaute'){echo form_open();}
+else {
+$url=site_url("AccueilController/Accueil");
+echo "<form action='$url' method='post'>";
+}?>
+
+
 
 <div class="form-group">
 <label for="Operation">Type d'opération </label>
 
 <select name="Operation" id="Operation">
-<option value="">Type d'Operation'</option>
+<option value="">Type d'Operation </option>
 <option value="A">Achat</option>
 <option value="L">Location</option>
 <option value="V">Viager</option>
@@ -97,6 +103,8 @@ name='Commentaire' id='Commentaire'></textarea>
 
 }
 else{echo "<br><br>Connectez-vous ou créer un compte pour pouvoir laisser un commentaire !";}?>
+
+
 
 <div class="row">
 <div class="col-12">    
