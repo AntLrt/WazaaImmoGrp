@@ -130,6 +130,16 @@ CREATE TABLE waz_commentaire
    PRIMARY KEY(com_id),
    FOREIGN KEY(in_id) REFERENCES waz_internautes(in_id)
 );
+
+-- Structure de la table waz_favoris
+CREATE TABLE waz_favoris(
+    fav_id INT(10) NOT NULL AUTO_INCREMENT,
+    an_id INT (10) NOT NULL,
+    PRIMARY KEY(fav_id),
+    FOREIGN KEY(an_id) REFERENCES waz_annonces(an_id)
+);
+
+
 -- Structure de la table waz_annonces
 
 CREATE TABLE waz_composer
@@ -197,6 +207,16 @@ CREATE TABLE histo_negocier
    FOREIGN KEY(in_id) REFERENCES waz_internautes(in_id),
    FOREIGN KEY(an_id) REFERENCES waz_annonces(an_id)
 
+);
+
+-- Structure de la table waz_enregistrer
+
+CREATE TABLE enregistrer(
+    in_id INT (10),
+    fav_id INT (10),
+    PRIMARY KEY(in_id, fav_id),
+    FOREIGN KEY(in_id) REFERENCES waz_internautes(in_id),
+    FOREIGN KEY(fav_id) REFERENCES waz_favoris(fav_id)
 );
 
 

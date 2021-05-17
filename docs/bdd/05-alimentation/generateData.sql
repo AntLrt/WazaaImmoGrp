@@ -92,8 +92,8 @@ VALUES (1,"Roberson","Tiger","CP 129, 2067 Vestibulum Chemin","05 92 16 16 15","
 DELETE FROM waz_internautes;
 
 INSERT INTO `waz_internautes` (`in_id`,`in_nom`,`in_prenom`,`in_adresse`,`in_telephone`,`in_email`,`in_pays`,`in_mdp`,`in_est_contacter`)
-VALUES (1,"Justice","Irma","Appartement 352-1046 Consequat Rue","09 44 71 81 37","eget.varius.ultrices@velitCraslorem.com","Botswana","lOX10GOZ0BW$","1"),
-       (2,"Franco","Nasim","6893 Pharetra. Rue","01 22 09 49 08","Proin.dolor.Nulla@Etiam.com","Micronesia","rHN84ALB5BH$","1"),
+VALUES (1,"Justice","Irma","Appartement 352-1046 Consequat Rue","09 44 71 81 37","eget.varius.ultrices@velitCraslorem.com","Botswana","lOX10GOZ0BW$","1",),
+       (2,"Franco","Nasim","6893 Pharetra. Rue","01 22 09 49 08","Proin.dolor.Nulla@Etiam.com","Micronesia","rHN84ALB5BH$","1",),
        (3,"Black","Hayes","6397 Magna. Av.","06 11 12 94 14","malesuada@eleifendegestasSed.com","Montenegro","oSJ87JKC0QX$","0"),
        (4,"Padilla","Chava","Appartement 277-9389 Praesent Chemin","09 59 26 22 98","libero.at.auctor@nonummyultriciesornare.co.uk","Guernsey","gBJ90NBN0MY$","1"),
        (5,"Britt","Kato","1220 Tempor, Rue","04 20 24 07 17","tellus.sem@eratsemperrutrum.org","Mexico","dPS71OFA0RH$","0"),
@@ -181,7 +181,10 @@ VALUES (1,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur s
        (9,"Lorem ipsum dolor sit amet, consectetuer",3,"2021-03-20 17:09:05","7"),
        (10,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus.Ut nec",1,"2021-03-15 07:12:48","1");
 
--- donnée pour waz_composer
+-- donnée pour waz_favoris
+DELETE FROM waz_favoris;
+INSERT INTO `waz_favoris` (`fav_id`,`an_id`) VALUES (1,"2"),(2,"10"),(3,"26"),(4,"15");
+--  donnée pour waz_composer
 
 DELETE FROM waz_composer;
 INSERT INTO `waz_composer` (`bi_id`,`opt_id`)
@@ -216,6 +219,9 @@ VALUES ("7","1","Louer","Lorem ipsum dolor sit amet, consectetuer adipiscing eli
        ("9","7","Vendre","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","2021-05-07"),
        ("10","8","Autres","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper.","2021-05-07"),("7","9","Louer","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","2021-05-07"),("8","10","Acheter","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper.","2021-05-07");
 
+-- donnée pour la table waz_enregistrer
+
+INSERT INTO `waz_enregistrer` (`in_id`,`fav_id`) VALUES ("1","1"),("2","2"),("4","3"),("6","4");
 
 
 
