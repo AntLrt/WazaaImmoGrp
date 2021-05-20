@@ -56,8 +56,67 @@ class AnnonceModel extends CI_Model
 
         return $tof;
 
+    }
+
+    public function Ventes ()
+    {
+        // Chargement de la librairie 'database'
+        $this->load->database();
+        // Exécute la requête
+        $results = $this->db->query("SELECT *
+        FROM waz_annonces,waz_biens,waz_photos
+        WHERE an_offre = 'A'
+        AND waz_annonces.an_id=waz_biens.bi_id
+        AND waz_photos.bi_id=waz_biens.bi_id");
+
+        // Récupération des résultats
+        $aListe = $results->result();
+        return $aListe;
+    }
+
+    public function Detail($an_id)
+    {
+        // Chargement de la librairie 'database'
+        $this->load->database();
+
+        // Exécute la requête
+        //1 annonce
+        $Resultat1 = $this->db->query("SELECT *
+        FROM waz_annonces,waz_biens,waz_photos
+        WHERE an_id = '$an_id' AND waz_annonces.an_id=waz_biens.bi_id AND waz_photos.bi_id=waz_biens.bi_id");
+        // Récupération des résultats
+        $DetailsAnnonce = $Resultat1->result();
+
+        //option de l'annonce
+        $Resultat2 = $this->db->query("SELECT waz_biens.bi_id,opt_libelle
+        FROM waz_biens,waz_options, waz_composer,waz_annonces
+        WHERE waz_annonces.an_id='$an_id' AND waz_biens.bi_id=waz_annonces.bi_id
+        AND waz_biens.bi_id=waz_composer.bi_id AND waz_composer.opt_id=waz_options.opt_id
+        ");
+
+        // Récupération des résultats
+        $OptionsAnnonces = $Resultat2->result();
+
+        //nbre de vue d'une annonce
+        $AjoutVue = $this->db->query("SELECT an_nbre_vues
+                FROM waz_annonces
+                WHERE waz_annonces.an_id='$an_id' 
+                ");
+
+        // Récupération des résultats
+        $AjoutVue = $AjoutVue->result();
+        //compter le nombre de vue d'une annonce
+        foreach ($AjoutVue as $row) {$NombVues = $row->an_nbre_vues;}
+        $NombVues = $NombVues + 1;
+        $data["an_nbre_vues"] = $NombVues;
+        $this->db->update("waz_annonces", $data, "an_id = $an_id");
+
+
+        $return['DetailsAnnonce'] = $DetailsAnnonce;
+        $return['OptionsAnnonces'] = $OptionsAnnonces;
+        $return['AjoutVue'] = $AjoutVue;
+        return $return;
 
     }
 
 }
-

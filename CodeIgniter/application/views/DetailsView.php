@@ -3,7 +3,7 @@
 <div class="row">
 <div class="col-12">
 <?php
-foreach ($details as $row) {
+foreach ($Details as $row) {
     $NomPhoto = $row->pho_nom;
     echo "<img src= " . base_url() . "assets/images/" . $NomPhoto . ".jpg width='150' height='100'>";
 
