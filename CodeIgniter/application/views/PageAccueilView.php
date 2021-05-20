@@ -42,22 +42,22 @@ echo "<form action='$url' method='post'>";
 
 <br>
 
-<?php foreach ($photo1 as $row) {$anid1 = $row->an_id;}?>
+<?php  foreach ($anid['photo1'] as $row) {$anid1 = $row->an_id;}?>
 <a href="<?=site_url("AnnoncesController/Details")?>/<?php echo $anid1?>">
-<?php foreach ($photo1 as $row) {$PhotoUne = $row->pho_nom;}?>
-<img src="<?php echo base_url();?>/assets/images/<?php echo $PhotoUne;?>.jpg" width="200" height="100" title="Cliquez pour voir cette annonce !">
+    <?php foreach ($anid['photo1'] as $row) {$PhotoUne = $row->pho_nom;}?>
+    <img src="<?php echo base_url();?>/assets/images/<?php echo $PhotoUne;?>.jpg" width="200" height="100" title="Cliquez pour voir cette annonce !">
 </a>
 
-<?php foreach ($photo2 as $row) {$anid2 = $row->an_id;}?>
+<?php foreach ($anid['photo2'] as $row) {$anid2 = $row->an_id;}?>
 <a href="<?=site_url("AnnoncesController/Details")?>/<?php echo $anid2?>">
-<?php foreach ($photo2 as $row) {$PhotoDeux = $row->pho_nom;}?>
-<img src="<?php echo base_url();?>/assets/images/<?php echo $PhotoDeux;?>.jpg" width="200" height="100" title="Cliquez pour voir cette annonce !">
+    <?php foreach ($anid['photo2'] as $row) {$PhotoDeux = $row->pho_nom;}?>
+    <img src="<?php echo base_url();?>/assets/images/<?php echo $PhotoDeux;?>.jpg" width="200" height="100" title="Cliquez pour voir cette annonce !">
 </a>
 
-<?php foreach ($photo3 as $row) {$anid3 = $row->an_id;}?>
+<?php foreach ($anid['photo3'] as $row) {$anid3 = $row->an_id;}?>
 <a href="<?=site_url("AnnoncesController/Details")?>/<?php echo $anid3?>">
-<?php foreach ($photo3 as $row) {$PhotoTrois = $row->pho_nom;}?>
-<img src="<?php echo base_url();?>/assets/images/<?php echo $PhotoTrois;?>.jpg" width="200" height="100" title="Cliquez pour voir cette annonce !">
+    <?php foreach ($anid['photo3'] as $row) {$PhotoTrois = $row->pho_nom;}?>
+    <img src="<?php echo base_url();?>/assets/images/<?php echo $PhotoTrois;?>.jpg" width="200" height="100" title="Cliquez pour voir cette annonce !">
 </a>
 
 
