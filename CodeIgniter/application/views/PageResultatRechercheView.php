@@ -3,7 +3,7 @@
 <div class="row">
 <div class="col-12">    
 <?php 
-if(empty($liste_produits))
+if(empty($results))
 {echo form_open(); 
 
     echo "<div class='form-group'>
@@ -44,7 +44,7 @@ echo "Aucune annonce correspondant à vos critères trouvé.";
 }
 
 else{
-foreach ($liste_produits as $row) 
+foreach ($results as $row) 
 {
 $NomPhoto = $row->pho_nom;
 echo "<img src=".base_url()."/assets/images/".$NomPhoto.".jpg width='150' height='100'>";
@@ -60,6 +60,10 @@ echo "<a href=$url/$row->an_id>Détails</a><br>";
 }
 ?>
 </div>
+<?php if (isset($links)) 
+        { 
+            echo $links;
+        }?>
 </div>
 
 
