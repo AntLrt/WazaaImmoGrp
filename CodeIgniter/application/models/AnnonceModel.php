@@ -3,6 +3,11 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class AnnonceModel extends CI_Model
 {
+    function __construct() 
+{
+    parent::__construct();
+}
+
     public Function Vues ()
     {
         // Chargement de la librairie 'database'
@@ -58,21 +63,72 @@ class AnnonceModel extends CI_Model
 
     }
 
-    public function Ventes ()
-    {
-        // Chargement de la librairie 'database'
-        $this->load->database();
-        // Exécute la requête
-        $results = $this->db->query("SELECT *
-        FROM waz_annonces,waz_biens,waz_photos
-        WHERE an_offre = 'A'
-        AND waz_annonces.an_id=waz_biens.bi_id
-        AND waz_photos.bi_id=waz_biens.bi_id");
+    public function get_loca_records($limit, $start) 
+{
+    $this->db->limit($limit, $start);  
+    $this->db->where('an_offre', 'L');
+    $this->db->from('waz_annonces','waz_biens','waz_photos');
+    $this->db->join('waz_biens', 'waz_annonces.bi_id = waz_biens.bi_id');
+    $this->db->join('waz_photos', 'waz_photos.bi_id = waz_biens.bi_id');
+    $query = $this->db->get();
 
-        // Récupération des résultats
-        $aListe = $results->result();
-        return $aListe;
+    if ($query->num_rows() > 0) 
+    {
+        foreach ($query->result() as $row) 
+        {
+            $data[] = $row;
+        }
+            
+        return $data;
     }
+
+    return false;
+}
+    
+public function get_total_loca() 
+{       
+$this->db->where('an_offre', 'L');
+$this->db->from('waz_annonces','waz_biens','waz_photos');
+$this->db->join('waz_biens', 'waz_annonces.bi_id = waz_biens.bi_id');
+$this->db->join('waz_photos', 'waz_photos.bi_id = waz_biens.bi_id');
+$query = $this->db->get();
+return $query->num_rows();
+}
+
+
+
+public function get_ventes_records($limit, $start) 
+{
+$this->db->limit($limit, $start);  
+$this->db->where('an_offre', 'V');
+$this->db->from('waz_annonces','waz_biens','waz_photos');
+$this->db->join('waz_biens', 'waz_annonces.bi_id = waz_biens.bi_id');
+$this->db->join('waz_photos', 'waz_photos.bi_id = waz_biens.bi_id');
+$query = $this->db->get();
+
+if ($query->num_rows() > 0) 
+{
+    foreach ($query->result() as $row) 
+    {
+        $data[] = $row;
+    }
+        
+    return $data;
+}
+
+return false;
+}
+
+
+public function get_total_ventes() 
+{       
+    $this->db->where('an_offre', 'V');
+    $this->db->from('waz_annonces','waz_biens','waz_photos');
+    $this->db->join('waz_biens', 'waz_annonces.bi_id = waz_biens.bi_id');
+    $this->db->join('waz_photos', 'waz_photos.bi_id = waz_biens.bi_id');
+    $query = $this->db->get();
+    return $query->num_rows();
+}
 
     public function Detail($an_id)
     {
