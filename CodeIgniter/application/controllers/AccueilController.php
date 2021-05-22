@@ -14,7 +14,7 @@ $this->load->library('pagination');
 
 $this->load->model('BarreRechercheModel');
 
-if($actual_link == site_url('AccueilController/Accueil'))
+if($actual_link == site_url('AccueilController/Accueil') || $actual_link == 'http://wazaagroupe/')
 {
     $pageretour = "";
     //afficher aide au debug
