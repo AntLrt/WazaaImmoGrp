@@ -25,7 +25,7 @@ FROM waz_contacter,waz_internautes
 WHERE waz_contacter.in_id=waz_internautes.in_id
 ORDER BY co_date_ajout
 ");
-
+// Changement test commit 
 // Forme du tableau
             $template = array(
                 'table_open' => '<table border="2" cellpadding="5" cellspacing="2" class="mytable">',

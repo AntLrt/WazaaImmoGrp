@@ -13,6 +13,7 @@ $this->load->library('pagination');
 //afficher aide au debug
 
 $this->load->model('BarreRechercheModel');
+// Changement test commit 
 
 if($actual_link == site_url('AccueilController/Accueil') || $actual_link == 'http://wazaagroupe/')
 {

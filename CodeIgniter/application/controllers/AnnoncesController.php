@@ -20,7 +20,7 @@ $this->load->library('pagination');
 // load URL helper
 $this->load->helper('url');
 }
-
+// Changement test commit 
 
 
 public function Loca() 
