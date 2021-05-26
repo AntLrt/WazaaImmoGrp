@@ -211,7 +211,7 @@ CREATE TABLE histo_negocier
 
 -- Structure de la table waz_enregistrer
 
-CREATE TABLE enregistrer(
+CREATE TABLE waz_enregistrer(
     in_id INT (10),
     fav_id INT (10),
     PRIMARY KEY(in_id, fav_id),
