@@ -7,111 +7,98 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class AuthentificationController extends CI_Controller
 {
 
-        public function login()
-        {if (!isset($this->session->login)) {
-                //afficher aide au debug
-                $this->output->enable_profiler(true);
+public function login()
+{if (!isset($this->session->login)) {
+//afficher aide au debug
+$this->output->enable_profiler(true);
 
-                // Chargement des assistants 'form' et 'url'
-                $this->load->helper('form', 'url');
+// Chargement des assistants 'form' et 'url'
+$this->load->helper('form', 'url');
 
-                // Chargement de la librairie 'database'
-                $this->load->database();
+// Chargement de la librairie 'database'
+$this->load->database();
 
-                if ($this->input->post()) 
-                { // 2ème appel de la page: traitement du formulaire
-                        $data = $this->input->post();
+if ($this->input->post()) { // 2ème appel de la page: traitement du formulaire
+        $data = $this->input->post();
 
-                        $LoginEmp = $_POST['login_name'];
-                        $MdpEmp = $_POST['password_name'];
-                        // Exécute la requête
-                        $resultsemp = $this->db->query("SELECT emp_nom,emp_prenom,emp_id
-                        FROM waz_employes
-                        WHERE emp_mail = '$LoginEmp' AND emp_mdp= '$MdpEmp'");
+        $LoginEmp = $_POST['login_name'];
+        $MdpEmp = $_POST['password_name'];
+        // Exécute la requête
+        $resultsemp = $this->db->query("SELECT emp_nom,emp_prenom,emp_id
+                FROM waz_employes
+                WHERE emp_mail = '$LoginEmp' AND emp_mdp= '$MdpEmp'");
 
-                        // Récupération des résultats
-                        $RequeteEmploye = $resultsemp->result();
+        // Récupération des résultats
+        $RequeteEmploye = $resultsemp->result();
 
-                        foreach ($RequeteEmploye as $row) {$EmpPrenom = $row->emp_prenom;
-                                $EmpNom = $row->emp_nom;
-                                $EmpID = $row->emp_id;}
+        foreach ($RequeteEmploye as $row) {$EmpPrenom = $row->emp_prenom;
+        $EmpNom = $row->emp_nom;
+        $EmpID = $row->emp_id;}
 
-                        $EstUnEmploye = false;
-                        if (!empty($RequeteEmploye)) {$EstUnEmploye = true;}
-                        
+        $EstUnEmploye = false;
+        if (!empty($RequeteEmploye)) {$EstUnEmploye = true;}
 
-                        if($EstUnEmploye == true){
-                                $this->session->set_userdata('role', "Employe");
-                                $this->session->set_userdata('login', "$LoginEmp");
-                                $this->session->set_userdata('nom', "$EmpPrenom");
-                                $this->session->set_userdata('prenom', "$EmpNom");
-                                $this->session->set_userdata('ID', "$EmpID");
+        if ($EstUnEmploye == true) {
+        $this->session->set_userdata('role', "Employe");
+        $this->session->set_userdata('login', "$LoginEmp");
+        $this->session->set_userdata('nom', "$EmpPrenom");
+        $this->session->set_userdata('prenom', "$EmpNom");
+        $this->session->set_userdata('ID', "$EmpID");
 
-                                $this->load->view('Headerview');
-                                $this->load->view('ConnexionReussiView');
-                        }
+        $this->load->view('Headerview');
+        $this->load->view('ConnexionReussiView');
+        } else {
 
-                        else{
-                        
-                        $LoginInt = $_POST['login_name'];
-                        $MdpInt = $_POST['password_name'];
+        $LoginInt = $_POST['login_name'];
+        $MdpInt = $_POST['password_name'];
 
-                        // Exécute la requête
-                        $resultsint = $this->db->query("SELECT in_nom,in_prenom,in_id
-                        FROM waz_internautes
-                        WHERE in_email = '$LoginInt' AND in_mdp= '$MdpInt'");
+        // Exécute la requête
+        $resultsint = $this->db->query("SELECT in_nom,in_prenom,in_id
+                FROM waz_internautes
+                WHERE in_email = '$LoginInt' AND in_mdp= '$MdpInt'");
 
-                        // Récupération des résultats
-                        $RequeteInternaute = $resultsint->result();
+        // Récupération des résultats
+        $RequeteInternaute = $resultsint->result();
 
-                        foreach ($RequeteInternaute as $row) {$IntPrenom = $row->in_prenom;
-                                $IntNom = $row->in_nom;
-                                $IntID = $row->in_id;}
+        foreach ($RequeteInternaute as $row) {$IntPrenom = $row->in_prenom;
+                $IntNom = $row->in_nom;
+                $IntID = $row->in_id;}
 
-                        $EstUninternaute = false;
-                        
-                        if (!empty($RequeteInternaute)) {$EstUninternaute = true;}
-                                if($EstUninternaute){
-                                $this->session->set_userdata('role', "Internaute");
-                                $this->session->set_userdata('login', "$LoginInt");
-                                $this->session->set_userdata('nom', "$IntPrenom");
-                                $this->session->set_userdata('prenom', "$IntNom");
-                                $this->session->set_userdata('ID', "$IntID");
-                                
-                                $this->load->view('Headerview');
-                                $this->load->view('ConnexionReussiView');
-                                }
+        $EstUninternaute = false;
 
-                                else{
-                                echo "<script type='text/javascript'>
-                                window.alert('Connexion refusé')
-                                </script>";
+        if (!empty($RequeteInternaute)) {$EstUninternaute = true;}
+        if ($EstUninternaute) {
+                $this->session->set_userdata('role', "Internaute");
+                $this->session->set_userdata('login', "$LoginInt");
+                $this->session->set_userdata('nom', "$IntPrenom");
+                $this->session->set_userdata('prenom', "$IntNom");
+                $this->session->set_userdata('ID', "$IntID");
 
-                                $this->load->view('Headerview');
-                                $this->load->view('ConnexionView');
-                                }
-                } 
-                } 
-                else 
-                { // 1er appel de la page: affichage du formulaire
+                $this->load->view('Headerview');
+                $this->load->view('ConnexionReussiView');
+        } else {
+                echo "<script type='text/javascript'>
+                        window.alert('Connexion refusé')
+                        </script>";
+
                 $this->load->view('Headerview');
                 $this->load->view('ConnexionView');
-                }} 
-
-        else {
-        $Erreur = "Vous êtes déjà connecté(e) !";
-        // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
-        $aView["RefusAcces"] = $Erreur;
-        $this->load->view('Headerview', $aView);
         }
         }
-
-
-
+} else { // 1er appel de la page: affichage du formulaire
+        $this->load->view('Headerview');
+        $this->load->view('ConnexionView');
+}} else {
+$Erreur = "Vous êtes déjà connecté(e) !";
+// Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
+$aView["RefusAcces"] = $Erreur;
+$this->load->view('Headerview', $aView);
+}
+}
 
 public function Deconnexion()
 {
-        if (isset($this->session->login)) {
+if (isset($this->session->login)) {
         session_destroy();
         $this->load->helper('url');
         redirect(site_url("AccueilController/Accueil"));} else {
@@ -120,63 +107,48 @@ public function Deconnexion()
         $aView["RefusAcces"] = $Erreur;
 
         $this->load->view('Headerview', $aView);
-        }
+}
 }
 
-
-
-
 public function DetailsCompte()
-{if (isset($this->session->login)) {
-// $IDcompte = L'itrnasmis par la connexion
-
-//afficher aide au debug
+{
+        //afficher aide au debug
         $this->output->enable_profiler(true);
 
-// Charge la librairie 'database'
+        // Charge la librairie 'database'
         $this->load->database();
 
-        if ($this->session->role == "Internaute") {
+        if ($this->session->role == "Internaute") 
+        {
         $Login = $this->session->login;
-// Exécute la requête
-            $DetailsInternaute = $this->db->query("SELECT *
-FROM waz_internautes
-WHERE in_email='$Login'");
+        // Exécute la requête
+        $DetailsInternaute = $this->db->query("SELECT *
+        FROM waz_internautes
+        WHERE in_email='$Login'");
 
         $Details = $DetailsInternaute->result();
 
-// Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
+        // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
         $aView["Details"] = $Details;
 
-// Appel de la vue avec transmission du tableau
+        // Appel de la vue avec transmission du tableau
         $this->load->view('Headerview');
         $this->load->view('DetailsCompteView', $aView);
-        } else if ($this->session->role == "Employe") {
-        $Login = $this->session->login;
-// Exécute la requête
-            $DetailsEmploye = $this->db->query("SELECT *
-FROM waz_employes
-WHERE emp_mail='$Login'");
-
-        $Details = $DetailsEmploye->result();
-
-// Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
-        $aView["Details"] = $Details;
-
-// Appel de la vue avec transmission du tableau
-        $this->load->view('Headerview');
-        $this->load->view('DetailsCompteView', $aView);
-        } else {
+        } 
+        else if ($this->session->role == 'Employe')
+        {
         $this->load->helper('url');
-        redirect(site_url("AccueilController/Accueil"));
+        redirect(site_url("EmployesController/DetailsCompte"));
         }
-} else {
-        $Erreur = "Vous devez être connecté(e) pour avoir accés à cette page !";
+else 
+{
+$Erreur = "Vous devez être connecté(e) pour avoir accés à cette page !";
 // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
-        $aView["RefusAcces"] = $Erreur;
+$aView["RefusAcces"] = $Erreur;
 
-        $this->load->view('Headerview', $aView);
-}}
+$this->load->view('Headerview', $aView);
+}
+}
 
 
 
@@ -184,26 +156,26 @@ WHERE emp_mail='$Login'");
 public function Inscription()
 {if (!isset($this->session->login)) {
 // Chargement des assistants 'form' et 'url'
-        $this->load->helper('form', 'url');
+$this->load->helper('form', 'url');
 
 // Chargement de la librairie 'database'
-        $this->load->database();
+$this->load->database();
 
 // Chargement de la librairie form_validation
-        $this->load->library('form_validation');
+$this->load->library('form_validation');
 
-        if ($this->input->post()) { // 2ème appel de la page: traitement du formulaire
+if ($this->input->post()) { // 2ème appel de la page: traitement du formulaire
 
         $data = $this->input->post();
 
-            // Définition des filtres, ici une valeur doit avoir été saisie pour le champ 'pro_ref'
+        // Définition des filtres, ici une valeur doit avoir été saisie pour le champ 'pro_ref'
 
         $config = array(
-                array(
+        array(
                 'field' => 'in_nom',
                 'label' => 'Nom',
                 'rules' => 'required',
-                ),
+        ),
         );
 
         $this->form_validation->set_rules($config);
@@ -212,60 +184,60 @@ public function Inscription()
         $this->form_validation->set_rules('in_email', 'Email', 'trim|required|valid_email', );
 
         $config = array(
-                array(
+        array(
                 'field' => 'in_adresse',
                 'label' => 'Adresse',
                 'rules' => 'required',
-                ),
+        ),
         );
 
         $mail = $_POST['in_email'];
         $city = $_POST['in_pays'];
 
         $results = $this->db->query("SELECT in_id
-        FROM waz_internautes
-        WHERE in_email = '$mail'");
+FROM waz_internautes
+WHERE in_email = '$mail'");
 
         $test = $results->result();
         if (empty($test)) {
 
-                $this->db->insert('waz_internautes', $data);
+        $this->db->insert('waz_internautes', $data);
 
-                $this->load->view('congratz');
+        $this->load->view('congratz');
         } else {
 
-                echo "<script type='text/javascript'>
-                window.alert('Le mail que vous avez choisi est déjà utilisé')
-                </script>";
+        echo "<script type='text/javascript'>
+        window.alert('Le mail que vous avez choisi est déjà utilisé')
+        </script>";
 
         }
 
-            if ($this->form_validation->run() == false) { // Echec de la validation, on réaffiche la vue formulaire
+        if ($this->form_validation->run() == false) { // Echec de la validation, on réaffiche la vue formulaire
 
-                $this->load->view('Inscriptionview');
-            } else { // La validation a réussi, nos valeurs sont bonnes, on peut insérer en base
+        $this->load->view('Inscriptionview');
+        } else { // La validation a réussi, nos valeurs sont bonnes, on peut insérer en base
 
-                $this->db->insert('waz_internautes', $data);
+        $this->db->insert('waz_internautes', $data);
 
-                echo "<script type='text/javascript'>
-                window.alert('Votre compte a été crée !')
-                </script>";
-                $this->load->helper('url');
-                redirect(site_url("AccueilController/Accueil"));
+        echo "<script type='text/javascript'>
+        window.alert('Votre compte a été crée !')
+        </script>";
+        $this->load->helper('url');
+        redirect(site_url("AccueilController/Accueil"));
 
         }
-        } else { // 1er appel de la page: affichage du formulaire
+} else { // 1er appel de la page: affichage du formulaire
         $this->load->view('Headerview');
         $this->load->view('Inscriptionview');
 
-        }
+}
 
 } else {
-        $Erreur = "Vous êtes déjà connecté !";
+$Erreur = "Vous êtes déjà connecté !";
 // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
-        $aView["RefusAcces"] = $Erreur;
+$aView["RefusAcces"] = $Erreur;
 
-        $this->load->view('Headerview', $aView);
+$this->load->view('Headerview', $aView);
 }
 }
 
