@@ -21,7 +21,7 @@
 <div class="form-group">
    <label for="pro_ref">Téléphone :</label>
    <input type="number" name="in_telephone" id="bday_id" class="form-control" value="<?php echo set_value('in_telephone'); ?>">
-   <small>Format: 01-02-03-04-05</small>
+   <?php echo form_error('in_tel'); ?>
    
 </div> 
 
@@ -36,6 +36,32 @@
    <input type="text" id="country_id" name="in_pays"class="form-control" value="<?php echo set_value('in_pays'); ?>">
    <?php echo form_error('in_pays'); ?>
 </div>
+
+<div class="form-group">
+   <label for="pro_ref">Mot de passe :</label>
+   <input type="password" id="password_id" name="in_mdp"class="form-control" value="<?php echo set_value('in_mdp'); ?>">
+   <input type="checkbox" onclick="ShowPassword()">Afficher mot de passe 
+   <?php echo form_error('in_mdp'); ?>
+</div>
+
+<div class="form-group">
+   <label for="pro_ref">Confirmation mot de passe :</label>
+   <input type="text" id="password_id2" name="mdp_confirm"class="form-control" value="" >
+   <?php echo form_error('mdp_confirm'); ?>
+</div>
+
+
+<script>
+function ShowPassword() {
+  var x = document.getElementById("password_id");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+
 
 
 <button type="submit" class="btn btn-dark" value="Submit">Créer un compte !</button> 
