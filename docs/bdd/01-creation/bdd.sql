@@ -74,7 +74,7 @@ CREATE TABLE waz_employes
    emp_tel VARCHAR(50) NOT NULL CHECK (REGEXP_LIKE(emp_tel,"^[^ \W]([0-9 \/\-])*$")),
    emp_mail VARCHAR(50) NOT NULL UNIQUE CHECK (REGEXP_LIKE(emp_mail,'([a-z0-9.-])+@([a-z0-9.-]{2,})([.]{1})[a-z.-]{2,4}$')),
    emp_poste VARCHAR(50) NOT NULL CHECK (REGEXP_LIKE(emp_poste,'^[a-zA-Z ]{3,}$')),
-   emp_mdp VARCHAR(50) NOT NULL CHECK(REGEXP_LIKE(emp_mdp,'^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[+!*$@%_-])([+!*$@%_\\w -]{8,15})$')),
+   emp_mdp VARCHAR(60) NOT NULL ,
    PRIMARY KEY(emp_id)
 );
 -- Structure de la table waz_utilisateurs
@@ -89,7 +89,7 @@ CREATE TABLE waz_internautes
    in_email VARCHAR(50) NOT NULL  CHECK (REGEXP_LIKE(in_email,'([a-z0-9.-])+@([a-z0-9.-]{1,})([.]{1})[a-z]{2,4}$')),
    in_pays VARCHAR(50) NOT NULL,
    in_est_contacter BOOLEAN NOT NULL DEFAULT 0 CHECK (in_est_contacter IN ('0', '1') ) COMMENT '1=contacter 0=non contacter',
-   in_mdp VARCHAR(50) NOT NULL CHECK(REGEXP_LIKE(in_mdp,'^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[+!*$@%_-])([+!*$@%_\\w -]{8,15})$')),
+   in_mdp VARCHAR(60) NOT NULL ,
    PRIMARY KEY(in_id),
    UNIQUE(in_email)
 );

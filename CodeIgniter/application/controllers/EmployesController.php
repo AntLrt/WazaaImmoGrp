@@ -111,7 +111,7 @@ public function DetailsCompte()
         $this->load->database();
 
         $Login = $this->session->login;
-        // Exécute la requête
+         //Exécute la requête
         $DetailsEmploye = $this->db->query("SELECT *
         FROM waz_employes
         WHERE emp_mail='$Login'");
