@@ -11,10 +11,14 @@
 <a href="<?= site_url("AnnoncesController/Ventes")?>">Ventes</a><br>
 <a href="<?= site_url("EmployesController/PageNous")?>">Nous</a><br>
 
-<?php if($this->session->role == "Employe" || $this->session->role == "Internaute"){
+<?php if($this->session->role == "Internaute"){
 $url=site_url("AuthentificationController/DetailsCompte");
 echo "<a href='$url'>Détails du compte</a><br>";
-}?>
+}
+else if($this->session->role == "Employe"){$url=site_url("EmployesController/DetailsCompte");
+    echo "<a href='$url'>Détails du compte</a><br>";
+    ;}
+?>
 
 
 <?php if($this->session->role != "Employe"){

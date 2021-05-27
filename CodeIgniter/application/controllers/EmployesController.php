@@ -105,27 +105,35 @@ public function DetailsCompte()
 //afficher aide au debug
         $this->output->enable_profiler(true);
 
-        if ($this->session->role == "Employe") {
-            // Charge la librairie 'database'
+        if ($this->session->role == "Employe") 
+        {
+        // Charge la librairie 'database'
         $this->load->database();
 
         $Login = $this->session->login;
-            // Exécute la requête
-            $DetailsEmploye = $this->db->query("SELECT *
-FROM waz_employes
-WHERE emp_mail='$Login'");
+         //Exécute la requête
+        $DetailsEmploye = $this->db->query("SELECT *
+        FROM waz_employes
+        WHERE emp_mail='$Login'");
 
         $Details = $DetailsEmploye->result();
 
-            // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
+        // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
         $aView["Details"] = $Details;
 
-            // Appel de la vue avec transmission du tableau
+        // Appel de la vue avec transmission du tableau
         $this->load->view('Headerview');
         $this->load->view('DetailsCompteView', $aView);
-        } else {
+        } 
+        else if ($this->session->role == 'Internaute')
+        {
+        $this->load->helper('url');
+        redirect(site_url("AuthentificationController/DetailsCompte"));
+        }
+        else 
+        {
         $Erreur = "Vous n'avez pas accés à cette page !";
-            // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
+        // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
         $aView["RefusAcces"] = $Erreur;
 
         $this->load->view('Headerview', $aView);
