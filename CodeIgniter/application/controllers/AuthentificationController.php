@@ -246,7 +246,7 @@ class AuthentificationController extends CI_Controller
 
                                 $passwordcrypt = password_hash("$password", PASSWORD_DEFAULT);
 
-                                // $data = array('in_mdp'  => $passwordcrypt);
+                            
                                         
                                         
                                 //     var_dump($password);
@@ -281,7 +281,7 @@ class AuthentificationController extends CI_Controller
                                 //         </script>";
                                     
                                 // }
-
+                                var_dump($_POST);
 
                                 if ($this->form_validation->run() == FALSE) 
                                 {
@@ -291,28 +291,28 @@ class AuthentificationController extends CI_Controller
                                 } 
                                 else 
                                 {
-                                        $this->db->insert('waz_internautes', $data);
-                                        return true;
-
-                                       
-                                       
-                                        // $data = array('in_nom'=>$nom,
-                                        // 'in_prenom'=>$prenom,
-                                        // 'in_adresse'=>$adresse,
-                                        // 'in_telephone'=>$telephone,
-                                        // 'in_email'=>$mail,
-                                        // 'in_pays'=>$pays,
-                                        // 'in_mdp'=>$password);
+                                        // $this->db->insert('waz_internautes', $data);
                                         
-                                        // $db      = \Config\Database::connect();
-                                        // $query_builder = $db->table('waz_internautes');
+                                       
+                                      
+                                       
+                                        $tableau = array('in_nom'=>$nom,
+                                        'in_prenom'=>$prenom,
+                                        'in_adresse'=>$adresse,
+                                        'in_telephone'=>$telephone,
+                                        'in_email'=>$mail,
+                                        'in_pays'=>$pays,
+                                        'in_mdp'=>$passwordcrypt);
+                                        
+                                        // // $db      = \Config\Database::connect();
+                                        // $query_builder = $this->db->table('waz_internautes');
                                         // $query_builder->insert($data);
-                                    
+                                        $this->db->insert('waz_internautes', $tableau);
                                       
                                         redirect(site_url("AccueilController/Accueil"));  
                                 }
 
-                                        var_dump($this->form_validation->run());
+                                       
                                 
                          
                         } 
