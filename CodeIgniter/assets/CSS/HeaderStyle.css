@@ -1,0 +1,51 @@
+body {
+  box-sizing: border-box;
+  background-image:url(assets/images/Wazbg.jpg);
+  /* background-size: cover; */
+  /*background-color: grey;*/
+  margin: 0;
+  /* padding: 10px; */
+}
+
+    #logo {
+        background-image: url(assets/images/Logo_navbar.png);
+    }
+
+     /* Couleur de l'arriere plan */
+    #topnav {
+        background: rgb(253, 253, 253);
+        overflow: hidden;
+        border-bottom: 1px solid #b32020;
+        border-radius: 2px;
+        padding-top: 100px;
+        width: 100%;
+        /* position: absolute; */
+        top: 0; left: 0;
+        opacity: 85%;
+    }
+     /* Couleur des liens dans la navbar */
+    #topnav a {
+        float: left;
+        color: #b32020;
+        text-align: inline;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+      /* Couleur des liens au passage de la souris */
+    #topnav a:hover {
+        background-color: #b32020;
+        color: #ffffff;
+        border-radius: 2px;
+        
+    }
+
+      /* Couleur des liens quand actifs */
+    #topnav a.active {
+        background-color: #b32020;
+        color: white;
+    }
+
+
