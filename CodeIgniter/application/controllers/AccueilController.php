@@ -15,8 +15,8 @@ $this->load->library('pagination');
 $this->load->model('BarreRechercheModel');
 // Changement test commit 
 
-if($actual_link == site_url('AccueilController/Accueil') || $actual_link == 'http://wazaagroupe/')
-{
+// if($actual_link == site_url('AccueilController/Accueil') || $actual_link == 'http://wazaagroupe/')
+// {
     $pageretour = "";
     //afficher aide au debug
     $this->output->enable_profiler(true);
@@ -74,8 +74,8 @@ if($actual_link == site_url('AccueilController/Accueil') || $actual_link == 'htt
             // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
             $aView["MoyenneNotes"] = $MoyenneNotes;
 
-            //  charger la view
-            $pageretour = 'PageAccueilView';
+            $this->load->view('HeaderView');
+            $this->load->view('PageAccueilView',$aView);
 
         } 
         
@@ -155,12 +155,12 @@ if($actual_link == site_url('AccueilController/Accueil') || $actual_link == 'htt
         $this->load->view('HeaderView');
         $this->load->view('PageAccueilView', $aView);
     }
-}
+// }
 
-else
-{
-echo "lien différent/pagination a faire";
-}
+// else
+// {
+// echo "lien différent/pagination a faire";
+// }
 }
 
 
