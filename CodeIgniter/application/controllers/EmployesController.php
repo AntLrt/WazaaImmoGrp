@@ -10,7 +10,7 @@ class EmployesController extends CI_Controller
 public function PageNous()
 {
     //afficher aide au debug
-            $this->output->enable_profiler(true);
+            $this->output->enable_profiler(false);
 
     // Prépare le tableau
             $this->load->library('table');
@@ -69,7 +69,7 @@ public function ListeEmployes()
         if ($this->session->role == "Employe")
         {
             //afficher aide au debug
-            $this->output->enable_profiler(true);
+            $this->output->enable_profiler(false);
 
             // Prépare le tableau
             $this->load->library('table');
@@ -114,7 +114,7 @@ public function ListeEmployes()
     // $IDcompte = L'id trnasmis par la connexion
 
     //afficher aide au debug
-            $this->output->enable_profiler(true);
+            $this->output->enable_profiler(false);
 
             if ($this->session->role == "Employe")
             {

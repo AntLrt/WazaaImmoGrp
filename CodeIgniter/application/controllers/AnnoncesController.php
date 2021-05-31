@@ -175,7 +175,7 @@ public function CustomVentes()
     {
 
         //afficher aide au debug
-        $this->output->enable_profiler(true);
+        $this->output->enable_profiler(false);
 
 
         $this->load->model('AnnonceModel');

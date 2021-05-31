@@ -19,7 +19,7 @@ $this->load->model('BarreRechercheModel');
 // {
     $pageretour = "";
     //afficher aide au debug
-    $this->output->enable_profiler(true);
+    $this->output->enable_profiler(false);
 
     // Chargement des assistants 'form' et 'url'
     $this->load->helper('form', 'url');
@@ -45,7 +45,7 @@ $this->load->model('BarreRechercheModel');
             window.alert('Merci de préciser le type de bien recherché')
             </script>";
             //afficher aide au debug
-            // $this->output->enable_profiler(true);
+            // $this->output->enable_profiler(false);
 
             // nouveau code
 
@@ -121,7 +121,7 @@ $this->load->model('BarreRechercheModel');
         // 1er appel de la page: affichage du formulaire
 
         //afficher aide au debug
-        $this->output->enable_profiler(true);
+        $this->output->enable_profiler(false);
 
         ////Partie pour voir les commentaires////
 

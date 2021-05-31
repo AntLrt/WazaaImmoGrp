@@ -12,7 +12,7 @@ class MembresController extends CI_Controller
         {
 
             //afficher aide au debug
-            $this->output->enable_profiler(true);
+            $this->output->enable_profiler(false);
 
             // Prépare le tableau
             $this->load->library('table');
@@ -57,7 +57,7 @@ class MembresController extends CI_Controller
         if ($this->session->role == "Internaute") 
         {
             //afficher aide au debug
-            $this->output->enable_profiler(true);
+            $this->output->enable_profiler(false);
 
             // Chargement des assistants 'form' et 'url'
             $this->load->helper('form', 'url');
@@ -80,7 +80,7 @@ class MembresController extends CI_Controller
                     window.alert('Merci de ne pas poster un commentaire vide')
                     </script>";
                     //afficher aide au debug
-                    $this->output->enable_profiler(true);
+                    $this->output->enable_profiler(false);
 
                     // Chargement de la librairie 'database'
                     $this->load->database();
@@ -175,7 +175,7 @@ class MembresController extends CI_Controller
     public function Commentaires()
     {
         //afficher aide au debug
-        $this->output->enable_profiler(true);
+        $this->output->enable_profiler(false);
 
         // Chargement de la librairie 'database'
         $this->load->database();

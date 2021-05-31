@@ -10,7 +10,7 @@ class BiensController extends CI_Controller
     {
         if ($this->session->role == "Employe") {
             //afficher aide au debug
-            $this->output->enable_profiler(true);
+            $this->output->enable_profiler(false);
 
             // Prépare le tableau
             $this->load->library('table');

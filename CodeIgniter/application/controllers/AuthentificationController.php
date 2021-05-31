@@ -12,7 +12,7 @@ class AuthentificationController extends CI_Controller
         if (!isset($this->session->login))
         {
             //afficher aide au debug
-            $this->output->enable_profiler(true);
+            $this->output->enable_profiler(false);
 
             // Chargement des assistants 'form' et 'url'
             $this->load->helper('form', 'url');
@@ -142,7 +142,7 @@ class AuthentificationController extends CI_Controller
     public function DetailsCompte()
     {
         //afficher aide au debug
-        $this->output->enable_profiler(true);
+        $this->output->enable_profiler(false);
         // Charge la librairie 'database'
 //        $this->load->database();
 

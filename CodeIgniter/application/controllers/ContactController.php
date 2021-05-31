@@ -11,7 +11,7 @@ class ContactController extends CI_Controller
         if ($this->session->role == "Employe") {
 
             //afficher aide au debug
-            $this->output->enable_profiler(true);
+            $this->output->enable_profiler(false);
 
             // Prépare le tableau
             $this->load->library('table');
@@ -57,7 +57,7 @@ class ContactController extends CI_Controller
     public function Formulaire()
     {if ($this->session->role == "Internaute") {
         //afficher aide au debug
-        $this->output->enable_profiler(true);
+        $this->output->enable_profiler(false);
 
         // Chargement des assistants 'form' et 'url'
         $this->load->helper('form', 'url');
