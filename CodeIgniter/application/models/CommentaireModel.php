@@ -69,6 +69,21 @@ class CommentaireModel extends CI_Model
         return $Comms;
     }
 
+    public function CommentaireInserer ()
+    {
+        $Commentaire = $_POST['Commentaire'];
+        $Note = $_POST['Note'];
+
+        //$this->load->database();
+        //A changer selon id connexion
+        $data["com_avis"] = $Commentaire;
+        $data["com_notes"] = $Note;
+        // Chargement de la librairie 'database'
+        $this->load->database();
+        $this->db->insert('waz_commentaire', $data);
+
+    }
+
 
 
 }

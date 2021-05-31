@@ -119,13 +119,13 @@ class MembresController extends CI_Controller
 
                 else
                 {
-                    $Commentaire = $_POST['Commentaire'];
-                    $Note = $_POST['Note'];
-
-                    $this->load->database();
-                    //A changer selon id connexion
-                    $data["com_avis"] = $Commentaire;
-                    $data["com_notes"] = $Note;
+//                    $Commentaire = $_POST['Commentaire'];
+//                    $Note = $_POST['Note'];
+//
+////                    $this->load->database();
+//                    //A changer selon id connexion
+//                    $data["com_avis"] = $Commentaire;
+//                    $data["com_notes"] = $Note;
 
                     //////Date avec bon fuseau horaire
                     // first line of PHP
@@ -150,7 +150,10 @@ class MembresController extends CI_Controller
 
                     $data["in_id"] = $this->session->ID;
 
-                    $this->db->insert('waz_commentaire', $data);
+//                  $this->db->insert('waz_commentaire', $data);
+                    $this->load->model('CommentaireModel');
+                    $this->CommentaireModel->CommentaireInserer ();
+
 
                     $this->load->view('Headerview');
                     $this->load->view('CommentaireEnvoyeView');
@@ -186,7 +189,7 @@ class MembresController extends CI_Controller
         ////Partie pour voir les commentaires////
 
         // Exécute la requête
-        //        $results = $this->db->query("SELECT *
+        // $results = $this->db->query("SELECT *
         //FROM waz_commentaire,waz_internautes
         //WHERE waz_commentaire.in_id=waz_internautes.in_id
         //");
