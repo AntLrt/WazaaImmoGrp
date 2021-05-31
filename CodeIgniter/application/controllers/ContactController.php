@@ -10,23 +10,27 @@ class ContactController extends CI_Controller
     {
         if ($this->session->role == "Employe") {
 
-//afficher aide au debug
+            //afficher aide au debug
             $this->output->enable_profiler(true);
 
-// Prépare le tableau
+            // Prépare le tableau
             $this->load->library('table');
 
-// Charge la librairie 'database'
-            $this->load->database();
+            // Charge la librairie 'database'
+            //            $this->load->database();
+            //
+            //// Exécute la requête
+            //            $results = $this->db->query("SELECT waz_contacter.in_id AS 'ID internaute',co_date_ajout AS 'Date envoi du formulaire contact', in_email AS 'Email internaute', co_sujet AS 'Sujet', co_question AS 'Question'
+            //FROM waz_contacter,waz_internautes
+            //WHERE waz_contacter.in_id=waz_internautes.in_id
+            //ORDER BY co_date_ajout
+            //");
 
-// Exécute la requête
-            $results = $this->db->query("SELECT waz_contacter.in_id AS 'ID internaute',co_date_ajout AS 'Date envoi du formulaire contact', in_email AS 'Email internaute', co_sujet AS 'Sujet', co_question AS 'Question'
-FROM waz_contacter,waz_internautes
-WHERE waz_contacter.in_id=waz_internautes.in_id
-ORDER BY co_date_ajout
-");
-// Changement test commit 
-// Forme du tableau
+            //chargement du model
+            $this->load->model('ListesModel');
+            $results = $this->ListesModel->ListeContacts ();
+            // Changement test commit
+            // Forme du tableau
             $template = array(
                 'table_open' => '<table border="2" cellpadding="5" cellspacing="2" class="mytable">',
             );
