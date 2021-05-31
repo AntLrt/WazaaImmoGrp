@@ -123,11 +123,13 @@ public function ListeEmployes()
 
                 $Login = $this->session->login;
                  //Exécute la requête
-                $DetailsEmploye = $this->db->query("SELECT *
-                FROM waz_employes
-                WHERE emp_mail='$Login'");
+//                $DetailsEmploye = $this->db->query("SELECT *
+//                FROM waz_employes
+//                WHERE emp_mail='$Login'");
 
-                $Details = $DetailsEmploye->result();
+//                $Details = $DetailsEmploye->result();
+                $this->load->model('UserModel');
+                $Details = $this->UserModel->detailEmp ($Login);
 
                 // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
                 $aView["Details"] = $Details;

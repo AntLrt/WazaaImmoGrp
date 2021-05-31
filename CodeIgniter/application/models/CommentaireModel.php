@@ -52,6 +52,23 @@ class CommentaireModel extends CI_Model
 
     }
 
+    public function CommentairesAll ()
+    {
+        // Chargement de la librairie 'database'
+        $this->load->database();
+
+        //Partie pour voir les commentaires////
+
+         //Exécute la requête
+        $results = $this->db->query("SELECT *
+                                     FROM waz_commentaire,waz_internautes
+                                     WHERE waz_commentaire.in_id=waz_internautes.in_id
+                                     ");
+        // Récupération des résultats
+        $Comms = $results->result();
+        return $Comms;
+    }
+
 
 
 }

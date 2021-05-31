@@ -31,4 +31,33 @@ class AuthentificationModel extends CI_Model
         return $RequeteInternaute;
     }
 
+    public function Inscription ()
+    {
+        $mail = $_POST['in_email'];
+
+                $prenom = $_POST['in_prenom'];
+                $nom = $_POST['in_nom'];
+                $adresse = $_POST['in_adresse'];
+                $telephone = $_POST['in_telephone'];
+                $pays = $_POST['in_pays'];
+                $password = $_POST['in_mdp'];
+
+                $passwordcrypt = password_hash("$password", PASSWORD_DEFAULT);
+
+        $tableau = array('in_nom'=>$nom,
+            'in_prenom'=>$prenom,
+            'in_adresse'=>$adresse,
+            'in_telephone'=>$telephone,
+            'in_email'=>$mail,
+            'in_pays'=>$pays,
+            'in_mdp'=>$passwordcrypt);
+
+        // // $db      = \Config\Database::connect();
+        // $query_builder = $this->db->table('waz_internautes');
+        // $query_builder->insert($data);
+        $this->db->insert('waz_internautes', $tableau);
+
+
+    }
+
 }

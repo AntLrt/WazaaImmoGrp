@@ -8,7 +8,7 @@ class MembresController extends CI_Controller
 
     public function ListeMembres()
     {
-        if ($this->session->role == "Employe") 
+        if ($this->session->role == "Employe")
         {
 
             //afficher aide au debug
@@ -18,11 +18,14 @@ class MembresController extends CI_Controller
             $this->load->library('table');
 
             // Charge la librairie 'database'
-            $this->load->database();
+//            $this->load->database();
 
             // Exécute la requête
-            $results = $this->db->query("SELECT in_id AS 'ID', in_nom AS 'Nom', in_prenom AS 'Prenom', in_adresse AS 'Adresse', in_telephone AS 'Téléphone', in_email AS 'Mail', in_pays AS 'Pays'
-            FROM waz_internautes");
+//            $results = $this->db->query("SELECT in_id AS 'ID', in_nom AS 'Nom', in_prenom AS 'Prenom', in_adresse AS 'Adresse', in_telephone AS 'Téléphone', in_email AS 'Mail', in_pays AS 'Pays'
+//                                         FROM waz_internautes");
+
+            $this->load->model('ListesModel');
+            $results = $this->ListesModel->ListeMembres ();
 
             // Forme du tableau
             $template = array(
@@ -38,9 +41,9 @@ class MembresController extends CI_Controller
             // Appel de la vue avec transmission du tableau
             $this->load->view('HeaderView');
             $this->load->view('ListeMembresView', $aView);
-        } 
-        
-        else 
+        }
+
+        else
         {
             $Erreur = "Vous n'avez pas accés à cette page !";
             // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
@@ -54,7 +57,7 @@ class MembresController extends CI_Controller
 
     public function CommentairePubli()
     {
-        if ($this->session->role == "Internaute") 
+        if ($this->session->role == "Internaute")
         {
             //afficher aide au debug
             $this->output->enable_profiler(false);
@@ -68,13 +71,13 @@ class MembresController extends CI_Controller
             // Chargement de la librairie form_validation
             $this->load->library('form_validation');
 
-            if ($this->input->post()) 
+            if ($this->input->post())
             { // 2ème appel de la page: traitement du formulaire
 
                 // Définition des filtres, ici une valeur doit avoir été saisie pour le champ 'pro_ref'
                 $this->form_validation->set_rules("Commentaire", "Commentaire", "required");
 
-                if ($this->form_validation->run() == false) 
+                if ($this->form_validation->run() == false)
                 { // Echec de la validation, on réaffiche la vue formulaire
                     echo "<script type='text/javascript'>
                     window.alert('Merci de ne pas poster un commentaire vide')
@@ -112,9 +115,9 @@ class MembresController extends CI_Controller
 
                     $this->load->view('HeaderView');
                     $this->load->view('PageAccueilView',$aView);
-                } 
-                
-                else 
+                }
+
+                else
                 {
                     $Commentaire = $_POST['Commentaire'];
                     $Note = $_POST['Note'];
@@ -127,7 +130,7 @@ class MembresController extends CI_Controller
                     //////Date avec bon fuseau horaire
                     // first line of PHP
                     $defaultTimeZone = 'UTC';
-                    if (date_default_timezone_get() != $defaultTimeZone) 
+                    if (date_default_timezone_get() != $defaultTimeZone)
                     {
                         date_default_timezone_set($defaultTimeZone);
                     }
@@ -153,15 +156,15 @@ class MembresController extends CI_Controller
                     $this->load->view('CommentaireEnvoyeView');
                 }
 
-            } 
-            
-            else 
+            }
+
+            else
             { $this->load->helper('url');
                 redirect(site_url("AccueilController/Accueil"));
             }
-        } 
-        
-        else 
+        }
+
+        else
         {
             $Erreur = "Vous devez être connecté pour avoir accés à cette page !";
             // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
@@ -171,25 +174,27 @@ class MembresController extends CI_Controller
     }
 
 
-    
+
     public function Commentaires()
     {
         //afficher aide au debug
         $this->output->enable_profiler(false);
 
         // Chargement de la librairie 'database'
-        $this->load->database();
+//        $this->load->database();
 
         ////Partie pour voir les commentaires////
 
         // Exécute la requête
-        $results = $this->db->query("SELECT *
-        FROM waz_commentaire,waz_internautes
-        WHERE waz_commentaire.in_id=waz_internautes.in_id
-        ");
+        //        $results = $this->db->query("SELECT *
+        //FROM waz_commentaire,waz_internautes
+        //WHERE waz_commentaire.in_id=waz_internautes.in_id
+        //");
+        $this->load->model('CommentaireModel');
+        $Comms = $this->CommentaireModel->CommentairesAll ();
 
         // Récupération des résultats
-        $Comms = $results->result();
+        //$Comms = $results->result();
 
         // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
         $aView["ToutCom"] = $Comms;

@@ -91,16 +91,14 @@ class ListesModel extends CI_Model
         return $results;
     }
 
-    public function DetailCompte ()
+    public function ListeMembres ()
     {
-        // Prépare le tableau
-//        $this->load->library('table');
-//        // Charge la librairie 'database'
-//        $this->load->database();
-//        $DetailsEmploye = $this->db->query("SELECT *
-//                                            FROM waz_employes
-//                                            WHERE emp_mail='$Login'");
-//        $Details = $DetailsEmploye->result();
-//        return $Details;
+        // Charge la librairie 'database'
+        $this->load->database();
+
+        // Exécute la requête
+        $results = $this->db->query("SELECT in_id AS 'ID', in_nom AS 'Nom', in_prenom AS 'Prenom', in_adresse AS 'Adresse', in_telephone AS 'Téléphone', in_email AS 'Mail', in_pays AS 'Pays'
+                                     FROM waz_internautes");
+        return $results;
     }
 }
