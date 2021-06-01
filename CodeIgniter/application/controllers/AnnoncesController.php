@@ -54,7 +54,7 @@ if ($total_records > 0)
 
 $this->load->view('HeaderView');
 $this->load->view('LocaView', $params);
-$this->load->view('FooterView');
+$this->load->view('Footerview');
 }
 
 
@@ -95,7 +95,7 @@ if ($total_records > 0)
 
 $this->load->view('HeaderView');
 $this->load->view('LocaView', $params);
-$this->load->view('FooterView');
+$this->load->view('Footerview');
 }
 
 
@@ -130,7 +130,7 @@ public function Ventes()
         
         $this->load->view('HeaderView');
         $this->load->view('VentesView', $params);
-        $this->load->view('FooterView');
+        $this->load->view('Footerview');
 }
 
 
@@ -171,44 +171,124 @@ public function CustomVentes()
         
         $this->load->view('HeaderView');
         $this->load->view('VentesView', $params);
-        $this->load->view('FooterView');
+        $this->load->view('Footerview');
 }
 
 
     public function Details($an_id)
     {
+        if ($this->session->role == "Internaute") 
+        {
+            //afficher aide au debug
+            $this->output->enable_profiler(false);
 
-        //afficher aide au debug
-        $this->output->enable_profiler(false);
+            // Chargement des assistants 'form' et 'url'
+            $this->load->helper('form', 'url');
+
+            // Chargement de la librairie 'database'
+            $this->load->database();
+
+            // Chargement de la librairie form_validation
+            $this->load->library('form_validation');
+
+            if ($this->input->post()) 
+            {   
+                // 2ème appel de la page: traitement du formulaire
+                $this->form_validation->set_rules("Demande", "Demande", "required");
+
+                if ($this->form_validation->run() == false) 
+                {  
+                    $this->output->enable_profiler(false);
 
 
-        $this->load->model('AnnonceModel');
+                    $this->load->model('AnnonceModel');
+    
+                    $resultatDetail = $this->AnnonceModel->Detail($an_id);
+    
+                    $aView["Details"] = $resultatDetail["DetailsAnnonce"];
+                    $aView["Options"] = $resultatDetail["OptionsAnnonces"];
+    
+                    if (empty($resultatDetail["OptionsAnnonces"])) {$AucuneOptions = true;} else { $AucuneOptions = false;}
+    
+                    $aView["AucuneOptions"] = $AucuneOptions;
+                    // Echec de la validation, on réaffiche la vue formulaire
+                    echo "<script type='text/javascript'>
+                    window.alert('Merci de préciser la demande')
+                    </script>";
 
-        $resultatDetail = $this->AnnonceModel->Detail($an_id);
-        //var_dump($resultatDetail);
+                    $this->load->view('HeaderView');
+                    $this->load->view('DetailsView',$aView);
+                    $this->load->view('Footerview');
+                } 
 
-        $aView["Details"] = $resultatDetail["DetailsAnnonce"];
-        $aView["Options"] = $resultatDetail["OptionsAnnonces"];
-        if (empty($resultatDetail["OptionsAnnonces"])) {$AucuneOptions = true;} else { $AucuneOptions = false;}
-        /*
-                $DetailsAnnonce = $this->AnnonceModel->Detail($an_id);
+                else 
+                {
+                    $Sujet = $_POST['Sujet'];
+                    $Demande = $_POST['Demande'];
+
+                    $this->load->database();
+                    $data["emp_id"] = rand(1,999999);
+                    $data["in_id"] = $this->session->ID;
+                    $data["co_sujet"] = $Sujet;
+                    $data["co_question"] = $Demande;
+                    //////Date avec bon fuseau horaire
+                    // first line of PHP
+                    $defaultTimeZone = 'UTC';
+                    if (date_default_timezone_get() != $defaultTimeZone) 
+                    {
+                        date_default_timezone_set($defaultTimeZone);
+                    }
+
+                    // somewhere in the code
+                    function _date($format = "r", $timestamp = false, $timezone = false)
+                    {
+                        $userTimezone = new DateTimeZone(!empty($timezone) ? $timezone : 'GMT');
+                        $gmtTimezone = new DateTimeZone('GMT');
+                        $myDateTime = new DateTime(($timestamp != false ? date("r", (int) $timestamp) : date("r")), $gmtTimezone);
+                        $offset = $userTimezone->getOffset($myDateTime);
+                        return date($format, ($timestamp != false ? (int) $timestamp : $myDateTime->format('U')) + $offset);
+                    }
+                    /* Example */
+                    $Date = _date("Y-m-d H:i:s", false, 'Europe/Belgrade');
+                    $data["co_date_ajout"] = $Date;
+                    $this->db->insert('waz_contacter', $data);
+                    $this->load->view('HeaderView');
+                    $this->load->view('FormulaireContactEnvoyeView');
+                    $this->load->view('Footerview');
+                }
+            } 
+
+            else 
+            { 
+
+                $this->output->enable_profiler(false);
 
 
                 $this->load->model('AnnonceModel');
-                $OptionsAnnonces = $this->AnnonceModel->Detail($an_id);
-                // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
-                $aView["Options"] = $OptionsAnnonces;
-                if (empty($OptionsAnnonces)) {$AucuneOptions = true;} else { $AucuneOptions = false;}
-                */
 
-        $aView["AucuneOptions"] = $AucuneOptions;
+                $resultatDetail = $this->AnnonceModel->Detail($an_id);
 
+                $aView["Details"] = $resultatDetail["DetailsAnnonce"];
+                $aView["Options"] = $resultatDetail["OptionsAnnonces"];
 
-        $this->load->view('Headerview');
-        $this->load->view('DetailsView', $aView);
-        $this->load->view('FooterView');
+                if (empty($resultatDetail["OptionsAnnonces"])) {$AucuneOptions = true;} else { $AucuneOptions = false;}
 
+                $aView["AucuneOptions"] = $AucuneOptions;
 
+                $this->load->view('Headerview');
+                $this->load->view('DetailsView', $aView);
+                $this->load->view('Footerview');
+            } 
+        }
+
+        else 
+        {
+            $Erreur = "Vous devez être connecté pour avoir accés à cette page !";
+            $aView["RefusAcces"] = $Erreur;
+            $this->load->view('Headerview', $aView);
+            $this->load->view('Footerview');
+        }
+
+        
     }
-
 }

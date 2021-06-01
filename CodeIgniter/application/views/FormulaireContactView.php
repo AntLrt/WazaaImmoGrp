@@ -29,16 +29,22 @@
                 <div class="col-12">
 
                     <div class="form-group">
-                        <label for="prenom" class="col-8 control-label mx-auto d-block">Objet</label>
+                    <label for="Sujet" class="col-8 control-label mx-auto d-block">Sujet</label>
                         <div class="col-8 mx-auto">
-                            <input type="text" class="form-control" name="prenom" id="prenom" required>
+                        <select name="Sujet" id="Sujet">
+                            <option value="Autres">Sujet de la question</option>
+                            <option value="Acheter">Acheter</option>
+                            <option value="Louer">Louer</option>
+                            <option value="Vendre">Vendre</option>
+                            <option value="Autres">Autres</option>
+                            </select>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="comment" class="col-8 control-label mx-auto d-block">Message</label>
+                        <label for="Demande" class="col-8 control-label mx-auto d-block">Message</label>
                         <div class="col-8 mx-auto">
-                            <textarea class="form-control" rows="5" id="comment"></textarea>
+                            <textarea class="form-control" rows="5" id="Demane" name="Demande" placeholder="Veuillez entrer votre demande" required></textarea>
                         </div>
                     </div>
 

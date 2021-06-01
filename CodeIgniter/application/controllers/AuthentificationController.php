@@ -268,13 +268,13 @@ class AuthentificationController extends CI_Controller
                 //         </script>";
 
                 // }
-                var_dump($_POST);
+                //var_dump($_POST);
 
                 if ($this->form_validation->run() == FALSE)
                 {
-
-                        $this->load->view('InscriptionView');
-                        $this->load->view('FooterView');
+                    $this->load->view('HeaderView');
+                    $this->load->view('InscriptionView');
+                    $this->load->view('FooterView');
 
                 }
                 else

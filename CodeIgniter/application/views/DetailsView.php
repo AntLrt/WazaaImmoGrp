@@ -33,8 +33,57 @@ foreach ($Options as $row) {
 ?>
 </div>
 </div>
+<br>
+
+<?php if($this->session->role == 'Internaute'): ?>
+    <?php echo form_open(); ?>
+
+<div class="container col-4">
 
 
+    <form class="form-horizontal" role="form">
+        <div class='container'>
 
+            <div class='row'>
+                <div class="col-12">
+                    <div class="form-heading">
+                        <span class="prg">Intéressé par cette annonce ? Contactez-nous avec le formulaire ci-dessous !</span>
+                    </div>
+                </div>
+            </div>
+<br>
+                <div class="col-12"> 
+
+
+                    <div class="form-group">
+                        <label for="Sujet" class="col-8 control-label mx-auto d-block">Sujet</label>
+                        <div class="col-8 mx-auto">
+                        <select name="Sujet" id="Sujet">
+                            <option value="Autres">Sujet de la question</option>
+                            <option value="Acheter">Acheter</option>
+                            <option value="Louer">Louer</option>
+                            <option value="Vendre">Vendre</option>
+                            <option value="Autres">Autres</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comment" class="col-8 control-label mx-auto d-block">Message</label>
+                        <div class="col-8 mx-auto">
+                            <textarea class="form-control" rows="5" id="Demande" name="Demande" placeholder="Veuillez entrer votre demande"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 d-flex justify-content-center form-group">
+                        <button type="submit" class="btn">ENVOYER</button>
+                    </div>
+
+                </div>
+
+        </div>
+    </form>
+    
+<?php endif; ?>
 </body>
 </html>

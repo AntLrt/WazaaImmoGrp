@@ -89,10 +89,13 @@ echo "<form action='$url' method='post'>";
 
 
 
-            <?php //On donne la possibilité de laisser un commentaire si la personne est connecté sinon on dit qu'il faut être connecté pour laisser un commentaire
-            if($this->session->role == "Internaute"){
+            <?php 
+            //On donne la possibilité de laisser un commentaire si la personne est connecté sinon on dit qu'il faut être connecté pour laisser un commentaire
+            if($this->session->role == "Internaute"):
             $url = site_url("MembresController/CommentairePubli");
-            echo "<form action='$url' method='post'> 
+            echo "<form action='$url' method='post'>"; 
+            ?>
+
             <div class='form-group'>
             <br>
             <label for='Commentaire'>Laissez un commentaire sur notre entreprise !</label>
@@ -119,11 +122,17 @@ echo "<form action='$url' method='post'>";
             </div> 
             <br>
 
-            <button type='submit' class='btn'>Envoyer</button>    
-            </form>";
+            <button type='submit' class='btn btn-dark'>Envoyer</button>    
+            </form>
 
-            }
-            else{echo "<br><br>Connectez-vous ou créer un compte pour pouvoir laisser un commentaire !";}?>
+            
+            <?php else: ?>
+
+            <br><p>Connectez-vous ou créer un compte pour pouvoir laisser un commentaire !</p>
+            
+            <?php
+            endif;
+            ?>
 
 
 

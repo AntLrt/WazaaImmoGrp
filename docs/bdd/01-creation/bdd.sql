@@ -180,7 +180,7 @@ CREATE TABLE waz_contacter
    co_sujet VARCHAR(50) NOT NULL CHECK(co_sujet IN ('acheter','vendre','louer','autres')),
    co_question TEXT NOT NULL,
    co_date_ajout DATETIME NOT NULL DEFAULT (CURRENT_DATE),
-   co_est_traite BOOLEAN NOT NULL DEFAULT 0 COMMENT '0 = false',
+   co_est_traite BOOLEAN NOT NULL DEFAULT 0 COMMENT '0 = false 1 = true',
    PRIMARY KEY(emp_id, in_id),
    FOREIGN KEY(emp_id) REFERENCES waz_employes(emp_id),
    FOREIGN KEY(in_id) REFERENCES waz_internautes(in_id)

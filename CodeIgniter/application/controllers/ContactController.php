@@ -117,7 +117,8 @@ class ContactController extends CI_Controller
             }
 
         } else { $this->load->view('HeaderView');
-            $this->load->view('FormulaireContactView');};
+            $this->load->view('FormulaireContactView');
+            $this->load->view('FooterView');};
     } else {
         $Erreur = "Vous devez être connecté pour avoir accés à cette page !";
         // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
