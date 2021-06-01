@@ -210,14 +210,17 @@ VALUES
 --  donnée pour waz_contacter
 DELETE FROM waz_contacter;
 
-INSERT INTO `waz_contacter` (`emp_id`,`in_id`,`co_sujet`,`co_question`,`co_date_ajout`)
-VALUES ("7","1","Louer","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu","2021-05-07"),
-       ("8","2","Acheter","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque","2021-05-07"),
-       ("9","3","Vendre","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis","2021-05-07"),
-       ("10","4","Autres","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien,","2021-05-07"),
-       ("7","5","Louer","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu","2021-05-07"),("8","6","Acheter","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam","2021-05-07"),
-       ("9","7","Vendre","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","2021-05-07"),
-       ("10","8","Autres","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper.","2021-05-07"),("7","9","Louer","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","2021-05-07"),("8","10","Acheter","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper.","2021-05-07");
+INSERT INTO `waz_contacter` (`emp_id`,`in_id`,`co_sujet`,`co_question`,`co_date_ajout`,`co_est_traite`)
+VALUES ("7","1","Louer","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu","2021-05-07","0"),
+       ("8","2","Acheter","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque","2021-05-07","0"),
+       ("9","3","Vendre","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis","2021-05-07","0"),
+       ("10","4","Autres","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien,","2021-05-07","0"),
+       ("7","5","Louer","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu","2021-05-07","0"),
+       ("8","6","Acheter","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam","2021-05-07","0"),
+       ("9","7","Vendre","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","2021-05-07","0"),
+       ("10","8","Autres","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper.","2021-05-07","0"),
+       ("7","9","Louer","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","2021-05-07","0"),
+       ("8","10","Acheter","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper.","2021-05-07","0");
 
 -- donnée pour la table waz_enregistrer
 
