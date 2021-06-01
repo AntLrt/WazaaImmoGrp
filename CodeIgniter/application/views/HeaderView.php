@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html lang="fr">
 <head>
 <meta charset="utf-8">
-<title>Wazaa Immo</title>
 <link rel="stylesheet" href="<?= base_url("assets/CSS/HeaderStyle.css") ?>">
 </head>
 <body>
@@ -56,7 +53,7 @@
 
                 <?php if(isset($this->session->login))
                 {
-                    echo "Bonjour, ".$this->session->role.", ".$this->session->nom.", ".$this->session->prenom;
+                    // echo "Bonjour, ".$this->session->role.", ".$this->session->nom.", ".$this->session->prenom;
 
                     $url=site_url("AuthentificationController/Deconnexion");
                     echo "<form action='$url' method='post'>";
@@ -74,3 +71,5 @@
             </div>
 
             <?php if(!empty($RefusAcces)){echo $RefusAcces;}?>
+
+</body>

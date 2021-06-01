@@ -1,0 +1,16 @@
+.navbar-dark {
+    background-color: rgb(58, 52, 52);
+    color: rgb(155, 155, 155);
+    display: flex;
+    justify-content: center;
+    border-top: 2.5px #ad1212;
+}
+
+.footer-contact {
+    background-color: white;
+    opacity: 50%;
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    color: #ad1212;
+}

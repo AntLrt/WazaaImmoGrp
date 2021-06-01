@@ -57,6 +57,7 @@ class AuthentificationController extends CI_Controller
                     $this->session->set_userdata('ID', "$EmpID");
                     $this->load->view('Headerview');
                     $this->load->view('ConnexionReussiView');
+                    $this->load->view('FooterView');
                 }
                 else
                 {
@@ -95,6 +96,7 @@ class AuthentificationController extends CI_Controller
 
                         $this->load->view('Headerview');
                         $this->load->view('ConnexionReussiView');
+                        $this->load->view('FooterView');
                     }
                     else
                     {
@@ -104,6 +106,7 @@ class AuthentificationController extends CI_Controller
 
                         $this->load->view('Headerview');
                         $this->load->view('ConnexionView');
+                        $this->load->view('FooterView');
                     }
                 }
             }
@@ -111,6 +114,7 @@ class AuthentificationController extends CI_Controller
             { // 1er appel de la page: affichage du formulaire
                     $this->load->view('Headerview');
                     $this->load->view('ConnexionView');
+                    $this->load->view('FooterView');
             }
         }
         else
@@ -119,6 +123,7 @@ class AuthentificationController extends CI_Controller
             // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
             $aView["RefusAcces"] = $Erreur;
             $this->load->view('Headerview', $aView);
+            $this->load->view('FooterView');
         }
     }
 
@@ -136,6 +141,7 @@ class AuthentificationController extends CI_Controller
             // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
             $aView["RefusAcces"] = $Erreur;
             $this->load->view('Headerview', $aView);
+            $this->load->view('FooterView');
         }
     }
 
@@ -166,6 +172,7 @@ class AuthentificationController extends CI_Controller
             // Appel de la vue avec transmission du tableau
             $this->load->view('Headerview');
             $this->load->view('DetailsCompteView', $aView);
+            $this->load->view('FooterView');
         }
         else if ($this->session->role == 'Employe')
         {
@@ -179,6 +186,7 @@ class AuthentificationController extends CI_Controller
             $aView["RefusAcces"] = $Erreur;
 
             $this->load->view('Headerview', $aView);
+            $this->load->view('FooterView');
         }
     }
 
@@ -266,6 +274,7 @@ class AuthentificationController extends CI_Controller
                 {
 
                         $this->load->view('InscriptionView');
+                        $this->load->view('FooterView');
 
                 }
                 else
@@ -301,6 +310,7 @@ class AuthentificationController extends CI_Controller
             { // 1er appel de la page: affichage du formulaire
                 $this->load->view('Headerview');
                 $this->load->view('Inscriptionview');
+                $this->load->view('FooterView');
 
             }
 
@@ -312,6 +322,7 @@ class AuthentificationController extends CI_Controller
             $aView["RefusAcces"] = $Erreur;
 
             $this->load->view('Headerview', $aView);
+            $this->load->view('FooterView');
         }
     }
 

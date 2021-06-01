@@ -76,6 +76,7 @@ $this->load->model('BarreRechercheModel');
 
             $this->load->view('HeaderView');
             $this->load->view('PageAccueilView',$aView);
+            $this->load->view('FooterView');
 
         } 
         
@@ -109,6 +110,7 @@ $this->load->model('BarreRechercheModel');
 
             $this->load->view('HeaderView');
             $this->load->view('PageResultatRechercheView', $params);
+            $this->load->view('FooterView');
 
 
         }
@@ -154,6 +156,7 @@ $this->load->model('BarreRechercheModel');
 
         $this->load->view('HeaderView');
         $this->load->view('PageAccueilView', $aView);
+        $this->load->view('FooterView');
     }
 // }
 
@@ -204,6 +207,7 @@ public function CustomRecherche()
         
         $this->load->view('HeaderView');
         $this->load->view('PageResultatRechercheView', $params);
+        $this->load->view('FooterView');
 }
 
 

@@ -61,6 +61,7 @@ public function PageNous()
     // Appel de la vue avec transmission du tableau
     $this->load->view('Headerview');
     $this->load->view('PageNousView', $aView);
+    $this->load->view('FooterView');
 
 }
 
@@ -99,6 +100,7 @@ public function ListeEmployes()
             // Appel de la vue avec transmission du tableau
             $this->load->view('Headerview');
             $this->load->view('ListeEmployesView', $aView);
+            $this->load->view('FooterView');
         }
         else
         {
@@ -106,6 +108,7 @@ public function ListeEmployes()
             // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
             $aView["RefusAcces"] = $Erreur;
             $this->load->view('Headerview', $aView);
+            $this->load->view('FooterView');
         }
 }
 
@@ -137,6 +140,7 @@ public function ListeEmployes()
                 // Appel de la vue avec transmission du tableau
                 $this->load->view('Headerview');
                 $this->load->view('DetailsCompteView', $aView);
+                $this->load->view('FooterView');
             }
             else if ($this->session->role == 'Internaute')
             {
@@ -150,6 +154,7 @@ public function ListeEmployes()
                 $aView["RefusAcces"] = $Erreur;
 
                 $this->load->view('Headerview', $aView);
+                $this->load->view('FooterView');
             }
     }
 

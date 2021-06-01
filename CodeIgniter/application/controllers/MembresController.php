@@ -41,6 +41,7 @@ class MembresController extends CI_Controller
             // Appel de la vue avec transmission du tableau
             $this->load->view('HeaderView');
             $this->load->view('ListeMembresView', $aView);
+            $this->load->view('FooterView');
         }
 
         else
@@ -50,6 +51,7 @@ class MembresController extends CI_Controller
             $aView["RefusAcces"] = $Erreur;
 
             $this->load->view('Headerview', $aView);
+            $this->load->view('FooterView');
         }
     }
 
@@ -115,6 +117,7 @@ class MembresController extends CI_Controller
 
                     $this->load->view('HeaderView');
                     $this->load->view('PageAccueilView',$aView);
+                    $this->load->view('FooterView');
                 }
 
                 else
@@ -157,6 +160,7 @@ class MembresController extends CI_Controller
 
                     $this->load->view('Headerview');
                     $this->load->view('CommentaireEnvoyeView');
+                    $this->load->view('FooterView');
                 }
 
             }
@@ -173,6 +177,7 @@ class MembresController extends CI_Controller
             // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
             $aView["RefusAcces"] = $Erreur;
             $this->load->view('Headerview', $aView);
+            $this->load->view('FooterView');
         }
     }
 
@@ -204,6 +209,7 @@ class MembresController extends CI_Controller
 
         $this->load->view('HeaderView');
         $this->load->view('CommentairesView', $aView);
+        $this->load->view('FooterView');
     }
 
 }

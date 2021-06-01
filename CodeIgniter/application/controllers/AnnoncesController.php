@@ -54,6 +54,7 @@ if ($total_records > 0)
 
 $this->load->view('HeaderView');
 $this->load->view('LocaView', $params);
+$this->load->view('FooterView');
 }
 
 
@@ -94,6 +95,7 @@ if ($total_records > 0)
 
 $this->load->view('HeaderView');
 $this->load->view('LocaView', $params);
+$this->load->view('FooterView');
 }
 
 
@@ -128,6 +130,7 @@ public function Ventes()
         
         $this->load->view('HeaderView');
         $this->load->view('VentesView', $params);
+        $this->load->view('FooterView');
 }
 
 
@@ -168,6 +171,7 @@ public function CustomVentes()
         
         $this->load->view('HeaderView');
         $this->load->view('VentesView', $params);
+        $this->load->view('FooterView');
 }
 
 
@@ -202,6 +206,7 @@ public function CustomVentes()
 
         $this->load->view('Headerview');
         $this->load->view('DetailsView', $aView);
+        $this->load->view('FooterView');
 
 
     }

@@ -44,6 +44,7 @@ class ContactController extends CI_Controller
 // Appel de la vue avec transmission du tableau
             $this->load->view('HeaderView');
             $this->load->view('ListeContactView', $aView);
+            $this->load->view('FooterView');
 
         } else {
             $Erreur = "Vous n'avez pas accés à cette page !";
@@ -51,6 +52,7 @@ class ContactController extends CI_Controller
             $aView["RefusAcces"] = $Erreur;
 
             $this->load->view('Headerview', $aView);
+            $this->load->view('FooterView');
         }
     }
 
@@ -79,6 +81,7 @@ class ContactController extends CI_Controller
                 </script>";
                 $this->load->view('HeaderView');
                 $this->load->view('FormulaireContactView');
+                $this->load->view('FooterView');
             } else {
                 $Sujet = $_POST['Sujet'];
                 $Demande = $_POST['Demande'];
@@ -110,6 +113,7 @@ class ContactController extends CI_Controller
                 $this->db->insert('waz_contacter', $data);
                 $this->load->view('HeaderView');
                 $this->load->view('FormulaireContactEnvoyeView');
+                $this->load->view('FooterView');
             }
 
         } else { $this->load->view('HeaderView');
@@ -120,6 +124,7 @@ class ContactController extends CI_Controller
         $aView["RefusAcces"] = $Erreur;
 
         $this->load->view('Headerview', $aView);
+        $this->load->view('FooterView');
     }
 
     }

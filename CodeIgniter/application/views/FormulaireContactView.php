@@ -26,21 +26,7 @@
                 </div>
             </div>
 
-                <div class="col-12"> 
-
-                    <div class="form-group">
-                        <label for="nom" class="col-8 control-label mx-auto d-block">Nom</label>
-                        <div class="col-8 mx-auto">
-                            <input type="text" class="form-control" name="name" id="name" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="mail" class="col-8 control-label mx-auto d-block">Email</label>
-                        <div class="col-8 mx-auto">
-                            <input type="email" class="form-control" name="email" id="email" required>
-                        </div>
-                    </div>
+                <div class="col-12">
 
                     <div class="form-group">
                         <label for="prenom" class="col-8 control-label mx-auto d-block">Objet</label>

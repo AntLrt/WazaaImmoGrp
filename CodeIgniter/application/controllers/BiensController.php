@@ -40,6 +40,7 @@ class BiensController extends CI_Controller
             // Appel de la vue avec transmission du tableau
             $this->load->view('HeaderView');
             $this->load->view('ListeBiensView', $aView);
+            $this->load->view('FooterView');
 
         } else {
             $Erreur = "Vous n'avez pas accés à cette page !";
@@ -47,6 +48,7 @@ class BiensController extends CI_Controller
             $aView["RefusAcces"] = $Erreur;
 
             $this->load->view('Headerview', $aView);
+            $this->load->view('FooterView');
         }
     }
 
