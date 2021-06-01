@@ -1,10 +1,11 @@
 
-html{
+  html{
     margin:0;
     padding:0;
     width:100%;
     height:100%;
   }
+
   body{
     width:100%;
     height:100%;
@@ -15,9 +16,11 @@ html{
     margin:0;
     background-image:url(tools/Images/Wazbg.jpg);
   }
+
   .title{
     text-transform:uppercase
   }
+
   .form-heading {
     background: #fdfdfd; /* fallback for old browsers */
     border-bottom: 2.5px solid #ad1212;
@@ -26,17 +29,18 @@ html{
     padding: 20px;
     opacity: 85%;
   }
+
   .form-heading .prg{
     color: #ad1212;
     font-size: 23px;
     display: flex;
     justify-content: center;
-
   }
   
   .inline{
     display:inline-block
   }
+
   label{
     min-width: 120px;
     position: relative;
@@ -44,48 +48,7 @@ html{
     color: #ad1212;
     font-size: 15px;
   }
-  
-  .checkbox label:after {
-    content: '';
-    display: table;
-    clear: both;
-  }
-  
-  .checkbox .cc {
-    position: relative;
-    display: inline-block;
-    border: 1px solid #ad1212;
-    border-radius: .25em;
-    width: 1.3em;
-    height: 1.3em;
-    float: left;
-    margin-right: .5em;
-  }
-  
-  .checkbox .cc .cc-icon {
-    position: absolute;
-    font-size: .8em;
-    line-height: 0;
-    top: 50%;
-    left: 15%;
-  }
-  
-  .checkbox label input[type="checkbox"] {
-    display: none;
-  }
-  
-  .checkbox label input[type="checkbox"]+.cc>.cc-icon {
-    opacity: 0;
-  }
-  
-  .checkbox label input[type="checkbox"]:checked+.cc>.cc-icon {
-    opacity: 1;
-  }
-  
-  .checkbox label input[type="checkbox"]:disabled+.cc {
-    opacity: .5;
-  }
-  
+
   .btn {
     background: #fdfdfd;
     border: 1px solid #ad1212;
@@ -109,7 +72,7 @@ html{
     margin: auto;
   }
   
-  form {
+  #formstyle {
     background: #fdfdfd;
     border-radius: 2.5px;
     opacity: 85%;
@@ -118,4 +81,12 @@ html{
   label {
     margin-bottom: 2.5px;
     line-height: 20px;
+  }
+
+  option {
+    color: #ad1212;
+  }
+
+  .comment {
+    color: #ad1212;
   }

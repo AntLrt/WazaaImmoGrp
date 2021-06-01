@@ -12,7 +12,7 @@
 <body>
 
 
-<div class="container col-4" >
+<div class="container col-4">
 
 
     <form class="form-horizontal" role="form">
@@ -34,27 +34,26 @@
                             <input type="text" class="form-control" name="name" id="name" required>
                         </div>
                     </div>
+
                     <div class="form-group">
                         <label for="mail" class="col-8 control-label mx-auto d-block">Email</label>
                         <div class="col-8 mx-auto">
                             <input type="email" class="form-control" name="email" id="email" required>
                         </div>
                     </div>
+
                     <div class="form-group">
                         <label for="prenom" class="col-8 control-label mx-auto d-block">Objet</label>
                         <div class="col-8 mx-auto">
                             <input type="text" class="form-control" name="prenom" id="prenom" required>
                         </div>
                     </div>
-                <!-- </div> -->
-            
-            <!-- </div> -->
 
-                <!-- <div class="col-lg-6"> -->
-
-                    <div class="col-8 mx-auto">
+                    <div class="form-group">
                         <label for="comment" class="col-8 control-label mx-auto d-block">Message</label>
-                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                        <div class="col-8 mx-auto">
+                            <textarea class="form-control" rows="5" id="comment"></textarea>
+                        </div>
                     </div>
 
                     <div class="col-xs-12 d-flex justify-content-center form-group">
