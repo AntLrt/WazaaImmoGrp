@@ -1,30 +1,33 @@
 <div class="row">
 <div class="col-12">    
 <?php 
-if($this->session->role == "Employe"){
-foreach ($Details as $row) 
-{
-    echo "<p> ".$row->emp_nom;
-    echo $row->emp_prenom;
-    echo $row->emp_tel;
-    echo $row->emp_mail;
-    echo $row->emp_mdp;
-    echo $row->emp_poste;
-    echo $row->emp_adresse." </p>";     
-}}
+if($this->session->role == "Employe"):
+    foreach ($Details as $row):?>
 
-else if($this->session->role == "Internaute"){
-    foreach ($Details as $row) 
-    {
-        echo "<p>".$row->in_prenom;
-        echo $row->in_nom;
-        echo $row->in_telephone;
-        echo $row->in_email;
-        echo $row->in_mdp;
-        echo $row->in_pays;
-        echo $row->in_adresse." </p>";     
-    }}
-?>
+        <p> <?php echo $row->emp_nom; ?> </p>
+        <p> <?php echo $row->emp_prenom; ?> </p>
+        <p> <?php echo $row->emp_tel; ?> </p>
+        <p> <?php echo $row->emp_mail; ?> </p>
+        <p> <?php echo $row->emp_mdp; ?> </p>
+        <p> <?php echo $row->emp_poste; ?> </p>
+        <p> <?php echo $row->emp_adresse; ?> </p>
+
+    <?php endforeach;?>
+
+<?php 
+elseif($this->session->role == "Internaute"):
+    foreach ($Details as $row): ?>
+        <p> <?php echo $row->in_prenom; ?> </p>
+        <p> <?php echo $row->in_nom; ?> </p>
+        <p> <?php echo $row->in_telephone; ?> </p>
+        <p> <?php echo $row->in_email; ?> </p>
+        <p> <?php echo $row->in_mdp; ?> </p>
+        <p> <?php echo $row->in_pays; ?> </p>
+        <p> <?php echo $row->in_adresse; ?> </p>
+
+    <?php endforeach;?>
+<?php endif; ?>
+
 </div>
 </div>
 
