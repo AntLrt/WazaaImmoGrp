@@ -606,28 +606,4 @@ class AnnoncesController extends CI_Controller
     }
     
 
-        if ($total_records > 0)
-        {
-        // get current page records
-        $params["results"] = $this->AnnonceModel->get_loca_records($limit_per_page, $page*$limit_per_page);
-        
-        $config['base_url'] = base_url() . 'Pagination/CustomVentes';
-        $config['total_rows'] = $total_records;
-        $config['per_page'] = $limit_per_page;
-        $config["uri_segment"] = 3;
-        
-        // custom paging configuration
-        $config['num_links'] = 2;
-        $config['use_page_numbers'] = TRUE;
-        $config['reuse_query_string'] = TRUE;
-        
-        $this->pagination->initialize($config);
-        
-        // build paging links
-        $params["links"] = $this->pagination->create_links();
-        }
-        
-        $this->load->view('HeaderView');
-        $this->load->view('VentesView', $params);
-        $this->load->view('Footerview');
 }

@@ -138,6 +138,7 @@ echo "<form action='$url' method='post'>";
         <h1>Top commentaire</h1> 
 
             <?php 
+            //var_dump($TopCom);var_dump($PirCom);
             //Affichage de tous les commentaires de l'annonce
             foreach ($TopCom as $row) 
             {

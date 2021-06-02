@@ -168,6 +168,8 @@ class AccueilController extends CI_Controller
             $this->load->model('CommentaireModel');
             $Comm2 = $this->CommentaireModel->PireCommentaire();
 
+            // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
+            $aView["PirCom"] = $Comm2;
 
             //Partie pour les images
             $this->load->model('AnnonceModel');
@@ -178,6 +180,8 @@ class AccueilController extends CI_Controller
             $this->load->model('NotesModel');
             $MoyenneNotes = $this->NotesModel->Notes();
 
+            // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
+            $aView["MoyenneNotes"] = $MoyenneNotes;
 
             $pageretour = 'PageAccueilView';
             $this->load->view('HeaderView');

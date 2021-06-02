@@ -117,6 +117,7 @@ class AuthentificationController extends CI_Controller
         if (isset($this->session->login))
         {
             session_destroy();
+
             $this->load->helper('url');
             redirect(site_url("AccueilController/Accueil"));
         }
@@ -136,6 +137,7 @@ class AuthentificationController extends CI_Controller
     {
         //afficher aide au debug
         $this->output->enable_profiler(false);
+
 
         if ($this->session->role == "Internaute")
         {

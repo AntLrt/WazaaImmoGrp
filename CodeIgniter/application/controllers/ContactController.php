@@ -37,13 +37,24 @@ class ContactController extends CI_Controller
 
             // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
             $aView["RefusAcces"] = $Erreur;
+
             $this->load->view('Headerview', $aView);
             $this->load->view('FooterView');
         }
     }
 
+    public function Formulaire()
+    {
+        if ($this->session->role == "Internaute") 
+        {
+            //afficher aide au debug
+            $this->output->enable_profiler(false);
 
+            // Chargement des assistants 'form' et 'url'
+            $this->load->helper('form', 'url');
 
+            // Chargement de la librairie 'database'
+            $this->load->database();
 
             // Chargement de la librairie form_validation
             $this->load->library('form_validation');
@@ -167,13 +178,5 @@ class ContactController extends CI_Controller
             $this->load->view('FooterView');
         }
     }
-    
-
-
-
 
 }
-
-
-
-
