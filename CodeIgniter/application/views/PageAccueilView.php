@@ -39,13 +39,13 @@ echo "<form action='$url' method='post'>";
 
                         <select name="Type" id="Type" class="form-control col-3">
                             <option value="">Type de bien</option>
-                            <option value="maison">maison</option>
-                            <option value="appartement">appartement</option>
-                            <option value="immeuble">immeuble</option>
-                            <option value="terrain">terrain</option>
-                            <option value="bureaux">bureaux</option>
-                            <option value="locaux professionnels">locaux professionnels</option>
-                            <option value="garage">garage</option>
+                            <option value="maison">Maison</option>
+                            <option value="appartement">Appartement</option>
+                            <option value="immeuble">Immeuble</option>
+                            <option value="terrain">Terrain</option>
+                            <option value="bureaux">Bureaux</option>
+                            <option value="locaux professionnels">Locaux professionnels</option>
+                            <option value="garage">Garage</option>
                         </select>
 
                         <!-- <label for="Ville">Ville</label> -->
