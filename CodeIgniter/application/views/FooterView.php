@@ -9,7 +9,7 @@
 <body>
 
     <div class="container-flex sticky-bottom justify-content-center">
-        <div class="footer-contact">
+        <div class="footer-contct">
             <?php {
                 $url=site_url("ContactController/Formulaire");
                 echo "<a href='$url' id='con' class='btn btn-outline-danger col-3'>Prendre contact</a>";

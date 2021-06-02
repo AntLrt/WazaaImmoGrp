@@ -6,11 +6,12 @@
 
             <div id="topnav">
 
-                <div class="logo" id="logo">logo</div>
+                <div class="logo" id="logo">*</div>
 
                 <style type="text/css">
                     .logo {
                         background-image:url("<?php echo base_url();?>/assets/images/logo_small.png");
+                        background-repeat: no-repeat;
                     }
                 </style>
 
