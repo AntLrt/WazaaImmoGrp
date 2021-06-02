@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 <div class="row">
 <div class="col-12">    
 <?php 
@@ -31,7 +30,6 @@ elseif($this->session->role == "Internaute"):
 
 </div>
 </div>
-=======
 <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -52,7 +50,6 @@ elseif($this->session->role == "Internaute"):
                 echo "<p class='list-group-item list-group-item-action list-group-item-danger'>".$row->emp_poste. "</p>";
                 echo "<p class='list-group-item list-group-item-action list-group-item-danger'>".$row->emp_adresse."</p>";     
             }}
->>>>>>> Stashed changes
 
             else if($this->session->role == "Internaute"){
                 foreach ($Details as $row) 

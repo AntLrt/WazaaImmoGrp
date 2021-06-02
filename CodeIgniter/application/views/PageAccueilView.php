@@ -90,26 +90,14 @@ echo "<form action='$url' method='post'>";
             <?php 
             //On donne la possibilité de laisser un commentaire si la personne est connecté sinon on dit qu'il faut être connecté pour laisser un commentaire
             if($this->session->role == "Internaute"):
-            $url = site_url("MembresController/CommentairePubli");
-<<<<<<< Updated upstream
-            echo "<form action='$url' method='post'>"; 
-            ?>
-
-            <div class='form-group'>
-            <br>
-            <label for='Commentaire'>Laissez un commentaire sur notre entreprise !</label>
-            <br>
-            <textarea rows='3' class='form-control' placeholder='Entrez votre commentaire ici'
-            name='Commentaire' id='Commentaire'></textarea>
-=======
-            echo "<form action='$url' method='post' id='commentaire' class='container'> 
+            $url = site_url("MembresController/CommentairePubli"); ?>
+            <form action=<?php echo $url ?> method='post' id='commentaire' class='container'> 
                         <div class='form-group'>
                             <br>
                                 <label for='Commentaire' class='font-weight-bold'>Laissez un commentaire sur notre entreprise !</label>
                             <br>
                                 <textarea rows='3' class='form-control' placeholder='Entrez votre commentaire ici'
                                 name='Commentaire' id='area'></textarea>
->>>>>>> Stashed changes
 
                         </div>
 
@@ -132,13 +120,8 @@ echo "<form action='$url' method='post'>";
                             
                             <br>
 
-<<<<<<< Updated upstream
-            <button type='submit' class='btn btn-dark'>Envoyer</button>    
-            </form>
-=======
                         <button type='submit' class='btn' id='sendit'>Envoyer</button>    
-                </form>";
->>>>>>> Stashed changes
+                </form>
 
             
             <?php else: ?>

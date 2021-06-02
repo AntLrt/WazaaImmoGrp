@@ -21,24 +21,38 @@ class ListesModel extends CI_Model
         return $results;
     }
 
-    public function ListeContacts ()
+    public function ListeContacts0 ()
     {
-        // Prépare le tableau
-        $this->load->library('table');
-
         // Charge la librairie 'database'
         $this->load->database();
         // Exécute la requête
-        $results = $this->db->query("SELECT waz_contacter.in_id AS 'ID internaute',
-                                     co_date_ajout AS 'Date envoi du formulaire contact',
-                                     in_email AS 'Email internaute', co_sujet AS 'Sujet', 
-                                     co_question AS 'Question'
-                                     FROM waz_contacter,waz_internautes
-                                     WHERE waz_contacter.in_id=waz_internautes.in_id
-                                     ORDER BY co_date_ajout
-                                     ");
-        return $results;
+        $results0 = $this->db->query("SELECT waz_contacter.in_id,
+                                    co_date_ajout,
+                                    in_email, co_sujet, 
+                                    co_question, co_est_traite,emp_id
+                                    FROM waz_contacter,waz_internautes
+                                    WHERE waz_contacter.in_id=waz_internautes.in_id AND co_est_traite = '0'
+                                    ORDER BY co_date_ajout
+                                    ");
+        $results0 = $results0->result();
+        return $results0;
+    }
 
+    public function ListeContacts1 ()
+    {
+        // Charge la librairie 'database'
+        $this->load->database();
+        // Exécute la requête
+        $results1 = $this->db->query("SELECT waz_contacter.in_id,
+                                    co_date_ajout,
+                                    in_email, co_sujet, 
+                                    co_question, co_est_traite,emp_id
+                                    FROM waz_contacter,waz_internautes
+                                    WHERE waz_contacter.in_id=waz_internautes.in_id AND co_est_traite = '1'
+                                    ORDER BY co_date_ajout
+                                    ");
+        $results1 = $results1->result();
+        return $results1;
     }
 
     public function PosteDirecteur ()
@@ -48,7 +62,7 @@ class ListesModel extends CI_Model
         // Charge la librairie 'database'
         $this->load->database();
         $results = $this->db->query("SELECT emp_nom AS 'Nom', emp_prenom AS 'Prénom', emp_mail AS 'Email'
-                                     FROM waz_employes WHERE emp_poste = 'directeur'");
+                                    FROM waz_employes WHERE emp_poste = 'directeur'");
         return $results;
 
     }
@@ -61,7 +75,7 @@ class ListesModel extends CI_Model
         $this->load->database();
         // Exécute la requête
         $results = $this->db->query("SELECT emp_nom AS 'Nom', emp_prenom AS 'Prénom', emp_mail AS 'Email'
-                                     FROM waz_employes WHERE emp_poste = 'secretaire'");
+                                    FROM waz_employes WHERE emp_poste = 'secretaire'");
         return $results;
     }
 
@@ -73,7 +87,7 @@ class ListesModel extends CI_Model
         $this->load->database();
         // Exécute la requête
         $results = $this->db->query("SELECT emp_nom AS 'Nom', emp_prenom AS 'Prénom', emp_mail AS 'Email'
-                                     FROM waz_employes WHERE emp_poste = 'negociateur immobilier'");
+                                    FROM waz_employes WHERE emp_poste = 'negociateur immobilier'");
         return $results;
     }
 
@@ -85,9 +99,9 @@ class ListesModel extends CI_Model
         $this->load->database();
         // Exécute la requête
         $results = $this->db->query("SELECT emp_id AS 'ID', emp_poste AS 'Poste', emp_nom AS 'Nom',
-                                     emp_prenom AS 'Prénom', emp_adresse AS 'Adresse', emp_tel AS 'Téléphone',
-                                     emp_mail AS 'Email'
-                                     FROM waz_employes");
+                                    emp_prenom AS 'Prénom', emp_adresse AS 'Adresse', emp_tel AS 'Téléphone',
+                                    emp_mail AS 'Email'
+                                    FROM waz_employes");
         return $results;
     }
 
@@ -98,7 +112,7 @@ class ListesModel extends CI_Model
 
         // Exécute la requête
         $results = $this->db->query("SELECT in_id AS 'ID', in_nom AS 'Nom', in_prenom AS 'Prenom', in_adresse AS 'Adresse', in_telephone AS 'Téléphone', in_email AS 'Mail', in_pays AS 'Pays'
-                                     FROM waz_internautes");
+                                    FROM waz_internautes");
         return $results;
     }
 }
