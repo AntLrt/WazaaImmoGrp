@@ -71,6 +71,11 @@
     opacity: 85%;
   }
 
+  #searchbar {
+    background-color: rgb(85, 85, 85);
+    padding: 15px;
+  }
+
   label {
     margin-bottom: 2.5px;
     line-height: 20px;
@@ -86,4 +91,55 @@
 
   select #type {
     padding-bottom: 0%;
+  }
+
+  .pics {
+    display: flex;
+    justify-content: center;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  #commentaire {
+    background-color: #fdfdfd;
+    opacity: 85%;
+    border: 1px solid #ad1212;
+    border-radius: 2.5px;
+    padding: 10px;
+  }
+
+  #note {
+    color: black;
+    opacity: 65%;
+  }
+
+  #area {
+    background-color: rgb(190, 190, 190);
+  }
+
+  #search {
+    background-color: white;
+    opacity: 85%;
+    margin-top: 50px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    border: 1px solid #ad1212;
+    border-radius: 2.5px;
+  }
+
+  #sendit {
+    display: flex;
+    justify-content: center;
+  }
+
+  #cont {
+    background-color: white;
+    opacity: 85%;
+    margin-top: 50px;
+    padding-bottom: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border: 1px solid #ad1212;
+    border-radius: 2.5px;
   }

@@ -3,7 +3,7 @@
     color: rgb(155, 155, 155);
     display: flex;
     justify-content: center;
-    border-top: 2.5px #ad1212;
+    border-top: 1px solid #ad1212;
 }
 
 .footer-contact {
@@ -12,5 +12,15 @@
     display: flex;
     justify-content: center;
     height: 100px;
-    color: #ad1212;
 }
+
+#con {
+    padding: 5px;
+    border: 1px solid #ad1212;
+}
+
+#con :hover {
+    background-color: #ad1212;
+    color: white;
+}
+

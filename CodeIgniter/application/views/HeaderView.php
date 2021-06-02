@@ -4,9 +4,16 @@
 </head>
 <body>
 
-        <div id="logo"></div>
-
             <div id="topnav">
+
+                <div class="logo" id="logo">logo</div>
+
+                <style type="text/css">
+                    .logo {
+                        background-image:url("<?php echo base_url();?>/assets/images/logo_small.png");
+                    }
+                </style>
+
                 <a href="<?= site_url("AccueilController/Accueil")?>">Accueil</a>
                 <a href="<?= site_url("AnnoncesController/Loca")?>">Locations</a>
                 <a href="<?= site_url("AnnoncesController/Ventes")?>">Ventes</a>
@@ -58,7 +65,7 @@
                     $url=site_url("AuthentificationController/Deconnexion");
                     echo "<form action='$url' method='post'>";
 
-                    echo "<button type='submit' class='btn btn-dark'>Deconnexion</button>";
+                    echo "<button type='submit' class='btn btn-outline-danger d-flex justify-content-end'>Deconnexion</button>";
 
                     echo "</form>";
                 }
@@ -71,5 +78,11 @@
             </div>
 
             <?php if(!empty($RefusAcces)){echo $RefusAcces;}?>
+
+            <style type="text/css">
+                body {
+                    background-image:url("<?php echo base_url();?>/assets/images/Wazbg.jpg");
+                }
+            </style>
 
 </body>

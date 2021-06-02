@@ -12,7 +12,7 @@
         <div class="footer-contact">
             <?php {
                 $url=site_url("ContactController/Formulaire");
-                echo "<a href='$url'>Contact</a>";
+                echo "<a href='$url' id='con' class='btn btn-outline-danger col-3'>Prendre contact</a>";
             }?>
         </div>
 

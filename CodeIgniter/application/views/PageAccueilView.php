@@ -15,17 +15,17 @@ echo "<form action='$url' method='post'>";
 
 <body>
 
-<div class="container col-12">
+<div class="container col-10" id="search">
     <form class="form-horizontal" id="formstyle">
                     <div class='row'>
-                        <div class="col-12">
+                        <div class="col">
                             <div class="form-heading">
                                 <span class="prg">Votre recherche</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="form-group form-inline">
+                    <div class="form-group form-inline col-10 mx-auto" id="searchbar">
                         <!-- <label for="Operation">Type d'opération </label> -->
 
                         <select name="Operation" id="Operation" class="form-control col-3">
@@ -59,7 +59,7 @@ echo "<form action='$url' method='post'>";
 
 
                     
-                <div>
+                <div class="pics">
                     <?php  foreach ($anid['photo1'] as $row) {$anid1 = $row->an_id;}?>
                     <a href="<?=site_url("AnnoncesController/Details")?>/<?php echo $anid1?>">
                         <?php foreach ($anid['photo1'] as $row) {$PhotoUne = $row->pho_nom;}?>
@@ -82,17 +82,16 @@ echo "<form action='$url' method='post'>";
     </form>
 </div>
 
-            <br>
-
-            <a>La note moyenne laissé par nos clients : <a><?php foreach ($MoyenneNotes as $row) {echo $row->Moyenne;}?><a>/5</a>
-
-
+            <div class="container">
+                <a>La note moyenne laissé par nos clients : <a><?php foreach ($MoyenneNotes as $row) {echo $row->Moyenne;}?><a>/5</a>
+            </div>
 
 
             <?php 
             //On donne la possibilité de laisser un commentaire si la personne est connecté sinon on dit qu'il faut être connecté pour laisser un commentaire
             if($this->session->role == "Internaute"):
             $url = site_url("MembresController/CommentairePubli");
+<<<<<<< Updated upstream
             echo "<form action='$url' method='post'>"; 
             ?>
 
@@ -102,28 +101,44 @@ echo "<form action='$url' method='post'>";
             <br>
             <textarea rows='3' class='form-control' placeholder='Entrez votre commentaire ici'
             name='Commentaire' id='Commentaire'></textarea>
+=======
+            echo "<form action='$url' method='post' id='commentaire' class='container'> 
+                        <div class='form-group'>
+                            <br>
+                                <label for='Commentaire' class='font-weight-bold'>Laissez un commentaire sur notre entreprise !</label>
+                            <br>
+                                <textarea rows='3' class='form-control' placeholder='Entrez votre commentaire ici'
+                                name='Commentaire' id='area'></textarea>
+>>>>>>> Stashed changes
 
-            </div>
+                        </div>
 
-            <div class='form-group'>
-            <label for='Note'>Notez la qualité de nos services sur 5 !</label>
+                        <div class='form-group'>
 
-            <br>
+                            <label for='Note'>Notez la qualité de nos services sur 5 !</label>
 
-            <select name='Note' id='Note'>
-            <option value='5'>5</option>
-            <option value='4'>4</option>
-            <option value='3'>3</option>
-            <option value='2'>2</option>
-            <option value='1'>1</option>
-            <option value='0'>0</option>
+                            <br>
 
-            </select>
-            </div> 
-            <br>
+                                <select name='Note' id='Note'>
+                                    <option value='5'>5</option>
+                                    <option value='4'>4</option>
+                                    <option value='3'>3</option>
+                                    <option value='2'>2</option>
+                                    <option value='1'>1</option>
+                                    <option value='0'>0</option>
+                                </select>
 
+                        </div> 
+                            
+                            <br>
+
+<<<<<<< Updated upstream
             <button type='submit' class='btn btn-dark'>Envoyer</button>    
             </form>
+=======
+                        <button type='submit' class='btn' id='sendit'>Envoyer</button>    
+                </form>";
+>>>>>>> Stashed changes
 
             
             <?php else: ?>
@@ -136,9 +151,8 @@ echo "<form action='$url' method='post'>";
 
 
 
-            <div class="row">
-            <div class="col-12">    
-            <h1>Top commentaire</h1> 
+<div class="container col-12">    
+        <h1>Top commentaire</h1> 
 
             <?php 
             //Affichage de tous les commentaires de l'annonce
@@ -158,12 +172,10 @@ echo "<form action='$url' method='post'>";
 
             }
             ?>
-            </div>
-            </div>
-            <div class="row">
-            <div class="col-12">
-            <h1>Pire commentaire</h1> 
-            <div class="comment"><?php 
+
+        <h1>Pire commentaire</h1> 
+        <div class="com">
+            <?php 
             //Affichage de tous les commentaires de l'annonce
             foreach ($PirCom as $row) 
             {
@@ -181,21 +193,16 @@ echo "<form action='$url' method='post'>";
 
             }
             ?>
-            </div>
-            </div>
-            </div>
+        </div>
+</div>
 
-            <a href="<?= site_url("MembresController/Commentaires")?>">Voir tout les commentaires</a><br><br>
-
+        <a href="<?= site_url("MembresController/Commentaires")?>">Voir tout les commentaires</a><br><br>
 
 
 
 
-        <style type="text/css">
-            body {
-                background-image:url("<?php echo base_url();?>/assets/images/Wazbg.jpg");
-            }
-        </style>
+
+
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
