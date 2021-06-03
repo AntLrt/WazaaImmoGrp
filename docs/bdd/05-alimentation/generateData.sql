@@ -170,16 +170,16 @@ VALUES (41,"162,036€","VE-LP-0421-01","2021-03-21","V",333,"2021-03-21","2021-
 
 DELETE FROM waz_commentaire;
 INSERT INTO `waz_commentaire` (`com_id`,`com_avis`,`com_notes`,`com_date_ajout`,`in_id`)
-VALUES (1,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu",3,"2021-03-28 00:41:11","0"),
-       (2,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus.",4,"2021-03-17 15:50:24","1"),
-       (3,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna",5,"2021-03-30 09:05:15","2"),
+VALUES (1,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu",3,"2021-03-28 00:41:11","1"),
+       (2,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus.",4,"2021-03-17 15:50:24","2"),
+       (3,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna",5,"2021-03-30 09:05:15","3"),
        (4,"Lorem",5,"2021-03-31 06:39:46","3"),
        (5,"Lorem ipsum dolor sit amet,",5,"2021-03-22 15:30:45","4"),
        (6,"Lorem ipsum dolor sit amet, consectetuer",3,"2021-03-10 21:51:42","2"),
        (7,"Lorem ipsum dolor sit amet, consectetuer adipiscing",1,"2021-03-29 18:50:51","4"),
-       (8,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et",3,"2021-03-19 19:25:18","3"),
+       (8,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et",3,"2021-03-19 19:25:18","4"),
        (9,"Lorem ipsum dolor sit amet, consectetuer",3,"2021-03-20 17:09:05","7"),
-       (10,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus.Ut nec",1,"2021-03-15 07:12:48","1");
+       (10,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus.Ut nec",1,"2021-03-15 07:12:48","5");
 
 -- donnée pour waz_favoris
 DELETE FROM waz_favoris;
