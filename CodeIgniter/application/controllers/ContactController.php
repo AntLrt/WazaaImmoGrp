@@ -54,7 +54,7 @@ class ContactController extends CI_Controller
             $this->load->helper('form', 'url');
 
             // Chargement de la librairie 'database'
-            $this->load->database();
+//            $this->load->database();
 
             // Chargement de la librairie form_validation
             $this->load->library('form_validation');
@@ -142,15 +142,14 @@ class ContactController extends CI_Controller
         {
             if ($this->input->post()) 
             {
-                //$question = $this->input->post("question");
-
-                $this->load->database();
-                $data = array(1, "$intid", "$empid");
-                $this->db->query('update waz_contacter set co_est_traite=? where in_id=? and emp_id=?', $data);
+                //envois du model pour l'insertion du traitement
+                $this->load->model('TraitementModel');
+                $this->TraitementModel->TraitementMessage ($empid,$intid);
 
                 $this->load->helper('url');
                 $url = site_url("ContactController/ListeContact");
                 redirect($url);
+
             } 
             else 
             {

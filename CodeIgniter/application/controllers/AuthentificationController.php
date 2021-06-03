@@ -181,9 +181,6 @@ class AuthentificationController extends CI_Controller
             // Chargement des assistants 'form' et 'url'
             $this->load->helper('form', 'url');
 
-            // Chargement de la librairie 'database'
-            $this->load->database();
-
             // Chargement de la librairie form_validation
             $this->load->library('form_validation');
 
