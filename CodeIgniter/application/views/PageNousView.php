@@ -1,15 +1,22 @@
 <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="<?= base_url("assets/CSS/Nous-Comptestyle.css") ?>">
 </head>
 
 <body>
 
     <br>
 
-        <div class="container col-10">
+        <div class="container col-10" id="nous">
 
-            <h1>Notre histoire</h1>
+            <div class='row'>
+                <div class="col-12">
+                    <div class="form-heading">
+                        <span class="prg">Notre histoire</span>
+                    </div>
+                </div>
+            </div>
 
                 <p>Fondé en 1999 à Amiens, Wazaa Immo est une agencie immobilière qui ne cesse de croître au fil des années.
                 Fondé en 1999 à Amiens, Wazaa Immo est une agencie immobilière qui ne cesse de croître au fil des années.  
@@ -17,7 +24,13 @@
                 Fondé en 1999 à Amiens, Wazaa Immo est une agencie immobilière qui ne cesse de croître au fil des années.
                 Fondé en 1999 à Amiens, Wazaa Immo est une agencie immobilière qui ne cesse de croître au fil des années.</p>
 
-            <h1>Notre entreprise</h1>
+            <div class='row'>
+                <div class="col-12">
+                    <div class="form-heading">
+                        <span class="prg">Notre entreprise</span>
+                    </div>
+                </div>
+            </div>
 
                 <p>De nos jours, Wazaa Immo est une grande agence immobilière possédant des biens dans tout le pays.
                 De nos jours, Wazaa Immo est une grande agence immobilière possédant des biens dans tout le pays.
@@ -26,28 +39,30 @@
                 De nos jours, Wazaa Immo est une grande agence immobilière possédant des biens dans tout le pays.</p>
 
 
-            <h1>Notre effectif</h1>
-
-            <div class="row">
-                <div class="col-10"> 
-                    <h4>Le dirigeant de l'entreprise</h4>   
-                    <?php echo $Directeur; ?>
-                </div>
-            <!-- </div> -->
-
-            <!-- <div class="row"> -->
-                <div class="col-10"> 
-                    <h4>Les secretaires de l'entreprise</h4>   
-                    <?php echo $Secretaire; ?>
-                </div>
-            <!-- </div> -->
-
-            <!-- <div class="row"> -->
-                <div class="col-10"> 
-                    <h4>Nos agents immobilier</h4>   
-                    <?php echo $Negociateur;?>
+            <div class='row'>
+                <div class="col-12">
+                    <div class="form-heading">
+                        <span class="prg">Nos effectifs</span>
+                    </div>
                 </div>
             </div>
+
+                <div class="row">
+                    <div class="col-10"> 
+                        <h4>Le dirigeant de l'entreprise</h4>   
+                        <?php echo $Directeur; ?>
+                    </div>
+
+                    <div class="col-10"> 
+                        <h4>Les secretaires de l'entreprise</h4>   
+                        <?php echo $Secretaire; ?>
+                    </div>
+
+                    <div class="col-10"> 
+                        <h4>Nos agents immobilier</h4>   
+                        <?php echo $Negociateur;?>
+                    </div>
+                </div>
 
         </div>
 

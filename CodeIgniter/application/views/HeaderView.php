@@ -66,7 +66,7 @@
                     $url=site_url("AuthentificationController/Deconnexion");
                     echo "<form action='$url' method='post'>";
 
-                    echo "<button type='submit' class='btn btn-outline-danger d-flex justify-content-end'>Deconnexion</button>";
+                    echo "<button type='submit' class='btn btn-outline-danger'>Deconnexion</button>";
 
                     echo "</form>";
                 }
@@ -83,6 +83,7 @@
             <style type="text/css">
                 body {
                     background-image:url("<?php echo base_url();?>/assets/images/Wazbg.jpg");
+                    background-attachment:fixed;
                 }
             </style>
 

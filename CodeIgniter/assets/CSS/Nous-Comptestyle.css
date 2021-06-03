@@ -1,0 +1,44 @@
+#details {
+    background-color: white;
+    opacity: 85%;
+    border-bottom: 1.5px solid #ad1212;
+    border-radius: 2.5px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+}
+
+#deets {
+    color: #333131;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.form-heading {
+    background: #fdfdfd; /* fallback for old browsers */
+    border-bottom: 2.5px solid #ad1212;
+    border-radius: 2.5px;
+    margin: 20px 0 20px;
+    padding: 20px;
+    opacity: 85%;
+}
+
+    .form-heading .prg{
+    color: #ad1212;
+    font-size: 23px;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
+
+#nous {
+    background-color: white;
+    opacity: 85%;
+    border-bottom: 1.5px solid #ad1212;
+    border-radius: 2.5px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+}
+

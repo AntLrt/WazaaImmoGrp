@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="<?= base_url("assets/CSS/FooterStyle.css") ?>">
 </head>
 
-<body>
+<body id="foot">
 
     <div class="container-flex sticky-bottom justify-content-center">
         <div class="footer-contct">
