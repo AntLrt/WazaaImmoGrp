@@ -223,6 +223,7 @@ VALUES ("7","1","Louer","Lorem ipsum dolor sit amet, consectetuer adipiscing eli
        ("8","10","Acheter","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper.","2021-05-07","0");
 
 -- donnée pour la table waz_enregistrer
+DELETE FROM waz_enregistrer;
 
 INSERT INTO `waz_enregistrer` (`in_id`,`fav_id`) VALUES ("1","1"),("2","2"),("4","3"),("6","4");
 
