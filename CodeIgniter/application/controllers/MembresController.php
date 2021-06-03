@@ -182,20 +182,90 @@ class MembresController extends CI_Controller
 
         public function Commentaires()
         {
-            //afficher aide au debug
-            $this->output->enable_profiler(false);
+            //$TypeTrie = $this->input->get("Trie");
+            
 
-
-            //Partie pour voir les commentaires
+            // load db and model
+            $this->load->database();
+            $this->load->library('pagination');
             $this->load->model('CommentaireModel');
-            $Comms = $this->CommentaireModel->CommentairesAll ();
 
-            // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
-            $aView["ToutCom"] = $Comms;
+            // init params
+            $params = array();
+            $limit_per_page = 5;
+            $start_index = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+            $total_records = $this->CommentaireModel->get_total_comms();
+
+            if ($total_records > 0) 
+            {
+                // get current page records
+                $params["ResDateDecroissante"] = $this->CommentaireModel->get_comms_records($limit_per_page, $start_index);
+                $params["ResNoteCroissante"] = $this->CommentaireModel->get_comms_records_NoteC($limit_per_page, $start_index);
+                $params["ResDateCroissante"] = $this->CommentaireModel->get_comms_records_DateC($limit_per_page, $start_index);
+                $params["ResNoteDecroissante"] = $this->CommentaireModel->get_comms_records_NoteD($limit_per_page, $start_index);
+
+
+                $config['base_url'] = site_url("MembresController/Commentaires");
+                $config['total_rows'] = $total_records;
+                $config['per_page'] = $limit_per_page;
+                $config["uri_segment"] = 3;
+
+                $this->pagination->initialize($config);
+
+                // build paging links
+                $params["links"] = $this->pagination->create_links();
+            }
 
             $this->load->view('HeaderView');
-            $this->load->view('CommentairesView', $aView);
-            $this->load->view('FooterView');
+            $this->load->view('CommentairesView', $params);
+            $this->load->view('Footerview');
+        }
+
+
+
+
+        public function CustomComms()
+        {
+            // load db and model
+            $this->load->database();
+            $this->load->library('pagination');
+            $this->load->model('CommentaireModel');
+
+            // init params
+            $params = array();
+            $limit_per_page = 5;
+            $page = ($this->uri->segment(3)) ? ($this->uri->segment(3) - 1) : 0;
+            $total_records = $this->AnnonceModel->get_total_comms();
+
+            if ($total_records > 0)
+            {
+                // get current page records
+                $params["ResDateDecroissante"] = $this->CommentaireModel->get_comms_records($limit_per_page, $start_index);
+                $params["ResNoteCroissante"] = $this->CommentaireModel->get_comms_records_NoteC($limit_per_page, $start_index);
+                $params["ResDateCroissante"] = $this->CommentaireModel->get_comms_records_DateC($limit_per_page, $start_index);
+                $params["ResNoteDecroissante"] = $this->CommentaireModel->get_comms_records_NoteD($limit_per_page, $start_index);
+
+
+
+                $config['base_url'] = base_url() . 'MembresController/CustomComms';
+                $config['total_rows'] = $total_records;
+                $config['per_page'] = $limit_per_page;
+                $config["uri_segment"] = 3;
+
+                // custom paging configuration
+                $config['num_links'] = 2;
+                $config['use_page_numbers'] = TRUE;
+                $config['reuse_query_string'] = TRUE;
+
+                $this->pagination->initialize($config);
+
+                // build paging links
+                $params["links"] = $this->pagination->create_links();
+            }
+
+            $this->load->view('HeaderView');
+            $this->load->view('CommentairesView', $params);
+            $this->load->view('Footerview');
         }
 }
 
