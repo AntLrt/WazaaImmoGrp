@@ -69,6 +69,99 @@ class CommentaireModel extends CI_Model
         return $Comms;
     }
 
+    public function get_comms_records($limit, $start) 
+{
+    $this->db->limit($limit, $start);  
+    $this->db->from('waz_commentaire','waz_internautes');
+    $this->db->join('waz_internautes', 'waz_internautes.in_id = waz_commentaire.in_id');
+    $this->db->order_by('com_date_ajout', 'DESC');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) 
+    {
+        foreach ($query->result() as $row) 
+        {
+            $data[] = $row;
+        }
+            
+        return $data;
+    }
+
+    return false;
+}
+
+public function get_comms_records_NoteC($limit, $start) 
+{
+    $this->db->limit($limit, $start);  
+    $this->db->from('waz_commentaire','waz_internautes');
+    $this->db->join('waz_internautes', 'waz_internautes.in_id = waz_commentaire.in_id');
+    $this->db->order_by('com_notes', 'ASC');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) 
+    {
+        foreach ($query->result() as $row) 
+        {
+            $data[] = $row;
+        }
+            
+        return $data;
+    }
+
+    return false;
+}
+
+public function get_comms_records_NoteD($limit, $start) 
+{
+    $this->db->limit($limit, $start);  
+    $this->db->from('waz_commentaire','waz_internautes');
+    $this->db->join('waz_internautes', 'waz_internautes.in_id = waz_commentaire.in_id');
+    $this->db->order_by('com_notes', 'DESC');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) 
+    {
+        foreach ($query->result() as $row) 
+        {
+            $data[] = $row;
+        }
+            
+        return $data;
+    }
+
+    return false;
+}
+
+public function get_comms_records_DateC($limit, $start) 
+{
+    $this->db->limit($limit, $start);  
+    $this->db->from('waz_commentaire','waz_internautes');
+    $this->db->join('waz_internautes', 'waz_internautes.in_id = waz_commentaire.in_id');
+    $this->db->order_by('com_notes', 'ASC');
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) 
+    {
+        foreach ($query->result() as $row) 
+        {
+            $data[] = $row;
+        }
+            
+        return $data;
+    }
+
+    return false;
+}
+
+
+public function get_total_comms() 
+{       
+$this->db->from('waz_commentaire','waz_internautes');
+$this->db->join('waz_internautes', 'waz_internautes.in_id = waz_commentaire.in_id');
+$this->db->order_by('com_date_ajout', 'DESC');
+$query = $this->db->get();
+return $query->num_rows();
+}
 
 
 

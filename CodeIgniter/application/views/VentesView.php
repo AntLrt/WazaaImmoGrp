@@ -54,6 +54,7 @@ echo "<form action='$url' method='post'>";
                         <button type="submit" class="btn" value="Submit">RECHERCHER</button>
                     </div>
 
+
 <div class="container">
     <h1 id='form_head'>Liste des ventes</h1>
 
