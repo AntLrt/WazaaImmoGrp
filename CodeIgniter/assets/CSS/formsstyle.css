@@ -84,9 +84,9 @@
     background-color: white;
     opacity: 85%;
     margin-top: 50px;
-    padding-right: 15px;
-    padding-left: 15px;
-    padding-bottom: 15px;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-bottom: 30px;
     border: 1px solid #ad1212;
     border-radius: 2.5px;
   }
@@ -111,9 +111,17 @@
   .pics {
     display: flex;
     justify-content: center;
-    padding-left: 5px;
-    padding-right: 5px;
+    margin-left: 20px;
+    margin-right: 20px;
   }
+
+  #showoff {
+    margin: 15px;
+    border: solid 1px rgb(117, 117, 117);
+    border-radius: 2.5px;
+  }
+
+/* AccueilView */
 
   #commentaire {
     background-color: #fdfdfd;
@@ -132,8 +140,6 @@
     background-color: rgb(190, 190, 190);
   }
 
-
-
   #sendit {
     display: flex;
     justify-content: center;
@@ -149,6 +155,53 @@
     border: 1px solid #ad1212;
     border-radius: 2.5px;
   }
+
+#noteclient {
+  background-color: black;
+  opacity: 80%;
+  color: #fdfdfd;
+  padding: 10px;
+  border-radius: 2.5px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#badgenote {
+  padding: 10px;
+}
+
+#needlog {
+  border: 1px solid #ad1212;
+  color: #ad1212;
+  text-align: center;
+}
+
+#topworst {
+  background-color: white;
+  opacity: 85%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-bottom: 15px;
+  padding-top: 20px;
+  border: 1px solid #ad1212;
+  border-radius: 2.5px;
+}
+
+#top {
+  border-bottom: black 0px;
+}
+
+#tw {
+  text-align: center;
+}
+
+#seethrough {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
 
 /* InscriptionView */
 
@@ -169,15 +222,25 @@
 #connexion {
   background-color: white;
   opacity: 85%;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 200px;
+  margin-bottom: 200px;
   border: 1px solid #ad1212;
   border-radius: 2.5px;
 }
 
 #but {
   display: flex;
-  justify-content: center;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+#logmail {
+  margin-top: 20px;
+}
+
+#logmp {
+  margin-top: 35px;
 }
 
 /* Vente/LocationView */

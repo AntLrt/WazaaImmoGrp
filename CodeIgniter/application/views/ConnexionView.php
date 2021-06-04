@@ -6,7 +6,7 @@
 
 <body>
 
-<div class="container col-6" id="connexion">
+<div class="container col-5" id="connexion">
 
   <form action="<?=site_url("AuthentificationController/Login")?>" method="post">
 
@@ -18,35 +18,35 @@
             </div>
         </div>
 
-      <div class="row mb-3">
-        <label for="login" class="col-sm-2 col-form-label">Mail</label>
+
+        <div class="row mb-3 justify-content-center" id="logmail">
+          <!-- <label for="login" class="col-sm-2 col-form-label">Mail</label> -->
+              <div class="col-sm-6">
+                  <input type="email" class="form-control" id="login" name="login_name" placeholder="Votre mail">
+              </div>
+        </div>
+
+        <div class="row mb-3 justify-content-center" id="logmp">
+          <!-- <label for="password" class="col-sm-2 col-form-label">Mot de passe</label> -->
             <div class="col-sm-6">
-                <input type="email" class="form-control" id="login" name="login_name" placeholder="Votre mail">
+                <input type="password" class="form-control" id="password" name="password_name" placeholder="Votre mot de passe">
+                <input type="checkbox" onclick="myFunction()"> Afficher mot de passe
             </div>
-      </div>
-
-      <div class="row mb-3">
-        <label for="password" class="col-sm-2 col-form-label">Mot de passe</label>
-          <div class="col-sm-6">
-              <input type="password" class="form-control" id="password" name="password_name" placeholder="Votre mot de passe">
-              <input type="checkbox" onclick="myFunction()"> Afficher mot de passe
-          </div>
-      </div>
+        </div>
 
 
-            <script>
-            function myFunction() {
-              var x = document.getElementById("password_id");
-              if (x.type === "password") {
-                x.type = "text";
-              } else {
-                x.type = "password";
+              <script>
+              function myFunction() {
+                var x = document.getElementById("password");
+                if (x.type === "password") {
+                  x.type = "text";
+                } else {
+                  x.type = "password";
+                }
               }
-            }
-            </script>
+              </script>
 
-        <button type="submit" class="btn" id="but">Connexion</button>
-
+          <button type="submit" class="btn" id="but">Connexion</button>
   </form>
 
 </div>

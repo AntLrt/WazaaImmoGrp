@@ -55,80 +55,86 @@ echo "<form action='$url' method='post'>";
                     
                 <div class="pics">
                     <?php  foreach ($anid['photo1'] as $row) {$anid1 = $row->an_id;}?>
-                    <a href="<?=site_url("AnnoncesController/Details")?>/<?php echo $anid1?>">
+                    <a href="<?=site_url("AnnoncesController/Details")?>/<?php echo $anid1?>" id="showoff">
                         <?php foreach ($anid['photo1'] as $row) {$PhotoUne = $row->pho_nom;}?>
-                        <img src="<?php echo base_url();?>/assets/images/<?php echo $PhotoUne;?>.jpg" width="200" height="100" title="Cliquez pour voir cette annonce !">
+                        <img src="<?php echo base_url();?>/assets/images/<?php echo $PhotoUne;?>.jpg" width="425" height="200" title="Cliquez pour voir cette annonce !">
                     </a>
 
                     <?php foreach ($anid['photo2'] as $row) {$anid2 = $row->an_id;}?>
-                    <a href="<?=site_url("AnnoncesController/Details")?>/<?php echo $anid2?>">
+                    <a href="<?=site_url("AnnoncesController/Details")?>/<?php echo $anid2?>" id="showoff">
                         <?php foreach ($anid['photo2'] as $row) {$PhotoDeux = $row->pho_nom;}?>
-                        <img src="<?php echo base_url();?>/assets/images/<?php echo $PhotoDeux;?>.jpg" width="200" height="100" title="Cliquez pour voir cette annonce !">
+                        <img src="<?php echo base_url();?>/assets/images/<?php echo $PhotoDeux;?>.jpg" width="425" height="200" title="Cliquez pour voir cette annonce !">
                     </a>
 
                     <?php foreach ($anid['photo3'] as $row) {$anid3 = $row->an_id;}?>
-                    <a href="<?=site_url("AnnoncesController/Details")?>/<?php echo $anid3?>">
+                    <a href="<?=site_url("AnnoncesController/Details")?>/<?php echo $anid3?>" id="showoff">
                         <?php foreach ($anid['photo3'] as $row) {$PhotoTrois = $row->pho_nom;}?>
-                        <img src="<?php echo base_url();?>/assets/images/<?php echo $PhotoTrois;?>.jpg" width="200" height="100" title="Cliquez pour voir cette annonce !">
+                        <img src="<?php echo base_url();?>/assets/images/<?php echo $PhotoTrois;?>.jpg" width="425" height="200" title="Cliquez pour voir cette annonce !">
                     </a>
                 </div>
 
     </form>
 </div>
 
-            <div class="container">
-                <a>La note moyenne laissé par nos clients : <a><?php foreach ($MoyenneNotes as $row) {echo $row->Moyenne;}?><a>/5</a>
+            <div class="container" id="noteclient">
+                <a id="notetext">La note moyenne laissé par nos clients <a class="badge bg-danger" id="badgenote"><?php foreach ($MoyenneNotes as $row) {echo $row->Moyenne;}?>/5</a>
             </div>
 
+<div class="container">
+        <?php 
+        //On donne la possibilité de laisser un commentaire si la personne est connecté sinon on dit qu'il faut être connecté pour laisser un commentaire
+        if($this->session->role == "Internaute"):
+        $url = site_url("MembresController/CommentairePubli"); ?>
+        <form action=<?php echo $url ?> method='post' id='commentaire' class='container'> 
+                    <div class='form-group'>
+                        <br>
+                            <label for='Commentaire' class='font-weight-bold'>Laissez un commentaire sur notre entreprise !</label>
+                        <br>
+                            <textarea rows='3' class='form-control' placeholder='Entrez votre commentaire ici' name='Commentaire' id='area'></textarea>
 
-            <?php 
-            //On donne la possibilité de laisser un commentaire si la personne est connecté sinon on dit qu'il faut être connecté pour laisser un commentaire
-            if($this->session->role == "Internaute"):
-            $url = site_url("MembresController/CommentairePubli"); ?>
-            <form action=<?php echo $url ?> method='post' id='commentaire' class='container'> 
-                        <div class='form-group'>
-                            <br>
-                                <label for='Commentaire' class='font-weight-bold'>Laissez un commentaire sur notre entreprise !</label>
-                            <br>
-                                <textarea rows='3' class='form-control' placeholder='Entrez votre commentaire ici' name='Commentaire' id='area'></textarea>
+                    </div>
 
-                        </div>
+                    <div class='form-group'>
 
-                        <div class='form-group'>
+                        <label for='Note'>Notez la qualité de nos services sur 5 !</label>
 
-                            <label for='Note'>Notez la qualité de nos services sur 5 !</label>
+                        <br>
 
-                            <br>
+                            <select name='Note' id='Note'>
+                                <option value='5'>5</option>
+                                <option value='4'>4</option>
+                                <option value='3'>3</option>
+                                <option value='2'>2</option>
+                                <option value='1'>1</option>
+                                <option value='0'>0</option>
+                            </select>
 
-                                <select name='Note' id='Note'>
-                                    <option value='5'>5</option>
-                                    <option value='4'>4</option>
-                                    <option value='3'>3</option>
-                                    <option value='2'>2</option>
-                                    <option value='1'>1</option>
-                                    <option value='0'>0</option>
-                                </select>
+                    </div> 
+                        
+                        <br>
 
-                        </div> 
-                            
-                            <br>
+                    <button type='submit' class='btn' id='sendit'>Envoyer</button>    
+            </form>
 
-                        <button type='submit' class='btn' id='sendit'>Envoyer</button>    
-                </form>
+        
+        <?php else: ?>
 
-            
-            <?php else: ?>
-
-            <br><p>Connectez-vous ou créer un compte pour pouvoir laisser un commentaire !</p>
-            
-            <?php
-            endif;
-            ?>
+        <br><p class="alert alert-danger" id="needlog">Connectez-vous ou créer un compte pour pouvoir laisser un commentaire !</p>
+        
+        <?php
+        endif;
+        ?>
+</div>
 
 
-
-<div class="container col-12">    
-        <h1>Top commentaire</h1> 
+<div class="container col-12" id="topworst">    
+            <div class='row'>
+                <div class="col">
+                    <div class="form-heading" id="top">
+                        <span class="prg alert alert-dark font-weight-bold">Meilleur commentaire</span>
+                    </div>
+                </div>
+            </div>
 
             <?php 
             //var_dump($TopCom);var_dump($PirCom);
@@ -136,44 +142,49 @@ echo "<form action='$url' method='post'>";
             foreach ($TopCom as $row) 
             {
             //Prenom de la personne mettant le commentaire
-            echo "<p>".$row->in_prenom;
+            echo "<ul class='list-group list-group-flush' id='tw'><li class='list-group-item list-group-item-action'>".$row->in_prenom."</li>";
 
             //Commentaire de la personne
-            echo $row->com_avis;
+            echo "<li class='list-group-item list-group-item-action'>".$row->com_avis."</li>";
 
             //Note de la personne
-            echo $row->com_notes;
+            echo "<li class='list-group-item list-group-item-action'>".$row->com_notes."</li>";
 
             //Date et heure du commentaire
-            echo $row->com_date_ajout." </p>";    
+            echo "<li class='list-group-item list-group-item-action'>".$row->com_date_ajout."</li></ul>";    
 
             }
             ?>
 
-        <h1>Pire commentaire</h1> 
-        <div class="com">
+            <div class='row'>
+                <div class="col">
+                    <div class="form-heading" id="top">
+                        <span class="prg alert alert-dark font-weight-bold">Pire commentaire</span>
+                    </div>
+                </div>
+            </div> 
+        
             <?php 
             //Affichage de tous les commentaires de l'annonce
             foreach ($PirCom as $row) 
             {
             //Prenom de la personne mettant le commentaire
-            echo "<p>".$row->in_prenom;
+            echo "<ul class='list-group list-group-flush' id='tw'><li class='list-group-item list-group-item-action'>".$row->in_prenom."</li>";
 
             //Commentaire de la personne
-            echo $row->com_avis;
+            echo "<li class='list-group-item list-group-item-action'>".$row->com_avis."</li>";
 
             //Note de la personne
-            echo $row->com_notes;
+            echo "<li class='list-group-item list-group-item-action'>".$row->com_notes."</li>";
 
             //Date et heure du commentaire
-            echo $row->com_date_ajout." </p>";    
+            echo "<li class='list-group-item list-group-item-action'>".$row->com_date_ajout."</li></ul>";    
 
             }
             ?>
-        </div>
-</div>
 
-        <a href="<?= site_url("MembresController/Commentaires")?>">Voir tout les commentaires</a><br><br>
+        <a href="<?= site_url("MembresController/Commentaires")?>" class="btn btn-outline-danger" id="seethrough">Voir tout les commentaires</a>
+</div>
 
 
 
