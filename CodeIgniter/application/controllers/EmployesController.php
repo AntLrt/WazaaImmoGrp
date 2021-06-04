@@ -133,4 +133,61 @@ class EmployesController extends CI_Controller
         }
     }
 
+
+
+
+    public function Modification($id)
+    {
+        $this->output->enable_profiler(false);
+
+        if ($this->session->ID == $id && $this->session->role == 'Employe') 
+        {
+            
+            if ($this->input->post()) 
+            {
+                
+                $id = $this->session->ID;
+                $adresse = $this->input->post("adresse");
+                $telephone = $this->input->post("telephone");
+                $email = $this->input->post("email");
+                $mdp = $this->input->post("mdp");
+
+                //envois du model pour l'insertion du traitement
+                $this->load->model('UserModel');
+                $this->UserModel->ModifiDetailsEmployes ($id,$adresse,$telephone,$email,$mdp);
+
+                $this->load->helper('url');
+                $url = site_url("EmployesController/DetailsCompte");
+                redirect($url);
+
+            } 
+
+            else 
+            {
+                $this->load->model('UserModel');
+                $Login = $this->session->login;
+                $Details = $this->UserModel->DetailEmp ($Login);
+
+                $aView["id"] = $id;
+                $aView["Details"] = $Details;
+
+                $this->load->view('Headerview');
+                $this->load->view('DetailsCompteModifView',$aView);
+                $this->load->view('FooterView');
+
+            }
+        }
+
+        else 
+        {
+            $Erreur = "Vous n'avez pas accés à cette page !";
+            
+            // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
+            $aView["RefusAcces"] = $Erreur;
+
+            $this->load->view('Headerview', $aView);
+            $this->load->view('FooterView');
+        }
+
+    }
 }

@@ -23,7 +23,7 @@
 
                 <?php if($this->session->role == "Internaute")
                 {
-                    $url=site_url("AuthentificationController/DetailsCompte");
+                    $url=site_url("MembresController/DetailsCompte");
                     echo "<a href='$url'>Détails du compte</a>";
                 }
                 else if($this->session->role == "Employe")

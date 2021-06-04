@@ -111,8 +111,9 @@ class ListesModel extends CI_Model
         $this->load->database();
 
         // Exécute la requête
-        $results = $this->db->query("SELECT in_id AS 'ID', in_nom AS 'Nom', in_prenom AS 'Prenom', in_adresse AS 'Adresse', in_telephone AS 'Téléphone', in_email AS 'Mail', in_pays AS 'Pays'
+        $results = $this->db->query("SELECT in_id, in_nom, in_prenom, in_adresse, in_telephone, in_email, in_pays
                                     FROM waz_internautes");
+        $results = $results->result();
         return $results;
     }
 }

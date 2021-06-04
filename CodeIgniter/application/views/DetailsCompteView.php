@@ -18,17 +18,19 @@
                 <div class="col-12">
                 
                     <?php 
+                    
                     if($this->session->role == "Employe"):
-                        foreach ($Details as $row):?>
-
-                            <p> <?php echo $row->emp_nom; ?> </p>
-                            <p> <?php echo $row->emp_prenom; ?> </p>
-                            <p> <?php echo $row->emp_tel; ?> </p>
-                            <p> <?php echo $row->emp_mail; ?> </p>
-                            <p> <?php echo $row->emp_mdp; ?> </p>
-                            <p> <?php echo $row->emp_poste; ?> </p>
-                            <p> <?php echo $row->emp_adresse; ?> </p>
-
+                        foreach ($Details as $row):
+                            $url = site_url("EmployesController/Modification");?>
+                        
+                            <p> Nom : <?php echo $row->emp_nom; ?> </p>
+                            <p> Prénom : <?php echo $row->emp_prenom; ?> </p>
+                            <p> Téléphone : <?php echo $row->emp_tel; ?> </p>
+                            <p> Email : <?php echo $row->emp_mail; ?> </p>
+                            <p> Mot de passe : <?php echo $row->emp_mdp; ?> </p>
+                            <p> Poste : <?php echo $row->emp_poste; ?> </p>
+                            <p> Adresse : <?php echo $row->emp_adresse; ?> </p>
+                            <button class='btn btn-outline-danger' value="Submit" onclick="window.location.href = '<?php echo $url.'/'.$this->session->ID ?>';">Modifier</button>
                     <?php endforeach;?>
                 
                 </div>
@@ -39,14 +41,18 @@
 
                     <?php 
                     elseif($this->session->role == "Internaute"):
-                        foreach ($Details as $row): ?>
-                            <p> <?php echo $row->in_prenom; ?> </p>
-                            <p> <?php echo $row->in_nom; ?> </p>
-                            <p> <?php echo $row->in_telephone; ?> </p>
-                            <p> <?php echo $row->in_email; ?> </p>
-                            <p> <?php echo $row->in_mdp; ?> </p>
-                            <p> <?php echo $row->in_pays; ?> </p>
-                            <p> <?php echo $row->in_adresse; ?> </p>
+                        foreach ($Details as $row): 
+                            $url = site_url("MembresController/Modification");?>
+
+                            <p>Prénom :  <?php echo $row->in_prenom; ?> </p>
+                            <p>Nom : <?php echo $row->in_nom; ?> </p>
+                            <p>Téléphone : <?php echo $row->in_telephone; ?> </p>
+                            <p> Email : <?php echo $row->in_email; ?> </p>
+                            <p>Mot de passe : <?php echo $row->in_mdp; ?> </p>
+                            <p> Pays : <?php echo $row->in_pays; ?> </p>
+                            <p> Adresse : <?php echo $row->in_adresse; ?> </p>
+                            <button class='btn btn-outline-danger' value="Submit" onclick="window.location.href = '<?php echo $url.'/'.$this->session->ID ?>';">Modifier</button>
+
 
                         <?php endforeach;?>
                     <?php endif; ?>

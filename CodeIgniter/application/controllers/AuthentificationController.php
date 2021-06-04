@@ -133,47 +133,6 @@ class AuthentificationController extends CI_Controller
         }
     }
 
-    public function DetailsCompte()
-    {
-        //afficher aide au debug
-        $this->output->enable_profiler(false);
-
-
-        if ($this->session->role == "Internaute")
-        {
-            $Login = $this->session->login;
-
-            // chargement du model
-            $this->load->model('UserModel');
-            $Details = $this->UserModel->DetailInt($Login);
-
-            // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
-            $aView["Details"] = $Details;
-
-            // Appel de la vue avec transmission du tableau
-            $this->load->view('Headerview');
-            $this->load->view('DetailsCompteView', $aView);
-            $this->load->view('FooterView');
-        }
-        else if ($this->session->role == 'Employe')
-        {
-            $this->load->helper('url');
-            redirect(site_url("EmployesController/DetailsCompte"));
-        }
-        else
-        {
-            $Erreur = "Vous devez être connecté(e) pour avoir accés à cette page !";
-            // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
-            $aView["RefusAcces"] = $Erreur;
-
-            $this->load->view('Headerview', $aView);
-            $this->load->view('FooterView');
-        }
-    }
-
-
-
-
     public function Inscription()
     {
         if (!isset($this->session->login))
