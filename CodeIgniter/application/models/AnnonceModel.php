@@ -67,6 +67,7 @@ class AnnonceModel extends CI_Model
 {
     $this->db->limit($limit, $start);  
     $this->db->where('an_offre', 'L');
+    $this->db->where('an_est_active', '1');
     $this->db->from('waz_annonces','waz_biens','waz_photos');
     $this->db->join('waz_biens', 'waz_annonces.bi_id = waz_biens.bi_id');
     $this->db->join('waz_photos', 'waz_photos.bi_id = waz_biens.bi_id');
@@ -88,6 +89,7 @@ class AnnonceModel extends CI_Model
 public function get_total_loca() 
 {       
 $this->db->where('an_offre', 'L');
+$this->db->where('an_est_active', '1');
 $this->db->from('waz_annonces','waz_biens','waz_photos');
 $this->db->join('waz_biens', 'waz_annonces.bi_id = waz_biens.bi_id');
 $this->db->join('waz_photos', 'waz_photos.bi_id = waz_biens.bi_id');
@@ -101,6 +103,7 @@ public function get_ventes_records($limit, $start)
 {
 $this->db->limit($limit, $start);  
 $this->db->where('an_offre', 'V');
+$this->db->where('an_est_active', '1');
 $this->db->from('waz_annonces','waz_biens','waz_photos');
 $this->db->join('waz_biens', 'waz_annonces.bi_id = waz_biens.bi_id');
 $this->db->join('waz_photos', 'waz_photos.bi_id = waz_biens.bi_id');
@@ -123,6 +126,7 @@ return false;
 public function get_total_ventes() 
 {       
     $this->db->where('an_offre', 'V');
+    $this->db->where('an_est_active', '1');
     $this->db->from('waz_annonces','waz_biens','waz_photos');
     $this->db->join('waz_biens', 'waz_annonces.bi_id = waz_biens.bi_id');
     $this->db->join('waz_photos', 'waz_photos.bi_id = waz_biens.bi_id');
@@ -139,14 +143,14 @@ public function get_total_ventes()
         //1 annonce
         $Resultat1 = $this->db->query("SELECT *
         FROM waz_annonces,waz_biens,waz_photos
-        WHERE an_id = '$an_id' AND waz_annonces.an_id=waz_biens.bi_id AND waz_photos.bi_id=waz_biens.bi_id");
+        WHERE an_id = '$an_id' AND an_est_active='1' AND  waz_annonces.an_id=waz_biens.bi_id AND waz_photos.bi_id=waz_biens.bi_id");
         // Récupération des résultats
         $DetailsAnnonce = $Resultat1->result();
 
         //option de l'annonce
         $Resultat2 = $this->db->query("SELECT waz_biens.bi_id,opt_libelle
         FROM waz_biens,waz_options, waz_composer,waz_annonces
-        WHERE waz_annonces.an_id='$an_id' AND waz_biens.bi_id=waz_annonces.bi_id
+        WHERE waz_annonces.an_id='$an_id' AND an_est_active='1' AND waz_biens.bi_id=waz_annonces.bi_id
         AND waz_biens.bi_id=waz_composer.bi_id AND waz_composer.opt_id=waz_options.opt_id
         ");
 

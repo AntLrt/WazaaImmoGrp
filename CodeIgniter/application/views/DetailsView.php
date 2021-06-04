@@ -21,14 +21,18 @@
                 $NomPhoto = $row->pho_nom;
                 echo "<img src= " . base_url() . "assets/images/" . $NomPhoto . ".jpg width='700' height='400'>";
 
-                echo "<ul class='list-group list-group-flush col-7' id='adlist'>
-                        <li class='list-group-item list-group-item-action'>" .$row->an_id."</li>";
-                echo   "<li class='list-group-item list-group-item-action'>".$row->an_prix."</li>";
-                echo   "<li class='list-group-item list-group-item-action'>".$row->an_ref."</li>";
-                echo   "<li class='list-group-item list-group-item-action'>".$row->an_offre."</li>";
-                echo   "<li class='list-group-item list-group-item-action'>".$row->bi_type."</li>";
-                echo   "<li class='list-group-item list-group-item-action'>".$row->bi_local."</li>";
-                echo   "<li class='list-group-item list-group-item-action'>".$row->an_titre."</li>
+                echo "<ul class='list-group list-group-flush col-7' id='adlist'>";
+                echo   "<li class='list-group-item list-group-item-action'> Réference de l'annonce : ".$row->an_ref."</li>";
+
+                if($row->an_offre == 'A'){$type = '';}else if($row->an_offre == 'L') {$type = ' par mois';}else if($row->an_offre == 'V'){$type = '';};
+                echo   "<li class='list-group-item list-group-item-action'> Prix : ".$row->an_prix."€".$type."</li>";
+
+                if($row->an_offre == 'A'){$typeo = 'Viager';}else if($row->an_offre == 'L') {$typeo = 'Location';}else if($row->an_offre == 'V'){$typeo = 'Vente';};
+                echo   "<li class='list-group-item list-group-item-action'> Type d'offre : ".$typeo."</li>";
+
+                echo   "<li class='list-group-item list-group-item-action'> Type de bien : ".$row->bi_type."</li>";
+                echo   "<li class='list-group-item list-group-item-action'> Ville : ".$row->bi_local."</li>";
+                echo   "<li class='list-group-item list-group-item-action'> Description du bien : <br>".$row->bi_description."</li>
                     </ul>";
 
             }
@@ -43,7 +47,7 @@
             if ($AucuneOptions == false) {echo "<li class='list-group-item'>Option(s) disponible pour cette annonce :</li>";} else {echo "Pas d'options disponbile pour cette annonce";}
             foreach ($Options as $row) {
 
-                echo "<br><p>" . $row->opt_libelle . ", </p>";
+                echo "<br><p>" . $row->opt_libelle . " </p>";
 
             }
             ?>
@@ -101,6 +105,16 @@
     </form>
 </div>
 
+<?php else: ?>  
+<div class="row" id="adoption">
+        <div class="list-group-item list-group-item-dark col-12">
+            <?php
+            echo "Connectez-vous pour pouvoir nous contacter à propos de cette annonce !";
+            ?>
+        </div>
+    </div> 
+
+    
 <?php endif; ?>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

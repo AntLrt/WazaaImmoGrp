@@ -77,9 +77,9 @@ echo "<form action='$url' method='post'>";
 </div>
 
             <div class="container" id="noteclient">
-                <a id="notetext">La note moyenne laissé par nos clients <a class="badge bg-danger" id="badgenote"><?php foreach ($MoyenneNotes as $row) {echo $row->Moyenne;}?>/5</a>
+                <a id="notetext">La note moyenne laissé par nos clients : <a class="badge bg-danger" id="badgenote"><?php foreach ($MoyenneNotes as $row) {echo $row->Moyenne;}?>/5</a>
             </div>
-
+<br>
 <div class="container">
         <?php 
         //On donne la possibilité de laisser un commentaire si la personne est connecté sinon on dit qu'il faut être connecté pour laisser un commentaire
@@ -141,17 +141,16 @@ echo "<form action='$url' method='post'>";
             //Affichage de tous les commentaires de l'annonce
             foreach ($TopCom as $row) 
             {
-            //Prenom de la personne mettant le commentaire
-            echo "<ul class='list-group list-group-flush' id='tw'><li class='list-group-item list-group-item-action'>".$row->in_prenom."</li>";
+            //Prenom et note de la personne mettant le commentaire
+            echo "<ul class='list-group list-group-flush' id='tw'><li class='list-group-item list-group-item-action'> Prénom : ".$row->in_prenom."&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Note : ".$row->com_notes."/5</li>";
 
             //Commentaire de la personne
             echo "<li class='list-group-item list-group-item-action'>".$row->com_avis."</li>";
 
-            //Note de la personne
-            echo "<li class='list-group-item list-group-item-action'>".$row->com_notes."</li>";
-
             //Date et heure du commentaire
-            echo "<li class='list-group-item list-group-item-action'>".$row->com_date_ajout."</li></ul>";    
+            $Date = $row->com_date_ajout;
+            $Date = date("d-m-Y h:i", strtotime($Date));
+            echo "<li class='list-group-item list-group-item-action'>".$Date."</li></ul>";  
 
             }
             ?>
@@ -168,21 +167,20 @@ echo "<form action='$url' method='post'>";
             //Affichage de tous les commentaires de l'annonce
             foreach ($PirCom as $row) 
             {
-            //Prenom de la personne mettant le commentaire
-            echo "<ul class='list-group list-group-flush' id='tw'><li class='list-group-item list-group-item-action'>".$row->in_prenom."</li>";
+            //Prenom et note de la personne mettant le commentaire
+            echo "<ul class='list-group list-group-flush' id='tw'><li class='list-group-item list-group-item-action'> Prénom : ".$row->in_prenom."&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Note : ".$row->com_notes."/5</li>";
 
             //Commentaire de la personne
             echo "<li class='list-group-item list-group-item-action'>".$row->com_avis."</li>";
 
-            //Note de la personne
-            echo "<li class='list-group-item list-group-item-action'>".$row->com_notes."</li>";
-
             //Date et heure du commentaire
-            echo "<li class='list-group-item list-group-item-action'>".$row->com_date_ajout."</li></ul>";    
+            $Date = $row->com_date_ajout;
+            $Date = date("d-m-Y h:i", strtotime($Date));
+            echo "<li class='list-group-item list-group-item-action'>".$Date."</li></ul>";  
 
             }
             ?>
-
+<br>
         <a href="<?= site_url("MembresController/Commentaires")?>" class="btn btn-outline-danger" id="seethrough">Voir tout les commentaires</a>
 </div>
 

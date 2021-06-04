@@ -76,12 +76,12 @@ echo "<form action='$url' method='post'>";
                     
                         $NomPhoto = $data->pho_nom;
                         echo "<img src= ".base_url()."assets/images/".$NomPhoto.".jpg width='300' height='200' id='ticket'>";                    
-                        echo "<ul class='list-group list-group-flush col-7' id='list'>
-                                <li class='list-group-item list-group-item-action list-group-item-danger'>".$data->an_id."</li>";
-                          echo "<li class='list-group-item list-group-item-action list-group-item-danger'>".$data->an_prix."</li>"; 
-                          echo "<li class='list-group-item list-group-item-action list-group-item-danger'>".$data->an_ref."</li>"; 
-                          echo "<li class='list-group-item list-group-item-action list-group-item-danger'>".$data->an_titre."</li>
-                              </ul>";  
+                        echo "<ul class='list-group list-group-flush col-7' id='list'>";
+                        echo "<li class='list-group-item list-group-item-action list-group-item-danger'>".$data->an_ref."</li>"; 
+                        echo "<li class='list-group-item list-group-item-action list-group-item-danger'>".$data->an_titre."</li>";
+                        echo "<li class='list-group-item list-group-item-action list-group-item-danger'>".$data->bi_local."</li>";
+                        if($data->an_offre == 'A'){$type = '';}else if($data->an_offre == 'L') {$type = ' par mois';}else if($data->an_offre == 'V'){$type = '';};
+                        echo "<li class='list-group-item list-group-item-action list-group-item-danger'>".$data->an_prix."€".$type."</li></ul>";  
                         $url=site_url("AnnoncesController/Details");
                         echo "<a href=$url/$data->an_id class='btn btn-outline-danger pull-right' id='one'>Détails</a>";             
                     } ?>
