@@ -19,7 +19,9 @@
     border-bottom: 2.5px solid #ad1212;
     /* border-radius: 2.5px; */
     margin: 20px 0 20px;
-    padding: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
     opacity: 85%;
   }
 
@@ -71,9 +73,26 @@
     opacity: 85%;
   }
 
+/* Barre de recherche */
+
   #searchbar {
     background-color: rgb(85, 85, 85);
     padding: 15px;
+  }
+
+  #search {
+    background-color: white;
+    opacity: 85%;
+    margin-top: 50px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    border: 1px solid #ad1212;
+    border-radius: 2.5px;
+  }
+
+  select #type {
+    font-size: 12px;
   }
 
   label {
@@ -87,10 +106,6 @@
 
   .comment {
     color: #ad1212;
-  }
-
-  select #type {
-    padding-bottom: 0%;
   }
 
   .pics {
@@ -117,16 +132,7 @@
     background-color: rgb(190, 190, 190);
   }
 
-  #search {
-    background-color: white;
-    opacity: 85%;
-    margin-top: 50px;
-    padding-right: 15px;
-    padding-left: 15px;
-    padding-bottom: 15px;
-    border: 1px solid #ad1212;
-    border-radius: 2.5px;
-  }
+
 
   #sendit {
     display: flex;
@@ -144,7 +150,9 @@
     border-radius: 2.5px;
   }
 
-#frm {
+/* InscriptionView */
+
+#regstr{
   background-color: white;
   opacity: 85%;
   margin-top: 50px;
@@ -153,7 +161,10 @@
   padding-left: 15px;
   border: 1px solid #ad1212;
   border-radius: 2.5px;
+  margin-bottom: 50px;
 }
+
+/* ConnexionView */
 
 #connexion {
   background-color: white;
@@ -169,6 +180,8 @@
   justify-content: center;
 }
 
+/* Vente/LocationView */
+
 .container #ad {
   background-color: white;
   opacity: 85%;
@@ -179,12 +192,84 @@
 }
 
 #Title{
-  border:#ad1212 solid 1px;
-  border-radius: 5px;
+  border-top:#ad1212 solid 1px;
+  border-bottom:#ad1212 solid 1px;
   background-color: rgb(49, 48, 48);
-  opacity: 100%;
+  opacity: 90%;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  padding-top: 20px;
 }
 
 #titre {
   color: white;
+}
+
+#ticket {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  border: rgb(104, 104, 104) solid 1px;
+  border-radius: 2px;
+}
+
+ul #list {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#one {
+  margin-right: 5px;
+}
+
+#pagi {
+  display: flex;
+  justify-content: center;
+}
+
+/* FormulaireContactView */
+
+#con1 {
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+
+/* DetailsView */
+
+#contactannonce {
+  background-color: white;
+  opacity: 85%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-bottom: 15px;
+  border: 1px solid #ad1212;
+  border-radius: 2.5px;
+}
+
+#adticket {
+  background-color: white;
+  opacity: 85%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-bottom: 15px;
+  border: 1px solid #ad1212;
+  border-radius: 2.5px;
+}
+
+#adbloc {
+  text-align: center;
+  justify-content: center;
+}
+
+#adlist {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#adoption {
+  margin-top: 30px;
 }

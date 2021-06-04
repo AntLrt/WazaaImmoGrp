@@ -56,8 +56,8 @@ echo "<form action='$url' method='post'>";
 </div>
 
 
-<div class="container">
 
+<div class="container-flex">
     <div class='row'>
         <div class="col">
             <div class="form-heading" id="Title">
@@ -65,33 +65,38 @@ echo "<form action='$url' method='post'>";
             </div>
         </div>
     </div>
+</div>
 
+<div class="container col-12">
     <div class="container" id="ad">
+        <div class="row">
         <?php if (isset($results)) { ?>
 
                 <?php foreach ($results as $data) { 
                     
                         $NomPhoto = $data->pho_nom;
-                        echo "<img src= ".base_url()."assets/images/".$NomPhoto.".jpg width='300' height='200'>";                    
-                        echo "<p>".$data->an_id;
-                        echo $data->an_prix; 
-                        echo $data->an_ref; 
-                        echo $data->an_titre." </p>";  
+                        echo "<img src= ".base_url()."assets/images/".$NomPhoto.".jpg width='300' height='200' id='ticket'>";                    
+                        echo "<ul class='list-group list-group-flush col-7' id='list'>
+                                <li class='list-group-item list-group-item-action list-group-item-danger'>".$data->an_id."</li>";
+                          echo "<li class='list-group-item list-group-item-action list-group-item-danger'>".$data->an_prix."</li>"; 
+                          echo "<li class='list-group-item list-group-item-action list-group-item-danger'>".$data->an_ref."</li>"; 
+                          echo "<li class='list-group-item list-group-item-action list-group-item-danger'>".$data->an_titre."</li>
+                              </ul>";  
                         $url=site_url("AnnoncesController/Details");
-                        echo "<a href=$url/$data->an_id>Détails</a><br>";             
+                        echo "<a href=$url/$data->an_id class='btn btn-outline-danger pull-right' id='one'>Détails</a>";             
                     } ?>
-
+        </div>
+        
         <?php } else { ?>
             <div>Aucune ventes trouvé</div>
         <?php } ?>
-
+            <div id="pagi">
                 <?php if (isset($links)) { ?>
                     <?php echo $links ?>
                 <?php } ?>
             </div>
     </div>
 </div>
-
 
 </body>
 </html>

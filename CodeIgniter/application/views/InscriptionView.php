@@ -10,11 +10,11 @@
 
    <body>
 
-   <div class="container">
+   <div class="container col-4" id="regstr">
 
       <form id="frm">
 
-         <div class="container col-6">
+         <div class="container col-12">
 
             <div class='row'>
                <div class="col-12">

@@ -6,19 +6,19 @@
 
             <div id="topnav">
 
-
-                <img src="<?= base_url("assets/images/logo_small_icon_only_inverted.png") ?>">
-
-                <!-- <div class="logo" id="logo"></div>
+                <div class="logo" id="logo"></div>
 
                 <style type="text/css">
                     .logo {
-                        background-image:url("<?php echo base_url();?>/assets/images/logo_small.png");
+                        background-image:url("<?php echo base_url();?>/assets/images/logo_navbar.png");
                         background-repeat: no-repeat;
                         height: 66;
                         width: 500;
+                        position: sticky;
+                        padding-bottom: 20px;
+                        opacity: 100%;
                     }
-                </style> -->
+                </style>
 
                 <a href="<?= site_url("AccueilController/Accueil")?>">Accueil</a>
                 <a href="<?= site_url("AnnoncesController/Loca")?>">Locations</a>
@@ -69,9 +69,9 @@
                     // echo "Bonjour, ".$this->session->role.", ".$this->session->nom.", ".$this->session->prenom;
 
                     $url=site_url("AuthentificationController/Deconnexion");
-                    echo "<form action='$url' method='post'>";
+                    echo "<form action='$url' method='post' id='unlog'>";
 
-                    echo "<button type='submit' class='btn btn-outline-danger'>Deconnexion</button>";
+                    echo "<button type='submit' class='btn btn-outline-danger' id='unlog'>Deconnexion</button>";
 
                     echo "</form>";
                 }

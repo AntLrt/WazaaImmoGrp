@@ -18,20 +18,20 @@
             </div>
         </div>
 
-        <div class="form-group" id="connect">
-            <div>
-                <label for="login">Mail</label>
-                <input type="text" id="login_id" name="login_name" placeholder="">
+      <div class="row mb-3">
+        <label for="login" class="col-sm-2 col-form-label">Mail</label>
+            <div class="col-sm-6">
+                <input type="email" class="form-control" id="login" name="login_name" placeholder="Votre mail">
             </div>
-        </div>
+      </div>
 
-        <div class="form-group" id="connect">
-          <div>
-                <label for="mdp">Mot de passe</label>
-                <input type="password" id="password_id" name="password_name" placeholder="">
-                <input type="checkbox" onclick="myFunction()">Afficher mot de passe
+      <div class="row mb-3">
+        <label for="password" class="col-sm-2 col-form-label">Mot de passe</label>
+          <div class="col-sm-6">
+              <input type="password" class="form-control" id="password" name="password_name" placeholder="Votre mot de passe">
+              <input type="checkbox" onclick="myFunction()"> Afficher mot de passe
           </div>
-        </div>
+      </div>
 
 
             <script>

@@ -26,7 +26,6 @@ echo "<form action='$url' method='post'>";
                     </div>
 
                     <div class="form-group form-inline col-10 mx-auto" id="searchbar">
-                        <!-- <label for="Operation">Type d'opération </label> -->
 
                         <select name="Operation" id="Operation" class="form-control col-3">
                             <option value="">Type d'Operation </option>
@@ -34,8 +33,6 @@ echo "<form action='$url' method='post'>";
                             <option value="L">Location</option>
                             <option value="V">Viager</option>
                         </select>
-
-                        <!-- <label for="Type">Type</label> -->
 
                         <select name="Type" id="Type" class="form-control col-3">
                             <option value="">Type de bien</option>
@@ -48,11 +45,8 @@ echo "<form action='$url' method='post'>";
                             <option value="garage">Garage</option>
                         </select>
 
-                        <!-- <label for="Ville">Ville</label> -->
                         <input type="text" name="Ville" id="Ville" class="form-control col-3" placeholder="Ville">
-                    <!-- </div> -->
 
-                    <!-- <div class="col-xs-12 d-flex justify-content-center form-group"> -->
                         <button type="submit" class="btn" value="Submit">RECHERCHER</button>
                     </div>
     
@@ -96,8 +90,7 @@ echo "<form action='$url' method='post'>";
                             <br>
                                 <label for='Commentaire' class='font-weight-bold'>Laissez un commentaire sur notre entreprise !</label>
                             <br>
-                                <textarea rows='3' class='form-control' placeholder='Entrez votre commentaire ici'
-                                name='Commentaire' id='area'></textarea>
+                                <textarea rows='3' class='form-control' placeholder='Entrez votre commentaire ici' name='Commentaire' id='area'></textarea>
 
                         </div>
 
