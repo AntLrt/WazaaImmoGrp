@@ -4,7 +4,7 @@
     width:100%;
     height:100%;
     font-family:Arial, sans-serif;
-    font-size:16px;
+    font-size:14px;
     line-height:30px;
     /* padding:20px; */
     margin:0;
@@ -17,7 +17,7 @@
   .form-heading {
     background: #fdfdfd; /* fallback for old browsers */
     border-bottom: 2.5px solid #ad1212;
-    border-radius: 2.5px;
+    /* border-radius: 2.5px; */
     margin: 20px 0 20px;
     padding: 20px;
     opacity: 85%;
@@ -143,3 +143,48 @@
     border: 1px solid #ad1212;
     border-radius: 2.5px;
   }
+
+#frm {
+  background-color: white;
+  opacity: 85%;
+  margin-top: 50px;
+  padding-bottom: 15px;
+  padding-right: 15px;
+  padding-left: 15px;
+  border: 1px solid #ad1212;
+  border-radius: 2.5px;
+}
+
+#connexion {
+  background-color: white;
+  opacity: 85%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border: 1px solid #ad1212;
+  border-radius: 2.5px;
+}
+
+#but {
+  display: flex;
+  justify-content: center;
+}
+
+.container #ad {
+  background-color: white;
+  opacity: 85%;
+  padding: 50px;
+  margin-bottom: 30px;
+  border: 1px solid #ad1212;
+  border-radius: 2.5px;
+}
+
+#Title{
+  border:#ad1212 solid 1px;
+  border-radius: 5px;
+  background-color: rgb(49, 48, 48);
+  opacity: 100%;
+}
+
+#titre {
+  color: white;
+}

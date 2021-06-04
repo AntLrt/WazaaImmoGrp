@@ -6,14 +6,19 @@
 
             <div id="topnav">
 
-                <div class="logo" id="logo">*</div>
+
+                <img src="<?= base_url("assets/images/logo_small_icon_only_inverted.png") ?>">
+
+                <!-- <div class="logo" id="logo"></div>
 
                 <style type="text/css">
                     .logo {
                         background-image:url("<?php echo base_url();?>/assets/images/logo_small.png");
                         background-repeat: no-repeat;
+                        height: 66;
+                        width: 500;
                     }
-                </style>
+                </style> -->
 
                 <a href="<?= site_url("AccueilController/Accueil")?>">Accueil</a>
                 <a href="<?= site_url("AnnoncesController/Loca")?>">Locations</a>

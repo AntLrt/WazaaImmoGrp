@@ -18,7 +18,7 @@ echo "<form action='$url' method='post'>";
                     <div class='row'>
                         <div class="col">
                             <div class="form-heading">
-                                <span class="prg">Votre recherche</span>
+                                <span class="prg">Recherche</span>
                             </div>
                         </div>
                     </div>
@@ -53,34 +53,44 @@ echo "<form action='$url' method='post'>";
                     <!-- <div class="col-xs-12 d-flex justify-content-center form-group"> -->
                         <button type="submit" class="btn" value="Submit">RECHERCHER</button>
                     </div>
+</div>
 
 
 <div class="container">
-    <h1 id='form_head'>Liste des ventes</h1>
 
-    <?php if (isset($results)) { ?>
-
-
-            <?php foreach ($results as $data) { 
-                
-                    $NomPhoto = $data->pho_nom;
-                    echo "<img src= ".base_url()."assets/images/".$NomPhoto.".jpg width='150' height='100'>";                    
-                    echo "<p>".$data->an_id;
-                    echo $data->an_prix; 
-                    echo $data->an_ref; 
-                    echo $data->an_titre." </p>";  
-                    $url=site_url("AnnoncesController/Details");
-                    echo "<a href=$url/$data->an_id>Détails</a><br><br><br>";             
-                } ?>
-        
-    <?php } else { ?>
-        <div>Aucune ventes trouvé</div>
-    <?php } ?>
-
-            <?php if (isset($links)) { ?>
-                <?php echo $links ?>
-            <?php } ?>
+    <div class='row'>
+        <div class="col">
+            <div class="form-heading" id="Title">
+                <span class="prg" id="titre">Biens en vente</span>
+            </div>
         </div>
+    </div>
+
+    <div class="container" id="ad">
+        <?php if (isset($results)) { ?>
+
+                <?php foreach ($results as $data) { 
+                    
+                        $NomPhoto = $data->pho_nom;
+                        echo "<img src= ".base_url()."assets/images/".$NomPhoto.".jpg width='300' height='200'>";                    
+                        echo "<p>".$data->an_id;
+                        echo $data->an_prix; 
+                        echo $data->an_ref; 
+                        echo $data->an_titre." </p>";  
+                        $url=site_url("AnnoncesController/Details");
+                        echo "<a href=$url/$data->an_id>Détails</a><br>";             
+                    } ?>
+
+        <?php } else { ?>
+            <div>Aucune ventes trouvé</div>
+        <?php } ?>
+
+                <?php if (isset($links)) { ?>
+                    <?php echo $links ?>
+                <?php } ?>
+            </div>
+    </div>
+</div>
 
 
 </body>

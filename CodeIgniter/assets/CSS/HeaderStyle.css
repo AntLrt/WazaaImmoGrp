@@ -14,7 +14,7 @@ body {
         overflow: hidden;
         border-bottom: 1px solid #b32020;
         border-radius: 2px;
-        padding-top: 100px;
+        padding-top: 50px;
         width: 100%;
         /* position: absolute; */
         top: 0; left: 0;
@@ -44,4 +44,5 @@ body {
         color: white;
     }
 
+  
 

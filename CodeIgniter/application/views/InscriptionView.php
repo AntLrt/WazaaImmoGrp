@@ -10,11 +10,11 @@
 
    <body>
 
-   <div class="container col-4">
+   <div class="container">
 
-      <form>
+      <form id="frm">
 
-         <div class='container'>
+         <div class="container col-6">
 
             <div class='row'>
                <div class="col-12">
@@ -25,67 +25,67 @@
             </div>
 
             <div class="form-group">
-               <label for="pro_libelle">Nom</label>
                   <div class="col-8 mx-auto">
-                     <input type="text" name="in_nom" id="lastname_id" class="form-control" value="<?php echo set_value('in_nom'); ?>">
-                     <?php echo form_error('in_nom'); ?>
+                     <label for="pro_libelle">Nom</label>
+                        <input type="text" name="in_nom" id="lastname_id" class="form-control" value="<?php echo set_value('in_nom'); ?>">
+                        <?php echo form_error('in_nom'); ?>
                   </div>
             </div> 
 
             <div class="form-group">
-               <label for="pro_ref">Prénom</label>
                   <div class="col-8 mx-auto">
-                     <input type="text" name="in_prenom" id="name_id" class="form-control" value="<?php echo set_value('in_prenom'); ?>">
-                     <?php echo form_error('in_prenom'); ?>
+                     <label for="pro_ref">Prénom</label>
+                        <input type="text" name="in_prenom" id="name_id" class="form-control" value="<?php echo set_value('in_prenom'); ?>">
+                        <?php echo form_error('in_prenom'); ?>
                   </div>
             </div> 
 
             <div class="form-group">
-               <label for="pro_ref">Adresse</label>
                   <div class="col-8 mx-auto">
-                     <input type="text" name="in_adresse" id="city_id" class="form-control" value="<?php echo set_value('in_adresse'); ?>">
-                     <?php echo form_error('in_adresse'); ?>
+                     <label for="pro_ref">Adresse</label>
+                        <input type="text" name="in_adresse" id="city_id" class="form-control" value="<?php echo set_value('in_adresse'); ?>">
+                        <?php echo form_error('in_adresse'); ?>
                   </div>
             </div> 
 
             <div class="form-group">
-               <label for="pro_ref">Téléphone</label>
                   <div class="col-8 mx-auto">
-                     <input type="number" name="in_telephone" id="bday_id" class="form-control" value="<?php echo set_value('in_telephone'); ?>">
-                     <?php echo form_error('in_tel'); ?>
+                     <label for="pro_ref">Téléphone</label>
+                        <input type="number" name="in_telephone" id="bday_id" class="form-control" value="<?php echo set_value('in_telephone'); ?>">
+                        <?php echo form_error('in_tel'); ?>
                   </div>
             </div> 
 
             <div class="form-group">
-               <label for="pro_ref">E-mail</label>
                   <div class="col-8 mx-auto">
-                     <input type="email" name="in_email" id="mail_id" class="form-control" value="<?php echo set_value('in_email'); ?>">
-                     <?php echo form_error('in_email'); ?>
+                     <label for="pro_ref">E-mail</label>
+                        <input type="email" name="in_email" id="mail_id" class="form-control" value="<?php echo set_value('in_email'); ?>">
+                        <?php echo form_error('in_email'); ?>
                   </div>
             </div> 
 
             <div class="form-group">
-               <label for="pro_ref">Pays</label>
                   <div class="col-8 mx-auto">
-                     <input type="text" id="country_id" name="in_pays"class="form-control" value="<?php echo set_value('in_pays'); ?>">
-                     <?php echo form_error('in_pays'); ?>
+                     <label for="pro_ref">Pays</label>
+                        <input type="text" id="country_id" name="in_pays"class="form-control" value="<?php echo set_value('in_pays'); ?>">
+                        <?php echo form_error('in_pays'); ?>
                   </div>
             </div>
 
             <div class="form-group">
-               <label for="pro_ref">Mot de passe</label>
                   <div class="col-8 mx-auto">
-                     <input type="password" id="password_id" name="in_mdp"class="form-control" value="<?php echo set_value('in_mdp'); ?>">
-                     <input type="checkbox" onclick="ShowPassword()"><small>Afficher mot de passe</small>
-                     <?php echo form_error('in_mdp'); ?>
+                     <label for="pro_ref">Mot de passe</label>
+                        <input type="password" id="password_id" name="in_mdp"class="form-control" value="<?php echo set_value('in_mdp'); ?>">
+                        <input type="checkbox" onclick="ShowPassword()"><small>Afficher mot de passe</small>
+                        <?php echo form_error('in_mdp'); ?>
                   </div>
             </div>
 
             <div class="form-group">
-               <label for="pro_ref">Confirmation mot de passe</label>
                   <div class="col-8 mx-auto">
-                     <input type="text" id="password_id2" name="mdp_confirm"class="form-control" value="" >
-                     <?php echo form_error('mdp_confirm'); ?>
+                     <label for="pro_ref">Confirmation mot de passe</label>
+                        <input type="text" id="password_id2" name="mdp_confirm"class="form-control" value="" >
+                        <?php echo form_error('mdp_confirm'); ?>
                   </div>
             </div>
 
