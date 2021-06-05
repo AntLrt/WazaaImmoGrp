@@ -179,4 +179,32 @@ public function get_total_ventes()
 
     }
 
+
+
+    public function ListeAnnonces0 ()
+    {
+        // Charge la librairie 'database'
+        $this->load->database();
+
+        // Exécute la requête
+        $results0 = $this->db->query("SELECT *
+                                    FROM waz_annonces,waz_biens
+                                    WHERE an_est_active = 0 AND waz_biens.bi_id=waz_annonces.bi_id");
+        $results0 = $results0->result();
+        return $results0;
+    }
+
+    public function ListeAnnonces1 ()
+    {
+        // Charge la librairie 'database'
+        $this->load->database();
+
+        // Exécute la requête
+        $results1 = $this->db->query("SELECT *
+                                    FROM waz_annonces,waz_biens
+                                    WHERE an_est_active = 1 AND waz_biens.bi_id=waz_annonces.bi_id");
+        $results1 = $results1->result();
+        return $results1;
+    }
+
 }

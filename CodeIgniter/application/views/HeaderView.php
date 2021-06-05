@@ -29,12 +29,12 @@
                 <?php if($this->session->role == "Internaute")
                 {
                     $url=site_url("MembresController/DetailsCompte");
-                    echo "<a href='$url'>Détails du compte</a>";
+                    echo "<a href='$url'>Votre compte</a>";
                 }
                 else if($this->session->role == "Employe")
                 {
                     $url=site_url("EmployesController/DetailsCompte");
-                    echo "<a href='$url'>Détails du compte</a>";
+                    echo "<a href='$url'>Votre compte</a>";
                 }?>
 
 
@@ -57,11 +57,13 @@
                     $url2=site_url("MembresController/ListeMembres");
                     $url3=site_url("ContactController/ListeContact");
                     $url4=site_url("EmployesController/ListeEmployes");
+                    $url5=site_url("AnnoncesController/ListeAnnonces");
 
-                    echo "<a href='$url1'>ListeBiens(admin)</a>
-                    <a href='$url2'>ListeMembres(admin)</a>
-                    <a href='$url3'>ListeContact(admin)</a>
-                    <a href='$url4'>ListeEmployes(admin)</a>";
+                    echo "<a href='$url1'>ListeBiens</a>
+                    <a href='$url2'>ListeMembres</a>
+                    <a href='$url3'>ListeContact</a>
+                    <a href='$url4'>ListeEmployes</a>
+                    <a href='$url5'>ListeAnnonces</a>";
                 }?>
 
                 <?php if(isset($this->session->login))

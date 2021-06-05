@@ -13,9 +13,6 @@ class ContactController extends CI_Controller
             //afficher aide au debug
             $this->output->enable_profiler(false);
 
-            // Prépare le tableau
-            $this->load->library('table');
-
             //chargement du model
             $this->load->model('ListesModel');
             $results1 = $this->ListesModel->ListeContacts1();

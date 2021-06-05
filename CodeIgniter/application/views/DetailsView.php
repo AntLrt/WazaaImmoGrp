@@ -32,6 +32,10 @@
 
                 echo   "<li class='list-group-item list-group-item-action'> Type de bien : ".$row->bi_type."</li>";
                 echo   "<li class='list-group-item list-group-item-action'> Ville : ".$row->bi_local."</li>";
+                echo   "<li class='list-group-item list-group-item-action'> Diagnostic énergetique : ".$row->bi_diagnostic."</li>";
+                echo   "<li class='list-group-item list-group-item-action'> Surface totale : ".$row->bi_surf_totale."m² </li>";
+                echo   "<li class='list-group-item list-group-item-action'> Surface habitable : ".$row->bi_surf_habitable."m² </li>";
+                echo   "<li class='list-group-item list-group-item-action'> Nombre de pièces : ".$row->bi_pieces."</li>";
                 echo   "<li class='list-group-item list-group-item-action'> Description du bien : <br>".$row->bi_description."</li>
                     </ul>";
 

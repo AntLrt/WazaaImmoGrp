@@ -605,5 +605,129 @@ class AnnoncesController extends CI_Controller
 
     }
     
+    public function ListeAnnonces()
+    {
+        if ($this->session->role == "Employe") 
+        {
+            //afficher aide au debug
+            $this->output->enable_profiler(false);
 
+            //chargement du model
+            $this->load->model('AnnonceModel');
+            $results0 = $this->AnnonceModel->ListeAnnonces0();
+            $results1 = $this->AnnonceModel->ListeAnnonces1();
+
+            // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
+            $aView["liste_annonces0"] = $results0;
+            $aView["liste_annonces1"] = $results1;
+
+            // Appel de la vue avec transmission du tableau
+            $this->load->view('HeaderView');
+            $this->load->view('ListeAnnoncesView', $aView);
+            $this->load->view('FooterView');
+        } 
+        
+        else 
+        {
+            $Erreur = "Vous n'avez pas accés à cette page !";
+
+            // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
+            $aView["RefusAcces"] = $Erreur;
+
+            $this->load->view('Headerview', $aView);
+            $this->load->view('FooterView');
+        }
+    }
+
+    public function Supression($id)
+        {
+            $this->output->enable_profiler(false);
+    
+            if ($this->session->role == 'Employe') 
+            {
+                
+                if ($this->input->post()) 
+                {
+                    //envois du model pour supression
+                    $this->load->model('UserModel');
+                    //$this->UserModel->SupressionInternaute ($id);
+    
+                    $this->load->helper('url');
+                    $url = site_url("AnnoncesController/ListeAnnonces");
+                    redirect($url);
+                } 
+    
+                else 
+                {
+                    $this->load->model('UserModel');
+                    //$Details = $this->UserModel->DetailInternauteID ($id);
+    
+                    $aView["id"] = $id;
+                    $aView["liste_membres"] = $Details;
+    
+                    $this->load->view('Headerview');
+                    $this->load->view('DetailsAnnoncesView',$aView);
+                    $this->load->view('FooterView');
+    
+                }
+            }
+    
+            else 
+            {
+                $Erreur = "Vous n'avez pas accés à cette page !";
+                
+                // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
+                $aView["RefusAcces"] = $Erreur;
+    
+                $this->load->view('Headerview', $aView);
+                $this->load->view('FooterView');
+            }
+    
+        }
+
+        public function Modification($id)
+        {
+            $this->output->enable_profiler(false);
+    
+            if ($this->session->role == 'Employe') 
+            {
+                
+                if ($this->input->post()) 
+                {
+                    //envois du model pour supression
+                    $this->load->model('UserModel');
+                    //$this->UserModel->SupressionInternaute ($id);
+    
+                    $this->load->helper('url');
+                    $url = site_url("AnnoncesController/ListeAnnonces");
+                    redirect($url);
+                } 
+    
+                else 
+                {
+                    $this->load->model('UserModel');
+                    //$Details = $this->UserModel->DetailInternauteID ($id);
+    
+                    $aView["id"] = $id;
+                    $aView["liste_membres"] = $Details;
+    
+                    $this->load->view('Headerview');
+                    $this->load->view('DetailsAnnoncesView',$aView);
+                    $this->load->view('FooterView');
+    
+                }
+            }
+    
+            else 
+            {
+                $Erreur = "Vous n'avez pas accés à cette page !";
+                
+                // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
+                $aView["RefusAcces"] = $Erreur;
+    
+                $this->load->view('Headerview', $aView);
+                $this->load->view('FooterView');
+            }
+    
+        }
 }
