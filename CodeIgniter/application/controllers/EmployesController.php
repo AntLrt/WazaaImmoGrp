@@ -32,7 +32,7 @@ class EmployesController extends CI_Controller
 
         $results = $this->ListesModel->PosteSecretaire();
         $sec = $this->table->generate($results);
-        $sec = $this->table->generate($results);
+      
 
         // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
         $aView["Secretaire"] = $sec;
@@ -55,25 +55,14 @@ class EmployesController extends CI_Controller
         if ($this->session->role == "Employe") 
         {
             //afficher aide au debug
-            $this->output->enable_profiler(false);
-
-            // Prépare le tableau
-            $this->load->library('table');
+            $this->output->enable_profiler(false);      
 
             //chargement du model
             $this->load->model('ListesModel');
             $results = $this->ListesModel->ListeEmployes();
 
-            // Forme du tableau
-            $template = array(
-                'table_open' => '<table border="2" cellpadding="5" cellspacing="2" class="mytable">',
-            );
-
-            $this->table->set_template($template);
-            $tab = $this->table->generate($results);
-
             // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
-            $aView["liste_employes"] = $tab;
+            $aView["liste_employes"] = $results;
 
             // Appel de la vue avec transmission du tableau
             $this->load->view('Headerview');
@@ -119,7 +108,7 @@ class EmployesController extends CI_Controller
         else if ($this->session->role == 'Internaute') 
         {
             $this->load->helper('url');
-            redirect(site_url("AuthentificationController/DetailsCompte"));
+            redirect(site_url("MembresController/DetailsCompte"));
         } 
         else 
         {
@@ -140,24 +129,29 @@ class EmployesController extends CI_Controller
     {
         $this->output->enable_profiler(false);
 
-        if ($this->session->ID == $id && $this->session->role == 'Employe') 
+        if ($this->session->role == 'Employe') 
         {
             
             if ($this->input->post()) 
             {
                 
-                $id = $this->session->ID;
+                $id = $this->input->post("empid");
+                $nom = $this->input->post("nom");
+                $prenom = $this->input->post("prenom");
                 $adresse = $this->input->post("adresse");
-                $telephone = $this->input->post("telephone");
-                $email = $this->input->post("email");
-                $mdp = $this->input->post("mdp");
+                $telephone = $this->input->post("tel");
+                $email = $this->input->post("mail");
+                $poste = $this->input->post("poste");
+                
+               
+             
 
                 //envois du model pour l'insertion du traitement
                 $this->load->model('UserModel');
-                $this->UserModel->ModifiDetailsEmployes ($id,$adresse,$telephone,$email,$mdp);
+                $this->UserModel->ModifiDetailsEmployes($id,$nom,$prenom,$adresse,$telephone,$email,$poste);
 
                 $this->load->helper('url');
-                $url = site_url("EmployesController/DetailsCompte");
+                $url = site_url("EmployesController/ListeEmployes");
                 redirect($url);
 
             } 
@@ -166,13 +160,65 @@ class EmployesController extends CI_Controller
             {
                 $this->load->model('UserModel');
                 $Login = $this->session->login;
-                $Details = $this->UserModel->DetailEmp ($Login);
+                $Details = $this->UserModel->DetailEmployeID ($id);
+                $provenance = 'modification';
 
                 $aView["id"] = $id;
-                $aView["Details"] = $Details;
+                $aView["liste_employes"] = $Details;
+                $aView["provenance"] = $provenance;
 
                 $this->load->view('Headerview');
-                $this->load->view('DetailsCompteModifView',$aView);
+                $this->load->view('DetailsEmployesView',$aView);
+                $this->load->view('FooterView');
+
+            }
+        }
+
+        else 
+        {
+            $Erreur = "Vous n'avez pas accés à cette page !";
+            
+            // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
+            $aView["RefusAcces"] = $Erreur;
+
+            $this->load->view('Headerview', $aView);
+            $this->load->view('FooterView');
+        }
+
+
+    }
+
+
+    public function Supression($id)
+    {
+        $this->output->enable_profiler(false);
+
+        if ($this->session->role == 'Employe') 
+        {
+            
+            if ($this->input->post()) 
+            {
+                //envois du model pour supression
+                $this->load->model('UserModel');
+                $this->UserModel->SupressionEmploye ($id);
+
+                $this->load->helper('url');
+                $url = site_url("EmployesController/ListeEmployes");
+                redirect($url);
+            } 
+
+            else 
+            {
+                $this->load->model('UserModel');
+                $Details = $this->UserModel->DetailEmployeID ($id);
+                $provenance = 'suppression';
+
+                $aView["id"] = $id;
+                $aView["liste_employes"] = $Details;
+                $aView["provenance"] = $provenance;
+
+                $this->load->view('Headerview');
+                $this->load->view('DetailsEmployesView',$aView);
                 $this->load->view('FooterView');
 
             }
@@ -190,4 +236,54 @@ class EmployesController extends CI_Controller
         }
 
     }
+    
+
+
+    public function Ajout()
+    {
+        $this->output->enable_profiler(false);
+
+        if ($this->session->role == 'Employe') 
+        {
+            
+            if ($this->input->post()) 
+            {
+                //envois du model pour supression
+                $this->load->model('UserModel');
+                $this->UserModel->AjoutEmploye();
+
+                $this->load->helper('url');
+                $url = site_url("EmployesController/ListeEmployes");
+                redirect($url);
+            } 
+
+            else 
+            {;
+
+
+                $this->load->view('Headerview');
+                $this->load->view('AjoutEmployesView');
+                $this->load->view('FooterView');
+
+            }
+        }
+
+        else 
+        {
+            $Erreur = "Vous n'avez pas accés à cette page !";
+            
+            // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
+            $aView["RefusAcces"] = $Erreur;
+
+            $this->load->view('Headerview', $aView);
+            $this->load->view('FooterView');
+        }
+
+    }
+    
+
+
+
+
+
 }

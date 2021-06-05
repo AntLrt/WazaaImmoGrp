@@ -93,15 +93,15 @@ class ListesModel extends CI_Model
 
     public function ListeEmployes ()
     {
-        // Prépare le tableau
-        $this->load->library('table');
+
         // Charge la librairie 'database'
         $this->load->database();
         // Exécute la requête
-        $results = $this->db->query("SELECT emp_id AS 'ID', emp_poste AS 'Poste', emp_nom AS 'Nom',
-                                    emp_prenom AS 'Prénom', emp_adresse AS 'Adresse', emp_tel AS 'Téléphone',
-                                    emp_mail AS 'Email'
+        $results = $this->db->query("SELECT emp_id, emp_poste, emp_nom,
+                                    emp_prenom, emp_adresse, emp_tel,
+                                    emp_mail
                                     FROM waz_employes");
+                                    $results = $results->result();
         return $results;
     }
 
