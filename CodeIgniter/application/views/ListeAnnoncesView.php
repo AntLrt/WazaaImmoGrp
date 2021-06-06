@@ -68,9 +68,8 @@ table {background-color: white;}
         </tr>
     </thead>
     <tbody>
-    <?php foreach ($liste_annonces0 as $row):?>
-        <?php $url=site_url("ContactController/Traitement");
-        echo "<form action='$url' method='post'>"; ?>
+    <?php $url1 = site_url("AnnoncesController/Modification");$url2 = site_url("AnnoncesController/Supression");
+    foreach ($liste_annonces0 as $row):?>
 
         <tr>
         <td><?php echo $row->an_id ?></td>

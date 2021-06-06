@@ -13,6 +13,7 @@ class BarreRechercheModel extends CI_Model
         $results = $this->db->query("SELECT an_prix,an_id,an_ref,an_offre,an_titre,pho_nom
                                                 FROM waz_annonces,waz_biens,waz_photos
                                                 WHERE bi_type = '$type'
+                                                AND an_est_active = 1
                                                 AND waz_annonces.an_id=waz_biens.bi_id
                                                 AND waz_photos.bi_id=waz_biens.bi_id");
 
@@ -33,6 +34,7 @@ class BarreRechercheModel extends CI_Model
                                                 FROM waz_annonces,waz_biens,waz_photos
                                                 WHERE bi_type = '$type'
                                                 AND bi_local = '$ville'
+                                                AND an_est_active = 1
                                                 AND waz_annonces.an_id=waz_biens.bi_id
                                                 AND waz_photos.bi_id=waz_biens.bi_id");
 
@@ -51,6 +53,7 @@ class BarreRechercheModel extends CI_Model
                                                 FROM waz_annonces,waz_biens,waz_photos
                                                 WHERE bi_type = '$type'
                                                 AND an_offre = '$operation'
+                                                AND an_est_active = 1
                                                 AND waz_annonces.an_id=waz_biens.bi_id
                                                 AND waz_photos.bi_id=waz_biens.bi_id");
 
@@ -72,6 +75,7 @@ class BarreRechercheModel extends CI_Model
                                                         WHERE bi_type = '$type'
                                                         AND bi_local = '$ville'
                                                         AND an_offre = '$operation'
+                                                        AND an_est_active = 1
                                                         AND waz_annonces.an_id=waz_biens.bi_id
                                                         AND waz_photos.bi_id=waz_biens.bi_id");
 

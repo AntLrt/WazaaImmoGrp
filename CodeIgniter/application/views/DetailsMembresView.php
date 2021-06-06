@@ -41,8 +41,8 @@ table {background-color: white;}
             <td><input name='email' value='<?php echo $row->in_prenom ?>' readonly='false'></a></td>
             <td><input name='sujet' value='<?php echo $row->in_adresse ?>' readonly='false'></a></td>
             <td><input name='question' value='<?php echo $row->in_telephone ?>' readonly='false'></a></td>
-            <td><input name='question' value='<?php echo $row->in_telephone ?>' readonly='false'></a></td>
-            <td><input name='question' value='<?php echo $row->in_telephone ?>' readonly='false'></a></td>
+            <td><input name='question' value='<?php echo $row->in_email ?>' readonly='false'></a></td>
+            <td><input name='question' value='<?php echo $row->in_pays ?>' readonly='false'></a></td>
         </tr>
 
         <?php endif; endforeach; ?>
