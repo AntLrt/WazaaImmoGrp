@@ -18,6 +18,7 @@
         <div class="col-12">
             <?php
             foreach ($Details as $row) {
+                $anid = $row->an_id;
                 $NomPhoto = $row->pho_nom;
                 echo "<img src= " . base_url() . "assets/images/" . $NomPhoto . ".jpg width='700' height='400'>";
 
@@ -58,13 +59,34 @@
         </div>
     </div>
 </div>
+
+<?php if($this->session->role == 'Internaute'){if(empty($estcefav)){?>  
+<?php 
+$url1=site_url("MembresController/Favoriser");
+    echo "<form action='$url1' method='post'>";
+    ?><br><br>
+    <input type='hidden' name='anid' value='<?php echo $anid; ?>'>
+    <div class="col-xs-12 d-flex justify-content-center form-group">
+    <button type="submit" class="btn">Ajouter au favoris</button>
+</div>
+<?php }
+    else {foreach ($estcefav as $row) {$favid = $row->fav_id;}$url1=site_url("MembresController/EnleverFavoris");
+    echo "<form action='$url1' method='post'>";
+    ?><br><br>
+        <input type='hidden' name='favid' value='<?php echo $favid; ?>'>
+    <input type='hidden' name='anid' value='<?php echo $anid; ?>'>
+    <div class="col-xs-12 d-flex justify-content-center form-group">
+    <button type="submit" class="btn">Enlever des favoris</button>
+</div><?php } }?>
+
+
 <?php if($this->session->role == 'Internaute'): ?>
-    <?php echo form_open(); ?>
+    <?php $url2=site_url("ContactController/Formulaire");
+echo "<form action='$url2' method='post'>"; ?>
 
 </div>
 
 <div class="container col-6" id="contactannonce">
-
 
     <form class="form-horizontal" role="form">
         <div class='container'>

@@ -14,6 +14,55 @@ class UserModel extends CI_Model
         return $Details;
     }
 
+    public function Favoris ($id)
+    {
+        //Charge la librairie 'database'
+        $this->load->database();
+        $FavInt = $this->db->query("SELECT *
+                                    FROM waz_internautes,waz_favoris,waz_annonces,waz_photos,waz_biens,waz_enregistrer
+                                    WHERE waz_internautes.in_id='$id'
+                                    AND an_est_active = 1
+                                    AND waz_annonces.an_id=waz_favoris.an_id
+                                    AND waz_enregistrer.in_id=waz_internautes.in_id
+                                    AND waz_enregistrer.fav_id=waz_favoris.fav_id
+                                    AND waz_annonces.bi_id=waz_biens.bi_id
+                                    AND waz_photos.bi_id=waz_biens.bi_id"
+                                    );
+        $FavInt = $FavInt->result();
+        return $FavInt;
+    }
+
+    public function EstCeFav ($intid,$anid)
+    {
+        //Charge la librairie 'database'
+        $this->load->database();
+        $estellefav = $this->db->query("SELECT *
+                                        FROM waz_internautes,waz_favoris,waz_annonces,waz_enregistrer
+                                        WHERE waz_internautes.in_id='$intid'
+                                        AND waz_favoris.an_id='$anid'
+                                        AND an_est_active = 1
+                                        AND waz_annonces.an_id=waz_favoris.an_id
+                                        AND waz_enregistrer.in_id=waz_internautes.in_id
+                                        AND waz_enregistrer.fav_id=waz_favoris.fav_id"
+                                        );
+        $estellefav = $estellefav->result();
+        return $estellefav;
+    }
+
+    function EnleverFavoris ($favid)
+    {
+        // Chargement de la librairie 'database'
+        $this->load->database();
+
+        //Supression du compte membre et de toutes les données associés
+        $this->db->query('delete from waz_favoris where fav_id=? ', $favid);
+        $this->db->query('delete from waz_enregistrer where fav_id=? ', $favid);
+
+
+
+    }
+
+
     public function DetailInternauteID ($id)
     {
         //Charge la librairie 'database'
@@ -125,5 +174,16 @@ class UserModel extends CI_Model
         
 
 
+    }
+
+    public function AjoutFavoris ($anid,$inid)
+    {
+        $tableau1 = array('in_id'=>$inid);
+        
+        $this->db->insert('waz_enregistrer', $tableau1);
+
+        $tableau2 = array('an_id'=>$anid);
+    
+        $this->db->insert('waz_favoris', $tableau2);
     }
 }

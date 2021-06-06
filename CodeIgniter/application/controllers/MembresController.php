@@ -274,14 +274,17 @@ class MembresController extends CI_Controller
             if ($this->session->role == "Internaute")
             {
                 $Login = $this->session->login;
+                $id = $this->session->ID;
     
                 // chargement du model
                 $this->load->model('UserModel');
                 $Details = $this->UserModel->DetailInt($Login);
+                $FavInt = $this->UserModel->Favoris($id);
     
                 // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
                 $aView["Details"] = $Details;
-    
+                $aView["Favoris"] = $FavInt;
+
                 // Appel de la vue avec transmission du tableau
                 $this->load->view('Headerview');
                 $this->load->view('DetailsCompteView', $aView);
@@ -391,6 +394,78 @@ class MembresController extends CI_Controller
                     $this->load->view('FooterView');
     
                 }
+            }
+    
+            else 
+            {
+                $Erreur = "Vous n'avez pas accés à cette page !";
+                
+                // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
+                $aView["RefusAcces"] = $Erreur;
+    
+                $this->load->view('Headerview', $aView);
+                $this->load->view('FooterView');
+            }
+    
+        }
+
+
+
+
+        public function Favoriser()
+        {
+            $this->output->enable_profiler(false);
+    
+            if ($this->session->role == 'Internaute') 
+            {
+                $anid = $this->input->post("anid");
+                $inid = $this->session->ID;
+
+                    //envois du model pour l'insertion du traitement
+                    $this->load->model('UserModel');
+                    $this->UserModel->AjoutFavoris ($anid,$inid);
+    
+                    $this->load->helper('url');
+                    $url = site_url("MembresController/DetailsCompte");
+                    redirect($url);
+    
+                
+    
+            }
+    
+            else 
+            {
+                $Erreur = "Vous n'avez pas accés à cette page !";
+                
+                // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
+                $aView["RefusAcces"] = $Erreur;
+    
+                $this->load->view('Headerview', $aView);
+                $this->load->view('FooterView');
+            }
+    
+        }
+
+        public function EnleverFavoris()
+        {
+            $this->output->enable_profiler(false);
+    
+            if ($this->session->role == 'Internaute') 
+            {
+                $anid = $this->input->post("anid");
+                $inid = $this->session->ID;
+                $favid = $this->input->post("favid");
+
+                    //envois du model pour l'insertion du traitement
+                    $this->load->model('UserModel');
+                    $this->UserModel->EnleverFavoris ($favid);
+    
+                    $this->load->helper('url');
+                    $url = site_url("MembresController/DetailsCompte");
+                    redirect($url);
+    
+                
+    
             }
     
             else 

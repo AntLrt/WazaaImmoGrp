@@ -506,6 +506,14 @@ class AnnoncesController extends CI_Controller
                     $aView["Details"] = $resultatDetail["DetailsAnnonce"];
                     $aView["Options"] = $resultatDetail["OptionsAnnonces"];
 
+                    $anid = $an_id; $intid = $this->session->ID;
+
+                    $this->load->model('UserModel');
+
+                    $estcefav = $this->UserModel->EstCeFav($intid,$anid);
+
+                    $aView["estcefav"] = $estcefav;
+
                     if (empty($resultatDetail["OptionsAnnonces"])) {$AucuneOptions = true;} else { $AucuneOptions = false;}
 
                     $aView["AucuneOptions"] = $AucuneOptions;
@@ -569,6 +577,15 @@ class AnnoncesController extends CI_Controller
 
                 $aView["Details"] = $resultatDetail["DetailsAnnonce"];
                 $aView["Options"] = $resultatDetail["OptionsAnnonces"];
+
+                $anid = $an_id; 
+                $intid = $this->session->ID;
+
+                $this->load->model('UserModel');
+
+                $estcefav = $this->UserModel->EstCeFav($intid,$anid);
+
+                $aView["estcefav"] = $estcefav;
 
                 if (empty($resultatDetail["OptionsAnnonces"])) {$AucuneOptions = true;} else { $AucuneOptions = false;}
 
@@ -639,7 +656,9 @@ class AnnoncesController extends CI_Controller
         }
     }
 
-    public function Supression($id)
+
+
+        public function Modification($id)
         {
             $this->output->enable_profiler(false);
     
@@ -648,9 +667,10 @@ class AnnoncesController extends CI_Controller
                 
                 if ($this->input->post()) 
                 {
-                    //envois du model pour supression
-                    $this->load->model('UserModel');
-                    //$this->UserModel->SupressionInternaute ($id);
+                    
+
+                $this->load->model('AnnonceModel');
+                    $this->AnnonceModel->ModifAnnonce ($id);
     
                     $this->load->helper('url');
                     $url = site_url("AnnoncesController/ListeAnnonces");
@@ -659,14 +679,15 @@ class AnnoncesController extends CI_Controller
     
                 else 
                 {
-                    $this->load->model('UserModel');
-                    //$Details = $this->UserModel->DetailInternauteID ($id);
-    
+                    $this->load->model('AnnonceModel');
+                    $Details = $this->AnnonceModel->ListeAnnoncesTout ($id);
+
+                    $aView["provenance"] = 'Modification';
                     $aView["id"] = $id;
-                    $aView["liste_membres"] = $Details;
+                    $aView["Details"] = $Details;
     
                     $this->load->view('Headerview');
-                    $this->load->view('DetailsAnnoncesView',$aView);
+                    $this->load->view('DetailsAnnoncesAdminView',$aView);
                     $this->load->view('FooterView');
     
                 }
@@ -685,7 +706,8 @@ class AnnoncesController extends CI_Controller
     
         }
 
-        public function Modification($id)
+
+        public function Supression($id)
         {
             $this->output->enable_profiler(false);
     
@@ -694,9 +716,11 @@ class AnnoncesController extends CI_Controller
                 
                 if ($this->input->post()) 
                 {
+                    
+
                     //envois du model pour supression
-                    $this->load->model('UserModel');
-                    //$this->UserModel->SupressionInternaute ($id);
+                    $this->load->model('AnnonceModel');
+                    $this->AnnonceModel->SupressionAnnonce ($id);
     
                     $this->load->helper('url');
                     $url = site_url("AnnoncesController/ListeAnnonces");
@@ -705,14 +729,15 @@ class AnnoncesController extends CI_Controller
     
                 else 
                 {
-                    $this->load->model('UserModel');
-                    //$Details = $this->UserModel->DetailInternauteID ($id);
-    
+                    $this->load->model('AnnonceModel');
+                    $Details = $this->AnnonceModel->ListeAnnoncesTout ($id);
+
+                    $aView["provenance"] = 'Supression';
                     $aView["id"] = $id;
-                    $aView["liste_membres"] = $Details;
+                    $aView["Details"] = $Details;
     
                     $this->load->view('Headerview');
-                    $this->load->view('DetailsAnnoncesView',$aView);
+                    $this->load->view('DetailsAnnoncesAdminView',$aView);
                     $this->load->view('FooterView');
     
                 }

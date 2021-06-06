@@ -16,10 +16,11 @@ class AnnonceModel extends CI_Model
 
         // Exécute la requête
         $results2 = $this->db->query("SELECT waz_biens.bi_id
-                                            FROM waz_biens, waz_annonces
-                                            WHERE waz_annonces.bi_id=waz_biens.bi_id
-                                            ORDER BY an_nbre_vues DESC
-                                            LIMIT 3");
+        FROM waz_biens, waz_annonces
+        WHERE waz_annonces.bi_id=waz_biens.bi_id
+        AND an_est_active=1
+        ORDER BY an_nbre_vues DESC
+        LIMIT 3");
 
         // Récupération des résultats
         $res1= $results2->result();
@@ -207,4 +208,87 @@ public function get_total_ventes()
         return $results1;
     }
 
+    public function ListeAnnoncesTout ($id)
+    {
+        // Charge la librairie 'database'
+        $this->load->database();
+
+        // Exécute la requête
+        $resultata = $this->db->query("SELECT *
+                                    FROM waz_annonces,waz_biens,waz_photos
+                                    WHERE waz_biens.bi_id=waz_annonces.bi_id 
+                                    AND waz_photos.bi_id=waz_biens.bi_id 
+                                    AND an_id='$id'");
+        $resultata = $resultata->result();
+        return $resultata;
+    }
+
+
+    function ModifAnnonce ()
+    {
+        //Date actuelle avec bon fuseau horaire
+        $defaultTimeZone = 'UTC';
+        if (date_default_timezone_get() != $defaultTimeZone)
+        {
+            date_default_timezone_set($defaultTimeZone);
+        }
+
+        function _date($format = "r", $timestamp = false, $timezone = false)
+        {
+            $userTimezone = new DateTimeZone(!empty($timezone) ? $timezone : 'GMT');
+            $gmtTimezone = new DateTimeZone('GMT');
+            $myDateTime = new DateTime(($timestamp != false ? date("r", (int) $timestamp) : date("r")), $gmtTimezone);
+            $offset = $userTimezone->getOffset($myDateTime);
+            return date($format, ($timestamp != false ? (int) $timestamp : $myDateTime->format('U')) + $offset);
+        }
+
+        
+        $datemodif = _date("Y-m-d H:i:s", false, 'Europe/Belgrade');
+        $anid = $this->input->post("anid");
+        $prix = $this->input->post("prix");
+        $estactive = $this->input->post("estactive");
+        $anref = $this->input->post("anref");
+        $datedispo = $this->input->post("datedispo");
+        $titre = $this->input->post("titre");
+        $typebien = $this->input->post("typebien");
+        $typeoffre = $this->input->post("typeoffre");
+        $nbrepieces = $this->input->post("nbrepieces");
+        $description = $this->input->post("description");
+        $ville = $this->input->post("ville");
+        $diagnostic = $this->input->post("diagnostic");
+
+        // Chargement de la librairie 'database'
+        $this->load->database();
+
+        $data1 = array($prix,$estactive,$anref,$datedispo,$typeoffre,$datemodif,$titre,$anid);
+
+        $this->db->query('update waz_annonces set an_prix=?, 
+        an_est_active=?, 
+        an_ref=?, 
+        an_date_disponibilite=?, 
+        an_offre=?,
+        an_date_modif=?, 
+        an_titre=? 
+        where an_id=?', $data1);
+
+        $data2 = array($typebien,$nbrepieces,$description,$ville,$diagnostic,$anid);
+
+        $this->db->query('update waz_biens set bi_type=?, 
+        bi_pieces=?, 
+        bi_description=?, 
+        bi_local=?, 
+        bi_diagnostic=?, 
+        where an_id=?', $data2);
+
+    }
+
+    function SupressionAnnonce ($id)
+    {
+        // Chargement de la librairie 'database'
+        $this->load->database();
+
+        //Supression du compte membre et de toutes les données associés
+        $this->db->query('delete from waz_annonces where an_id=?', $id);
+
+    }
 }
