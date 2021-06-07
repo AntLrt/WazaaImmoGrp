@@ -24,8 +24,6 @@ class AnnoncesController extends CI_Controller
 
     public function Loca()
     {
-        //$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-        // if($actual_link == site_url('AccueilController/Accueil') || $actual_link == 'http://wazaagroupe/')
 
         $this->load->model('BarreRechercheModel');
         $pageretour = "";
@@ -207,51 +205,9 @@ class AnnoncesController extends CI_Controller
 
 
 
-    public function CustomLoca()
-    {
-    // load db and model
-    $this->load->database();
-    $this->load->library('pagination');
-    $this->load->model('AnnonceModel');
-
-    // init params
-    $params = array();
-    $limit_per_page = 2;
-    $page = ($this->uri->segment(3)) ? ($this->uri->segment(3) - 1) : 0;
-    $total_records = $this->AnnonceModel->get_total_loca();
-
-    if ($total_records > 0)
-    {
-        // get current page records
-        $params["results"] = $this->AnnonceModel->get_loca_records($limit_per_page, $page*$limit_per_page);
-
-        $config['base_url'] = base_url() . 'Pagination/CustomLoca';
-        $config['total_rows'] = $total_records;
-        $config['per_page'] = $limit_per_page;
-        $config["uri_segment"] = 3;
-
-        // custom paging configuration
-        $config['num_links'] = 2;
-        $config['use_page_numbers'] = TRUE;
-        $config['reuse_query_string'] = TRUE;
-
-        $this->pagination->initialize($config);
-
-        // build paging links
-        $params["links"] = $this->pagination->create_links();
-    }
-
-    $this->load->view('HeaderView');
-    $this->load->view('LocaView', $params);
-    $this->load->view('Footerview');
-    }
-
-
 
     public function Ventes()
     {
-        //$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-        // if($actual_link == site_url('AccueilController/Accueil') || $actual_link == 'http://wazaagroupe/')
 
         $this->load->model('BarreRechercheModel');
         $pageretour = "";
@@ -430,46 +386,6 @@ class AnnoncesController extends CI_Controller
             $this->load->view('VentesView', $params);
             $this->load->view('Footerview');
         }
-    }
-
-
-    public function CustomVentes()
-    {
-        // load db and model
-        $this->load->database();
-        $this->load->library('pagination');
-        $this->load->model('AnnonceModel');
-
-        // init params
-        $params = array();
-        $limit_per_page = 2;
-        $page = ($this->uri->segment(3)) ? ($this->uri->segment(3) - 1) : 0;
-        $total_records = $this->AnnonceModel->get_total_ventes();
-
-        if ($total_records > 0)
-        {
-            // get current page records
-            $params["results"] = $this->AnnonceModel->get_loca_records($limit_per_page, $page*$limit_per_page);
-
-            $config['base_url'] = base_url() . 'Pagination/CustomVentes';
-            $config['total_rows'] = $total_records;
-            $config['per_page'] = $limit_per_page;
-            $config["uri_segment"] = 3;
-
-            // custom paging configuration
-            $config['num_links'] = 2;
-            $config['use_page_numbers'] = TRUE;
-            $config['reuse_query_string'] = TRUE;
-
-            $this->pagination->initialize($config);
-
-            // build paging links
-            $params["links"] = $this->pagination->create_links();
-        }
-
-        $this->load->view('HeaderView');
-        $this->load->view('VentesView', $params);
-        $this->load->view('Footerview');
     }
 
 

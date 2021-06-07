@@ -110,7 +110,7 @@
 
     <?php elseif($TypeDeTrie == 'NoteDecroissante'): 
         
-        //Affichage de tous les commentaires de l'annonce trié par Note croissante
+        //Affichage de tous les commentaires de l'annonce trié par Note Decroissante
         foreach ($ResNoteDecroissante as $data): 
         ?>
             

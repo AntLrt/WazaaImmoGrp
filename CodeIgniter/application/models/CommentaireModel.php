@@ -26,11 +26,10 @@ class CommentaireModel extends CI_Model
 
         // Récupération des résultats
         $Comm1 = $results->result();
-        // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
-        //$aView["TopCom"] = $Comm1;
-        return $Comm1;
 
+        return $Comm1;
     }
+    
     public function PireCommentaire ()
     {
         // Chargement de la librairie 'database'

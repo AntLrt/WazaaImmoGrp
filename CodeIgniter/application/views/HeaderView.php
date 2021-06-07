@@ -1,7 +1,9 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="<?= base_url("assets/CSS/HeaderStyle.css") ?>">
+<link rel="shortcut icon" href="<?php echo base_url();?>/assets/images/logo_small_icon_only_inverted.png" type='images/png'>
 </head>
+
 <body>
 
             <div id="topnav">
@@ -68,8 +70,6 @@
 
                 <?php if(isset($this->session->login))
                 {
-                    // echo "Bonjour, ".$this->session->role.", ".$this->session->nom.", ".$this->session->prenom;
-
                     $url=site_url("AuthentificationController/Deconnexion");
                     echo "<form action='$url' method='post' id='unlog'>";
 

@@ -102,7 +102,6 @@ echo form_open();
 
 <p>Aucune annonce correspondant à vos critères trouvé.</p>
 
-
 <?php 
 else:
 foreach ($results as $row) 

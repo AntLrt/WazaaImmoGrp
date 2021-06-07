@@ -64,24 +64,24 @@
 <?php 
 $url1=site_url("MembresController/Favoriser");
     echo "<form action='$url1' method='post'>";
-    ?><br><br>
+    ?><br>
     <input type='hidden' name='anid' value='<?php echo $anid; ?>'>
     <div class="col-xs-12 d-flex justify-content-center form-group">
-    <button type="submit" class="btn">Ajouter au favoris</button>
-</div>
+    <button type='submit' id='coeur' style="border:0px"><img src="<?php echo base_url();?>/assets/images/logo_fav_blanc1.jpg" width="" height="100"></button><br>
+</div></form>
 <?php }
     else {foreach ($estcefav as $row) {$favid = $row->fav_id;}$url1=site_url("MembresController/EnleverFavoris");
     echo "<form action='$url1' method='post'>";
-    ?><br><br>
+    ?><br>
         <input type='hidden' name='favid' value='<?php echo $favid; ?>'>
     <input type='hidden' name='anid' value='<?php echo $anid; ?>'>
     <div class="col-xs-12 d-flex justify-content-center form-group">
-    <button type="submit" class="btn">Enlever des favoris</button>
-</div><?php } }?>
+    <button type='submit' id='coeur' style="border:0px"><img src="<?php echo base_url();?>/assets/images/logo_fav_rouge1.jpg" width="" height="100"></button><br>
+</div></form><?php } }?>
 
 
 <?php if($this->session->role == 'Internaute'): ?>
-    <?php $url2=site_url("ContactController/Formulaire");
+    <?php $url2=site_url("ContactController/FormulaireAnnonce");
 echo "<form action='$url2' method='post'>"; ?>
 
 </div>
@@ -98,6 +98,7 @@ echo "<form action='$url2' method='post'>"; ?>
                     </div>
                 </div>
             </div>
+            <input type='hidden' name='anid' value='<?php echo $anid; ?>'>
 
                 <div class="col-12"> 
 

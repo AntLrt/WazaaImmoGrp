@@ -50,7 +50,7 @@ echo "<form action='$url' method='post'>";
                         <button type="submit" class="btn" value="Submit">RECHERCHER</button>
                     </div>
     
-
+                    </form>
 
                     
                 <div class="pics">
@@ -73,7 +73,7 @@ echo "<form action='$url' method='post'>";
                     </a>
                 </div>
 
-    </form>
+    
 </div>
 
             <div class="container" id="noteclient">
@@ -137,8 +137,6 @@ echo "<form action='$url' method='post'>";
             </div>
 
             <?php 
-            //var_dump($TopCom);var_dump($PirCom);
-            //Affichage de tous les commentaires de l'annonce
             foreach ($TopCom as $row) 
             {
             //Prenom et note de la personne mettant le commentaire

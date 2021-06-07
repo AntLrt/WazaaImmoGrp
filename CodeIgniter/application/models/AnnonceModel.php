@@ -12,6 +12,7 @@ class AnnonceModel extends CI_Model
     {
         // Chargement de la librairie 'database'
         $this->load->database();
+        
         ////Partie pour les images////
 
         // Exécute la requête
@@ -38,8 +39,7 @@ class AnnonceModel extends CI_Model
             }
             $i = $i + 1;
         }
-        // Chargement de la librairie 'database'
-//        $this->load->database();
+
         // Exécute la requête
         $photo1 = $this->db->query("SELECT pho_id,pho_nom,waz_photos.bi_id,an_id
                                                     FROM waz_photos,waz_annonces,waz_biens

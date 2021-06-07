@@ -21,11 +21,10 @@ class AuthentificationModel extends CI_Model
     {
         // Chargement de la librairie 'database'
         $this->load->database();
-        // Exécute la requête
+        // requete pour authentification des internautes
         $resultsint = $this->db->query("SELECT in_nom,in_prenom,in_id
                         FROM waz_internautes
                         WHERE in_email = '$LoginInt' AND in_mdp= '$MdpInt'");
-
         // Récupération des résultats
         $RequeteInternaute = $resultsint->result();
         return $RequeteInternaute;

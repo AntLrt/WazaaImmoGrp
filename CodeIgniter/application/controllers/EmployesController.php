@@ -32,7 +32,7 @@ class EmployesController extends CI_Controller
 
         $results = $this->ListesModel->PosteSecretaire();
         $sec = $this->table->generate($results);
-      
+    
 
         // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
         $aView["Secretaire"] = $sec;

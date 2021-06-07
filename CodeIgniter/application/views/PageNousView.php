@@ -49,17 +49,17 @@
 
                 <div class="row">
                     <div class="col-10"> 
-                        <h4>Le dirigeant de l'entreprise</h4>   
+                        <h4>Le dirigeant de l'entreprise</h4><br>
                         <?php echo $Directeur; ?>
                     </div>
 
                     <div class="col-10"> 
-                        <h4>Les secretaires de l'entreprise</h4>   
+                    <br><h4>Les secretaires de l'entreprise</h4> <br>  
                         <?php echo $Secretaire; ?>
                     </div>
 
                     <div class="col-10"> 
-                        <h4>Nos agents immobilier</h4>   
+                    <br><h4>Nos agents immobilier</h4><br>  
                         <?php echo $Negociateur;?>
                     </div>
                 </div>
