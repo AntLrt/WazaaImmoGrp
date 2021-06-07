@@ -78,13 +78,13 @@ table {background-color: white;}
     <tbody>
         <tr>
     <td><input name='datemodif' value='<?php echo $row->an_date_modif ?>' readonly='false'></a></td>          
-            <td><input name='titre' value='<?php echo $row->an_titre ?>' ></a></td>          
-            <td><input name='typebien' value='<?php echo $row->bi_type ?>' ></a></td>   
-            <td><input name='typeoffre' value='<?php echo $row->an_offre ?>' ></a></td>  
-            <td><input name='nbrepieces' value='<?php echo $row->bi_pieces ?>' ></a></td>                 
-            <td><input name='description' value='<?php echo $row->bi_description ?>' ></a></td>                 
-            <td><input name='ville' value='<?php echo $row->bi_local ?>' ></a></td>                 
-            <td><input name='diagnostic' value='<?php echo $row->bi_diagnostic ?>' ></a></td>                 
+            <td><input name='titre' value='<?php echo $row->an_titre ?>' readonly='false'></a></td>          
+            <td><input name='typebien' value='<?php echo $row->bi_type ?>' readonly='false'></a></td>   
+            <td><input name='typeoffre' value='<?php echo $row->an_offre ?>' readonly='false'></a></td>  
+            <td><input name='nbrepieces' value='<?php echo $row->bi_pieces ?>' readonly='false'></a></td>                 
+            <td><input name='description' value='<?php echo $row->bi_description ?>' readonly='false'></a></td>                 
+            <td><input name='ville' value='<?php echo $row->bi_local ?>' readonly='false'></a></td>                 
+            <td><input name='diagnostic' value='<?php echo $row->bi_diagnostic ?>' readonly='false'></a></td>                 
 
             
 
