@@ -168,7 +168,7 @@ class UserModel extends CI_Model
             'emp_mail'=>$mail,
             'emp_mdp'=>$mdpcrypt,
             'emp_poste'=>$poste);
-           
+        
             $this->db->insert('waz_employes', $tableau);
     
         
