@@ -671,4 +671,46 @@ class AnnoncesController extends CI_Controller
             }
     
         }
+
+        public function Ajout($biid)
+        {
+            $this->output->enable_profiler(false);
+    
+            if ($this->session->role == 'Employe') 
+            {
+                
+                if ($this->input->post()) 
+                {
+                    $this->load->model('AnnonceModel');
+                    $this->AnnonceModel->AjoutAnnonce($biid);
+    
+                    $this->load->helper('url');
+                    $url = site_url("AnnoncesController/ListeBiens");
+                    redirect($url);
+                } 
+    
+                else 
+                {
+                    $aView["biid"] = $biid;
+                    $aView["provenance"] = 'Ajout';
+    
+                    $this->load->view('Headerview');
+                    $this->load->view('DetailsAnnoncesAdminView',$aView);
+                    $this->load->view('FooterView');
+    
+                }
+            }
+    
+            else 
+            {
+                $Erreur = "Vous n'avez pas accés à cette page !";
+                
+                // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
+                $aView["RefusAcces"] = $Erreur;
+    
+                $this->load->view('Headerview', $aView);
+                $this->load->view('FooterView');
+            }
+    
+        }
 }

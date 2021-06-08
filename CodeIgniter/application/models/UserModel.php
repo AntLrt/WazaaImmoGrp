@@ -182,4 +182,39 @@ class UserModel extends CI_Model
         $this->db->insert('waz_favoriser', $tableau1);
 
     }
+
+
+    public function AjoutBien ()
+    {
+        
+
+                $type = $_POST['type'];
+                $pieces = $_POST['pieces'];
+                $ref = $_POST['ref'];
+                $description = $_POST['description'];
+                $ville = $_POST['ville'];
+                $surfacehabitable = $_POST['surfacehabitable'];
+                $surfacetotale = $_POST['surfacetotale'];
+                $estimvente = $_POST['estimvente'];
+                $estimloca = $_POST['estimloca'];
+                $diagnostic = $_POST['diagnostic'];
+
+
+        $tableau = array('bi_type'=>$type,
+            'bi_pieces'=>$pieces,
+            'bi_ref'=>$ref,
+            'bi_description'=>$description,
+            'bi_local'=>$ville,
+            'bi_surf_habitable'=>$surfacehabitable,
+            'bi_surf_totale'=>$surfacetotale,
+            'bi_estimation_vente'=>$estimvente,
+            'bi_estimation_location'=>$estimloca,
+            'bi_diagnostic'=>$diagnostic);
+        
+            $this->db->insert('waz_biens', $tableau);
+    
+        
+
+
+    }
 }

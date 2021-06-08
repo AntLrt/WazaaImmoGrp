@@ -291,4 +291,59 @@ public function get_total_ventes()
         $this->db->query('delete from waz_annonces where an_id=?', $id);
 
     }
+
+
+
+    public function AjoutAnnonce ($biid)
+    {
+        
+
+                $prix = $_POST['prix'];
+                $active = $_POST['active'];
+                $ref = $_POST['ref'];
+                $dispo = $_POST['dispo'];
+                $offre = $_POST['offre'];
+
+                $vues = 0;
+
+                //Date avec bon fuseau horaire          
+                $defaultTimeZone = 'UTC';
+                if (date_default_timezone_get() != $defaultTimeZone)
+                {
+                    date_default_timezone_set($defaultTimeZone);
+                }
+
+                function _date($format = "r", $timestamp = false, $timezone = false)
+                {
+                    $userTimezone = new DateTimeZone(!empty($timezone) ? $timezone : 'GMT');
+                    $gmtTimezone = new DateTimeZone('GMT');
+                    $myDateTime = new DateTime(($timestamp != false ? date("r", (int) $timestamp) : date("r")), $gmtTimezone);
+                    $offset = $userTimezone->getOffset($myDateTime);
+                    return date($format, ($timestamp != false ? (int) $timestamp : $myDateTime->format('U')) + $offset);
+                }
+
+                
+                $Date = _date("Y-m-d H:i:s", false, 'Europe/Belgrade');
+                
+                $dateajout = $Date;
+
+                $titre = $_POST['titre'];
+
+
+        $tableau = array('an_prix'=>$prix,
+            'an_est_active'=>$active,
+            'an_ref'=>$ref,
+            'an_date_disponibilite'=>$dispo,
+            'an_offre'=>$offre,
+            'an_nbre_vues'=>$vues,
+            'an_date_ajout'=>$dateajout,
+            'an_titre'=>$titre,
+            'bi_id'=>$biid);
+        
+            $this->db->insert('waz_annonces', $tableau);
+    
+        
+
+
+    }
 }

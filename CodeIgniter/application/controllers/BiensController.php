@@ -13,23 +13,19 @@ class BiensController extends CI_Controller
             //afficher aide au debug
             $this->output->enable_profiler(false);
 
-            // Prépare le tableau
-            $this->load->library('table');
+            //chargement de ListesModel
+            $this->load->model('ListesModel');
+            $results0 = $this->ListesModel->ListeBiens0 ();
 
             //chargement de ListesModel
             $this->load->model('ListesModel');
-            $results = $this->ListesModel->ListeBiens ();
+            $results1 = $this->ListesModel->ListeBiens1 ();
 
-            // Forme du tableau
-            $template = array(
-            'table_open' => '<table border="2" cellpadding="5" cellspacing="2" class="mytable">',
-            );
-
-            $this->table->set_template($template);
-            $tab = $this->table->generate($results);
 
             // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
-            $aView["liste_biens"] = $tab;
+            $aView["liste_biens0"] = $results0;
+            $aView["liste_biens1"] = $results1;
+
 
             // Appel de la vue avec transmission du tableau
             $this->load->view('HeaderView');
@@ -49,4 +45,196 @@ class BiensController extends CI_Controller
         }
     }
 
+    public function AjouterCommeAnnonce($id)
+    {
+        $this->output->enable_profiler(false);
+
+        if ($this->session->role == 'Employe') 
+        {
+            
+            if ($this->input->post()) 
+            {
+                
+
+            $this->load->model('AnnonceModel');
+                $this->AnnonceModel->ModifAnnonce ($id);
+
+                $this->load->helper('url');
+                $url = site_url("AnnoncesController/ListeAnnonces");
+                redirect($url);
+            } 
+
+            else 
+            {
+                $this->load->model('ListesModel');
+                $Details = $this->ListesModel->ListeBiens0 ($id);
+
+                $aView["provenance"] = 'AjouterCommeAnnonce';
+                $aView["id"] = $id;
+                $aView["Details"] = $Details;
+
+                $this->load->view('Headerview');
+                $this->load->view('DetailsBiensView',$aView);
+                $this->load->view('FooterView');
+
+            }
+        }
+
+        else 
+        {
+            $Erreur = "Vous n'avez pas accés à cette page !";
+            
+            // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
+            $aView["RefusAcces"] = $Erreur;
+
+            $this->load->view('Headerview', $aView);
+            $this->load->view('FooterView');
+        }
+
+    }
+
+
+
+    
+    public function Modification($id)
+    {
+        $this->output->enable_profiler(false);
+
+        if ($this->session->role == 'Employe') 
+        {
+            $biid=$id;
+            if ($this->input->post()) 
+            {
+                
+
+            $this->load->model('ListesModel');
+                $this->ListesModel->ModifBiens ();
+
+                $this->load->helper('url');
+                $url = site_url("BiensController/ListeBiens");
+                redirect($url);
+            } 
+
+            else 
+            {
+                $this->load->model('ListesModel');
+                $Details = $this->ListesModel->ListeBiensID ($biid);
+
+                $aView["provenance"] = 'Modification';
+                $aView["id"] = $id;
+                $aView["Details"] = $Details;
+
+                $this->load->view('Headerview');
+                $this->load->view('DetailsBiensView',$aView);
+                $this->load->view('FooterView');
+
+            }
+        }
+
+        else 
+        {
+            $Erreur = "Vous n'avez pas accés à cette page !";
+            
+            // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
+            $aView["RefusAcces"] = $Erreur;
+
+            $this->load->view('Headerview', $aView);
+            $this->load->view('FooterView');
+        }
+
+    }
+
+
+    public function Supression($biid)
+    {
+        $this->output->enable_profiler(false);
+
+        if ($this->session->role == 'Employe') 
+        {
+            
+            if ($this->input->post()) 
+            {
+                $biid = $this->input->post('biid');
+
+                //envois du model pour supression
+                $this->load->model('ListesModel');
+                $this->ListesModel->SupressionBien ($biid);
+
+                $this->load->helper('url');
+                $url = site_url("BiensController/ListeBiens");
+                redirect($url);
+            } 
+
+            else 
+            {
+                $this->load->model('ListesModel');
+                $Details = $this->ListesModel->ListeBiensID ($biid);
+
+                $aView["provenance"] = 'Supression';
+                $aView["id"] = $biid;
+                $aView["Details"] = $Details;
+
+                $this->load->view('Headerview');
+                $this->load->view('DetailsBiensView',$aView);
+                $this->load->view('FooterView');
+
+            }
+        }
+
+        else 
+        {
+            $Erreur = "Vous n'avez pas accés à cette page !";
+            
+            // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
+            $aView["RefusAcces"] = $Erreur;
+
+            $this->load->view('Headerview', $aView);
+            $this->load->view('FooterView');
+        }
+
+    }
+
+
+    public function AjoutBien()
+    {
+        $this->output->enable_profiler(false);
+
+        if ($this->session->role == 'Employe') 
+        {
+            
+            if ($this->input->post()) 
+            {
+                //envois du model pour supression
+                $this->load->model('UserModel');
+                $this->UserModel->AjoutBien();
+
+                $this->load->helper('url');
+                $url = site_url("BiensController/ListeBiens");
+                redirect($url);
+            } 
+
+            else 
+            {
+
+                $aView["provenance"] = 'Ajout';
+
+                $this->load->view('Headerview');
+                $this->load->view('DetailsBiensView',$aView);
+                $this->load->view('FooterView');
+
+            }
+        }
+
+        else 
+        {
+            $Erreur = "Vous n'avez pas accés à cette page !";
+            
+            // Ajoute des résultats de la requête au tableau des variables à transmettre à la vue
+            $aView["RefusAcces"] = $Erreur;
+
+            $this->load->view('Headerview', $aView);
+            $this->load->view('FooterView');
+        }
+
+    }
 }

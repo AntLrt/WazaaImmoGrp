@@ -19,7 +19,6 @@ class AuthentificationController extends CI_Controller
 
             if ($this->input->post())
             { // 2ème appel de la page: traitement du formulaire
-                $data = $this->input->post();
 
                 $LoginEmp = $_POST['login_name'];
                 $MdpEmp = $_POST['password_name'];

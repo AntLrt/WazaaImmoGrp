@@ -12,8 +12,68 @@ tfoot {
 table {background-color: white;}
 </style>
 
+<?php if($provenance == 'Ajout'){ 
+    $url = site_url("AnnoncesController/Ajout/$biid");
 
-<table>
+    echo "<form action='$url' method='post'>";?>
+<br>
+    <table>
+    <thead>
+        <tr>
+            <th>Prix</th>
+            <th>Annonce active ? 1=oui 0=non</th>
+            <th>Réference</th>
+            <th>Date de disponibilité</th>
+            <th>Type d'offre</th>
+            <th>Titre</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td><input name='prix'></a></td>
+            <td><input name='active'></a></td>
+            <td><input name='ref'></a></td>
+            <td><input name='dispo'></a></td>
+            <td><input name='offre'></a></td>   
+            <td><input name='titre'></a></td> 
+        </tr>
+        </tbody>
+</table>
+
+<br>
+
+
+
+<br>
+<button class='btn btn-outline-danger' value="Submit" onclick="return(confirm('Etes-vous sûr de vouloir ajouter cette annonce ?'));">Ajouter cette annonce</button>
+
+<?php } ?>
+
+    <?php if(isset($Details)){
+
+
+
+
+
+    foreach ($Details as $row):
+        
+            
+        if($row->an_id == $id): 
+
+            $id=$row->an_id;
+            if($provenance == 'Supression'){
+            $url = site_url("AnnoncesController/Supression/$id");
+            echo "<form action='$url' method='post'>";}
+            
+            else if($provenance == 'Modification'){
+                $url = site_url("AnnoncesController/Modification/$id");
+                echo "<form action='$url' method='post'>";}?>
+
+<?php if($provenance == 'Supression'){ ?>
+
+    <table>
     <thead>
         <tr>
         <th>ID Annonce </th>
@@ -30,21 +90,7 @@ table {background-color: white;}
         </tr>
     </thead>
     <tbody>
-    <?php  foreach ($Details as $row):
-        
-            
-        if($row->an_id == $id): 
 
-            $id=$row->an_id;
-            if($provenance == 'Supression'){
-            $url = site_url("AnnoncesController/Supression/$id");
-            echo "<form action='$url' method='post'>";}
-            
-            else if($provenance == 'Modification'){
-                $url = site_url("AnnoncesController/Modification/$id");
-                echo "<form action='$url' method='post'>";}?>
-
-<?php if($provenance == 'Supression'){ ?>
         <tr>
         <td><input name='anid' value='<?php echo $row->an_id  ?>'readonly='false'></a></td>
             <td><input name='biid' value='<?php echo $row->bi_id ?>' readonly='false'></a></td>
@@ -93,6 +139,25 @@ table {background-color: white;}
 </table>
 
     <?php } else if($provenance == 'Modification'){ ?>
+
+
+        <table>
+    <thead>
+        <tr>
+        <th>ID Annonce </th>
+        <th>ID Bien</th>
+            <th>Prix</th>
+            <th>Active ? 1=oui 0=non</th>
+            <th>Réference</th>
+            <th>Date disponibilité</th>
+            <th>Nombre vues</th>
+            <th>Date d'ajout</th>
+
+
+
+        </tr>
+    </thead>
+    <tbody>
         <tr>
             <td><input name='anid' value='<?php echo $row->an_id  ?>'readonly='false'></a></td>
             <td><input name='biid' value='<?php echo $row->bi_id ?>' readonly='false'></a></td>
@@ -156,5 +221,5 @@ table {background-color: white;}
 <button class='btn btn-outline-danger' value="Submit" onclick="return(confirm('Etes-vous sûr de vouloir modifier les données de cette annonce ?'));">Modifier cette annonce</button>
 
 <?php endif; 
-endif; endforeach;?>
+endif; endforeach;}?>
 
