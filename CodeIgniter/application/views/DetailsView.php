@@ -70,10 +70,9 @@ $url1=site_url("MembresController/Favoriser");
     <button type='submit' id='coeur' style="border:0px"><img src="<?php echo base_url();?>/assets/images/logo_fav_blanc1.jpg" width="" height="100"></button><br>
 </div></form>
 <?php }
-    else {foreach ($estcefav as $row) {$favid = $row->fav_id;}$url1=site_url("MembresController/EnleverFavoris");
+    else {$url1=site_url("MembresController/EnleverFavoris");
     echo "<form action='$url1' method='post'>";
     ?><br>
-        <input type='hidden' name='favid' value='<?php echo $favid; ?>'>
     <input type='hidden' name='anid' value='<?php echo $anid; ?>'>
     <div class="col-xs-12 d-flex justify-content-center form-group">
     <button type='submit' id='coeur' style="border:0px"><img src="<?php echo base_url();?>/assets/images/logo_fav_rouge1.jpg" width="" height="100"></button><br>

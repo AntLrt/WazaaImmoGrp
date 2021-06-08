@@ -19,12 +19,11 @@ class UserModel extends CI_Model
         //Charge la librairie 'database'
         $this->load->database();
         $FavInt = $this->db->query("SELECT *
-                                    FROM waz_internautes,waz_favoris,waz_annonces,waz_photos,waz_biens,waz_enregistrer
+                                    FROM waz_internautes,waz_annonces,waz_photos,waz_biens,waz_favoriser
                                     WHERE waz_internautes.in_id='$id'
                                     AND an_est_active = 1
-                                    AND waz_annonces.an_id=waz_favoris.an_id
-                                    AND waz_enregistrer.in_id=waz_internautes.in_id
-                                    AND waz_enregistrer.fav_id=waz_favoris.fav_id
+                                    AND waz_annonces.an_id=waz_favoriser.an_id
+                                    AND waz_internautes.in_id=waz_favoriser.in_id
                                     AND waz_annonces.bi_id=waz_biens.bi_id
                                     AND waz_photos.bi_id=waz_biens.bi_id"
                                     );
@@ -36,30 +35,29 @@ class UserModel extends CI_Model
     {
         //Charge la librairie 'database'
         $this->load->database();
+
+
         $estellefav = $this->db->query("SELECT *
-                                        FROM waz_internautes,waz_favoris,waz_annonces,waz_enregistrer
+                                        FROM waz_internautes,waz_favoriser,waz_annonces
                                         WHERE waz_internautes.in_id='$intid'
-                                        AND waz_favoris.an_id='$anid'
+                                        AND waz_annonces.an_id='$anid'
                                         AND an_est_active = 1
-                                        AND waz_annonces.an_id=waz_favoris.an_id
-                                        AND waz_enregistrer.in_id=waz_internautes.in_id
-                                        AND waz_enregistrer.fav_id=waz_favoris.fav_id"
+                                        AND waz_annonces.an_id=waz_favoriser.an_id
+                                        AND waz_internautes.in_id=waz_favoriser.in_id"
                                         );
         $estellefav = $estellefav->result();
         return $estellefav;
     }
 
-    function EnleverFavoris ($favid)
+    function EnleverFavoris ($inid,$anid)
     {
         // Chargement de la librairie 'database'
         $this->load->database();
 
-        //Supression du compte membre et de toutes les données associés
-        $this->db->query('delete from waz_favoris where fav_id=? ', $favid);
-        $this->db->query('delete from waz_enregistrer where fav_id=? ', $favid);
-
-
-
+        //Supression du favoris
+        $this->db->where('an_id', $anid);
+        $this->db->where('in_id', $inid);
+        $this->db->delete("waz_favoriser");
     }
 
 
@@ -178,12 +176,10 @@ class UserModel extends CI_Model
 
     public function AjoutFavoris ($anid,$inid)
     {
-        $tableau1 = array('in_id'=>$inid);
+        $tableau1 = array('in_id'=>$inid,
+        'an_id'=>$anid);
         
-        $this->db->insert('waz_enregistrer', $tableau1);
+        $this->db->insert('waz_favoriser', $tableau1);
 
-        $tableau2 = array('an_id'=>$anid);
-    
-        $this->db->insert('waz_favoris', $tableau2);
     }
 }

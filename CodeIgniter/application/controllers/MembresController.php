@@ -409,11 +409,10 @@ class MembresController extends CI_Controller
             {
                 $anid = $this->input->post("anid");
                 $inid = $this->session->ID;
-                $favid = $this->input->post("favid");
 
                     //envois du model pour l'insertion du traitement
                     $this->load->model('UserModel');
-                    $this->UserModel->EnleverFavoris ($favid);
+                    $this->UserModel->EnleverFavoris ($inid,$anid);
     
                     $this->load->helper('url');
                     $url = site_url("MembresController/DetailsCompte");

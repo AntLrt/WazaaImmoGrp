@@ -181,9 +181,7 @@ VALUES (1,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur s
        (9,"Lorem ipsum dolor sit amet, consectetuer",3,"2021-03-20 17:09:05","7"),
        (10,"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus.Ut nec",1,"2021-03-15 07:12:48","5");
 
--- donnée pour waz_favoris
-DELETE FROM waz_favoris;
-INSERT INTO `waz_favoris` (`fav_id`,`an_id`) VALUES (1,"2"),(2,"10"),(3,"26"),(4,"15");
+
 --  donnée pour waz_composer
 
 DELETE FROM waz_composer;
@@ -223,9 +221,9 @@ VALUES ("7","1","Louer","Lorem ipsum dolor sit amet, consectetuer adipiscing eli
        ("8","10","Acheter","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper.","2021-05-07","0");
 
 -- donnée pour la table waz_enregistrer
-DELETE FROM waz_enregistrer;
+DELETE FROM waz_favoriser;
 
-INSERT INTO `waz_enregistrer` (`in_id`,`fav_id`) VALUES ("1","1"),("2","2"),("4","3"),("6","4");
+INSERT INTO `waz_favoriser` (`in_id`,`an_id`) VALUES ("1","1"),("2","2"),("4","3"),("6","4");
 
 
 
