@@ -63,6 +63,7 @@ VALUES (31,"immeuble","null","IM-0121-01","Lorem ipsum dolor sit amet, consectet
        (58,"appartement","null","AP-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","Paris","95","140","166634.14€","413.37€","E"),
        (59,"immeuble","null","IM-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam","Lille","100","150","162147.77€","653.32€","E"),
        (60,"garage","null","GA-0121-01","Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed","Bruxelles","115","155","143705.43€","776.79€","E");
+
 --  données pour waz_photos
 DELETE FROM waz_photos;
 

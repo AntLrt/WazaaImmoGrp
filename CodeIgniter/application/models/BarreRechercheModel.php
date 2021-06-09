@@ -42,6 +42,7 @@ class BarreRechercheModel extends CI_Model
         $aListe = $results->result();
         return $aListe;
     }
+    
     //recherche par type et operation
     public function BarreRecherche3 ()
     {

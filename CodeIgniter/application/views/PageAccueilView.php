@@ -1,10 +1,3 @@
-
-<?php if($this->session->role != 'Internaute'){echo form_open();}
-else {
-$url=site_url("AccueilController/Accueil");
-echo "<form action='$url' method='post'>";
-}?>
-
 <head>
         <meta charset="utf-8">
         <title>Wazaa Immo</title>
@@ -14,6 +7,13 @@ echo "<form action='$url' method='post'>";
 </head>
 
 <body>
+
+
+<?php if($this->session->role != 'Internaute'){echo form_open();}
+else {
+$url=site_url("AccueilController/Accueil");
+echo "<form action='$url' method='post'>";
+}?>
 
 <div class="container col-10" id="search">
     <form class="form-horizontal" id="formstyle">

@@ -43,7 +43,9 @@ class AnnonceModel extends CI_Model
         // Exécute la requête
         $photo1 = $this->db->query("SELECT pho_id,pho_nom,waz_photos.bi_id,an_id
                                                     FROM waz_photos,waz_annonces,waz_biens
-                                                    WHERE waz_photos.bi_id= '$NbVues1' AND waz_photos.bi_id=waz_biens.bi_id AND waz_biens.bi_id=waz_annonces.bi_id
+                                                    WHERE waz_photos.bi_id= '$NbVues1' 
+                                                    AND waz_photos.bi_id=waz_biens.bi_id 
+                                                    AND waz_biens.bi_id=waz_annonces.bi_id
                                                     LIMIT 1;");
 
         $photo2 = $this->db->query("SELECT pho_id,pho_nom,waz_photos.bi_id,an_id

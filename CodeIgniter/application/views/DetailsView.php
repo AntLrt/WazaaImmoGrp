@@ -49,7 +49,8 @@
     <div class="row" id="adoption">
         <div class="list-group-item list-group-item-dark col-12">
             <?php
-            if ($AucuneOptions == false) {echo "<li class='list-group-item'>Option(s) disponible pour cette annonce :</li>";} else {echo "Pas d'options disponbile pour cette annonce";}
+            if ($AucuneOptions == false) {echo "<li class='list-group-item'>Option(s) disponible pour cette annonce :</li>";} 
+            else {echo "Pas d'options disponbile pour cette annonce";}
             foreach ($Options as $row) {
 
                 echo "<br><p>" . $row->opt_libelle . " </p>";

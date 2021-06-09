@@ -143,8 +143,8 @@ class EmployesController extends CI_Controller
                 $email = $this->input->post("mail");
                 $poste = $this->input->post("poste");
                 
-               
-             
+            
+            
 
                 //envois du model pour l'insertion du traitement
                 $this->load->model('UserModel');
